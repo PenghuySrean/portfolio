@@ -195,7 +195,23 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-.skill-group .tags { margin: 0; padding: 0; border-top: 0; }
+.skill-group .tags {
+  display: block;
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-top: 0;
+  list-style: disc;
+}
+.skill-group .tags li {
+  display: list-item;
+  padding: 0;
+  margin: 0 0 6px;
+  border: 0;
+  color: var(--body);
+  font: 400 0.95rem/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  text-transform: none;
+}
+.skill-group .tags li::marker { color: var(--accent); }
 
 /* Project detail pages */
 .project-page { max-width: 760px; padding-top: 48px; padding-bottom: 64px; }
