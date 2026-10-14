@@ -8,11 +8,10 @@
     <meta property="og:title" content="Penghuy Srean — Space Systems Engineer" />
     <meta property="og:description" content="Spacecraft dynamics, orbital simulation, AOCS/GNC, and mission software." />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <title>Penghuy Srean — Space Systems Engineer</title>
   </head>
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
@@ -29,27 +28,6 @@
     </header>
 
     <main id="main">
-      <section class="hero shell" id="top">
-        <div class="hero-copy">
-          <p class="eyebrow">Space systems engineer · AOCS / GNC</p>
-          <h1>Building models and software for spacecraft that need to work.</h1>
-          <p class="hero-lede">I’m Penghuy Srean. My work spans spacecraft dynamics, orbital simulation, attitude determination and control, and sustainable space operations.</p>
-          <div class="hero-actions"><a class="button primary" href="#work">Selected work</a><a class="button" href="#contact">Contact</a></div>
-        </div>
-        <div class="orbit-figure" aria-label="Minimal orbital trajectory diagram">
-          <svg viewBox="0 0 560 560" role="img">
-            <title>Spacecraft trajectory around a central body</title>
-            <circle class="guide" cx="280" cy="280" r="212" />
-            <circle class="guide faint" cx="280" cy="280" r="126" />
-            <ellipse class="trajectory" cx="280" cy="280" rx="232" ry="98" transform="rotate(-30 280 280)" />
-            <path class="ascent" d="M92 475C120 354 171 248 260 180" />
-            <circle class="body" cx="280" cy="280" r="14" />
-            <circle class="spacecraft" cx="446" cy="147" r="6" />
-          </svg>
-          <div class="figure-label"><span>LEO trajectory</span><span>01</span></div>
-        </div>
-      </section>
-
       <section class="section shell" id="about">
         <header class="section-header"><p class="eyebrow">01 · About</p><h2>Engineering clarity for complex orbital systems.</h2></header>
         <div class="about-layout">
@@ -67,7 +45,7 @@
         <div class="shell">
           <header class="section-header"><p class="eyebrow">02 · Selected work</p><h2>Work, decisions, evidence.</h2></header>
           <div class="project-list">
-            <article class="project">
+            <a class="project" href="https://www.researchgate.net/publication/360318005_Development_of_Orbital_Simulator_for_Cambodian_CubeSat_Mission_in_LEO" target="_blank" rel="noreferrer" aria-label="View details for Apsara-1 Orbital Simulator">
               <div class="project-top">
                 <p class="project-index">01 / Published research</p>
                 <h3>Apsara-1 Orbital Simulator</h3>
@@ -80,11 +58,10 @@
                   <div><dt>Constraints</dt><dd>LEO perturbations · Atmospheric drag · Mission lifetime</dd></div>
                   <div><dt>Maturity</dt><dd>Published · Independently verified · &lt;8% difference</dd></div>
                 </dl>
-                <a class="project-more" href="https://www.researchgate.net/publication/360318005_Development_of_Orbital_Simulator_for_Cambodian_CubeSat_Mission_in_LEO" target="_blank" rel="noreferrer">More info <span>↗</span></a>
               </div>
-            </article>
+            </a>
 
-            <article class="project">
+            <a class="project" href="#contact" aria-label="Contact Penghuy about Space-Debris Mitigation">
               <div class="project-top">
                 <p class="project-index">02 / Professional focus</p>
                 <h3>Space-Debris Mitigation</h3>
@@ -97,11 +74,10 @@
                   <div><dt>Constraints</dt><dd>Orbital safety · Software reliability · Confidentiality</dd></div>
                   <div><dt>Maturity</dt><dd>Professional work · Active development</dd></div>
                 </dl>
-                <a class="project-more" href="#contact">Discuss this work <span>↓</span></a>
               </div>
-            </article>
+            </a>
 
-            <article class="project">
+            <a class="project" href="#contact" aria-label="Contact Penghuy about Attitude Determination and Control">
               <div class="project-top">
                 <p class="project-index">03 / Engineering practice</p>
                 <h3>Attitude Determination &amp; Control</h3>
@@ -114,9 +90,8 @@
                   <div><dt>Constraints</dt><dd>Sensor behavior · Actuator limits · Small-satellite resources</dd></div>
                   <div><dt>Maturity</dt><dd>Modeling · Simulation · Ongoing study</dd></div>
                 </dl>
-                <a class="project-more" href="#contact">Discuss this work <span>↓</span></a>
               </div>
-            </article>
+            </a>
           </div>
         </div>
       </section>
@@ -137,7 +112,7 @@
             <p class="paper-meta">Techno-Science Research Journal · 9(2) · 53–60</p>
             <h2>Development of Orbital Simulator for Cambodian CubeSat Mission in LEO</h2>
             <p>Penghuy Srean, Morokot Sakal, Maximilien Berthet, and Sarot Srang</p>
-            <a href="https://www.researchgate.net/publication/360318005_Development_of_Orbital_Simulator_for_Cambodian_CubeSat_Mission_in_LEO" target="_blank" rel="noreferrer">View publication ↗</a>
+            <a href="https://www.researchgate.net/publication/360318005_Development_of_Orbital_Simulator_for_Cambodian_CubeSat_Mission_in_LEO" target="_blank" rel="noreferrer">View publication</a>
           </article>
         </div>
       </section>
@@ -149,13 +124,13 @@
             <p>Open to conversations about spacecraft dynamics, AOCS/GNC, mission software, and sustainable space operations.</p>
             <button id="copyEmail" type="button" data-email="me.penghuy@gmail.com"><span>me.penghuy@gmail.com</span><b>Copy</b></button>
             <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
-            <div><a href="https://www.linkedin.com/in/penghuy-srean/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.researchgate.net/profile/Penghuy-Srean" target="_blank" rel="noreferrer">ResearchGate ↗</a></div>
+            <div><a href="https://www.linkedin.com/in/penghuy-srean/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.researchgate.net/profile/Penghuy-Srean" target="_blank" rel="noreferrer">ResearchGate</a></div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer shell"><p>© <span id="year"></span> Penghuy Srean</p><p>Space systems · Berlin, Germany</p><a href="#top">Back to top ↑</a></footer>
+    <footer class="footer shell"><p>© <span id="year"></span> Penghuy Srean</p><p>Space systems · Berlin, Germany</p><a href="#top">Back to top</a></footer>
     <script src="script.js"></script>
   </body>
 </html>
