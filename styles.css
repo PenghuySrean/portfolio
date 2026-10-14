@@ -174,7 +174,7 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   text-transform: uppercase;
 }
 
-#interests .focus { margin-top: 28px; }
+#interests .focus { margin-top: 18px; }
 
 /* Areas of interest: three cards under the goal */
 .interests-block h2 { margin-bottom: 24px; }
