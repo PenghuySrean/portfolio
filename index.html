@@ -8,104 +8,176 @@
     <meta property="og:title" content="Penghuy Srean · Space Engineer" />
     <meta property="og:description" content="Orbit and attitude simulation, trajectory optimisation, small satellites." />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0b0d12" />
+    <meta name="theme-color" content="#0a0a0a" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="wrap hero">
       <div class="hero-main">
         <p class="eyebrow">Space Engineer: Orbit &amp; Attitude Simulation, Trajectory Optimisation.</p>
-        <h1>The goal is to build satellites, and the space capability Cambodia doesn't have yet.</h1>
-        <div class="pills">
-          <a class="pill primary" href="#projects">See projects</a>
-          <a class="pill" href="mailto:me.penghuy@gmail.com">Email</a>
-          <a class="pill" href="https://www.linkedin.com/in/penghuy-srean/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="pill" href="https://github.com/penghuysrean" target="_blank" rel="noopener">GitHub</a>
+        <h1>My goal is to research and develop space missions and technology that lower the barrier to space access.</h1>
+      </div>
+      <div class="interests-block">
+        <h2>Areas of interest</h2>
+      <div class="interest-row">
+        <div class="card">
+          <p class="meta">01</p>
+          <h3>Interplanetary missions</h3>
+          <p>Mission analysis for cislunar, asteroid and deep-space missions.</p>
         </div>
+        <div class="card">
+          <p class="meta">02</p>
+          <h3>Distributed space systems</h3>
+          <p>Constellations and formation flying with many small satellites.</p>
+        </div>
+        <div class="card">
+          <p class="meta">03</p>
+          <h3>Very low Earth orbit regime</h3>
+          <p>AOCS/GNC system design and mission retasking for VLEO satellites.</p>
+        </div>
+      </div>
       </div>
       <aside class="focus">
         <p class="focus-label">Current focus</p>
-        <p>Applying for space-engineering roles and satellite-engineering PhD positions, and building Astrognosis, a space-education project for Cambodia.</p>
-        <a class="more" href="#projects">View projects →</a>
+        <p>I am interested in applying my knowledge in astrodynamics, attitude dynamics, control and estimation to design, operate and analyse missions, and to design AOCS subsystems for satellites in very low Earth orbit (VLEO), where they experience high drag disturbance and torque. I am also interested in studying propulsion systems for such missions. Open to space-engineering roles and PhD positions.</p>
       </aside>
     </header>
 
     <main class="wrap">
+      <section id="about" class="about">
+        <div class="about-text">
+          <h2>About</h2>
+          <p>I'm a space engineer based in Berlin. I finished my MSc in Space Engineering at TU Berlin in August 2026, after an engineering degree in Mechanical Engineering at the Institute of Technology of Cambodia.</p>
+          <p>My work covers orbit and attitude simulation, trajectory optimisation, collision-risk software, satellite ADCS and embedded firmware, from CubeSat and rover projects to an ESA-funded space-safety suite.</p>
+          <p>I'm a National Point of Contact at the Space Generation Advisory Council, and I'm building Astrognosis to make space science accessible to students.</p>
+        </div>
+        <div class="about-side">
+          <figure class="photo" aria-label="Photo of Penghuy Srean">
+            <!-- Replace this block with: <img src="photo.jpg" alt="Penghuy Srean" /> -->
+            <div class="photo-placeholder">Photo</div>
+          </figure>
+          <div class="pills">
+            <a class="pill primary" href="mailto:me.penghuy@gmail.com?subject=CV%20request">Request CV</a>
+            <a class="pill" href="mailto:me.penghuy@gmail.com">Email</a>
+            <a class="pill" href="https://www.linkedin.com/in/penghuy-srean/" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="pill disabled" title="Coming soon" aria-disabled="true">GitHub · soon</span>
+          </div>
+        </div>
+      </section>
+
       <section id="projects">
         <h2>Projects</h2>
         <div class="grid">
-          <article class="card">
+          <a class="card" href="projects/lunar-transfers.html">
             <p class="meta">MSc thesis · 2025–2026</p>
             <h3>Lunar transfers &amp; collision risk</h3>
             <p>Worked on lunar transfer design using trajectory optimisation methods, and built a collision-risk module for an ESA-funded space-safety software suite.</p>
             <ul class="tags"><li>Python</li><li>CR3BP</li><li>Optimisation</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/tubin-imagery.html">
             <p class="meta">TU Berlin · TUBIN satellite</p>
             <h3>TUBIN imagery user segment</h3>
             <p>Cleaned inconsistent image metadata, added sun angles and local time, and built a tool to find images by metadata. Project graded 1.0.</p>
             <ul class="tags"><li>Python</li><li>EO data</li><li>Tooling</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/adcs-demonstrator.html">
             <p class="meta">Internship · e:fs TechHub · 2024</p>
             <h3>ADCS demonstrator</h3>
             <p>Built a 3D satellite ADCS demonstrator and wrote its firmware; reworked sensor fusion and deployed an optimal controller on a 1D rig.</p>
             <ul class="tags"><li>ADCS</li><li>Firmware</li><li>ROS 2</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/leo-orbital-simulator.html">
             <p class="meta">APSARA-1 CubeSat · 2020–2021</p>
             <h3>LEO orbital simulator</h3>
             <p>In-house simulator for mission-lifetime prediction with J2 and drag. First-author paper.</p>
             <ul class="tags"><li>Orbital dynamics</li><li>Simulation</li></ul>
-            <a class="more" href="https://www.researchgate.net/publication/360318005_Development_of_Orbital_Simulator_for_Cambodian_CubeSat_Mission_in_LEO" target="_blank" rel="noopener">Read paper →</a>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/beesat-2-decoders.html">
             <p class="meta">TU Berlin · Ground segment</p>
             <h3>BEESAT-2 decoders</h3>
             <p>Wrote telemetry decoders in Python, tested on real downlinked data and merged into SatNOGS.</p>
             <ul class="tags"><li>Python</li><li>Telemetry</li><li>Open source</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/sloshing-rocket.html">
             <p class="meta">Airbus workshop · 2024</p>
             <h3>Sloshing rocket</h3>
             <p>Team leader. Designed the flight computer in KiCad; placed in the top 3 of 20 teams.</p>
             <ul class="tags"><li>KiCad</li><li>Simulink</li><li>Leadership</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/engineering-model-board.html">
             <p class="meta">TU Berlin · 2023</p>
             <h3>Satellite engineering-model board</h3>
             <p>Programmed in C with five operating modes, EEPROM startup settings and MQTT telemetry and telecommand.</p>
             <ul class="tags"><li>C</li><li>Embedded</li><li>TM/TC</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/rover-navigation.html">
             <p class="meta">European Rover Challenge · 2022–2023</p>
             <h3>Rover navigation</h3>
             <p>Led navigation: LiDAR and stereo camera on a Jetson, with ROS 2 and Gazebo.</p>
             <ul class="tags"><li>ROS 2</li><li>Navigation</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/van-allen-belt-mission.html">
             <p class="meta">International Space Challenge · 2021</p>
             <h3>Van Allen Belt mission</h3>
             <p>Led mission and orbit design for a radiation-belt science concept. Distinction Award.</p>
             <ul class="tags"><li>Mission design</li><li>Orbits</li></ul>
-          </article>
+          </a>
 
-          <article class="card">
+          <a class="card" href="projects/astrognosis.html">
             <p class="meta">Ongoing · with a classmate</p>
             <h3>Astrognosis</h3>
-            <p>A space-education project that makes space science accessible to students in Cambodia.</p>
+            <p>A space-education project that makes space science accessible to students.</p>
             <ul class="tags"><li>Education</li><li>Outreach</li></ul>
-            <a class="more" href="https://astrognosis-zlcl.onrender.com" target="_blank" rel="noopener">Visit site →</a>
-          </article>
+          </a>
         </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="skill-group">
+            <h3>Space engineering</h3>
+            <ul class="tags"><li>Modelling &amp; simulation</li><li>System engineering</li><li>Mission design &amp; analysis</li><li>ADCS</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Space tools</h3>
+            <ul class="tags"><li>GMAT</li><li>ESA MASTER / DRAMA</li><li>ESA GODOT</li><li>SPENVIS</li><li>GNU Radio</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Programming</h3>
+            <ul class="tags"><li>Python</li><li>MATLAB / Simulink</li><li>C</li><li>C++</li><li>Git</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Robotics &amp; embedded</h3>
+            <ul class="tags"><li>ROS 2</li><li>Firmware</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>CAD &amp; electronics</h3>
+            <ul class="tags"><li>KiCad</li><li>LTSpice</li><li>SolidWorks</li><li>Fusion 360</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul class="tags"><li>Khmer (native)</li><li>English (advanced)</li><li>German (beginner)</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="achievements">
+        <h2>Achievements</h2>
+        <ol class="timeline">
+          <li><span class="date">2024</span><div><h3>Top 3 of 20 teams</h3><p>Airbus Sloshing Rocket Workshop Competition, Portugal.</p></div></li>
+          <li><span class="date">2022</span><div><h3>Distinction Award</h3><p>International Space Challenge, organised by Singapore Space and Technology Ltd.</p></div></li>
+          <li><span class="date">2021</span><div><h3>First-author paper</h3><p>"Development of Orbital Simulator for Cambodian CubeSat mission in LEO", Techno-Science Research Journal 9(2).</p></div></li>
+          <li><span class="date">2021</span><div><h3>Co-author, SmallSat conference paper</h3><p>"International Collaboration Towards Cambodia's First Small Satellite Education Program: Lessons Learnt", 35th Annual Small Satellite Conference.</p></div></li>
+        </ol>
       </section>
 
       <section id="experience">
