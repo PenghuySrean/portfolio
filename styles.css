@@ -186,6 +186,11 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .interest-row .card { padding: 24px; }
 .interest-row .card p:last-child { margin: 0; }
 
+.timeline a { color: var(--accent); }
+.timeline a:hover { text-decoration: underline; }
+
+.cert-placeholder { margin-top: 8px !important; color: var(--muted) !important; font: 400 11px var(--mono); text-transform: uppercase; }
+
 /* Skills */
 .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px 18px; }
 .skill-group h3 {
@@ -212,6 +217,17 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   text-transform: none;
 }
 .skill-group .tags li::marker { color: var(--accent); }
+
+/* Project card tags: plain text, no box inside the card box */
+#projects .card .tags { gap: 4px 0; }
+#projects .card .tags li {
+  padding: 0;
+  border: 0;
+  color: var(--body);
+  font: 400 11px var(--mono);
+  text-transform: uppercase;
+}
+#projects .card .tags li + li::before { content: "·"; margin: 0 8px; color: var(--accent); }
 
 /* Project detail pages */
 .project-page { max-width: 760px; padding-top: 48px; padding-bottom: 64px; }
