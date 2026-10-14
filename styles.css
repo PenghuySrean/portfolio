@@ -304,6 +304,8 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   text-transform: uppercase;
 }
 
+.footer .motto { color: var(--accent); font-style: italic; text-transform: none; }
+
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; padding-top: 48px; gap: 28px; }
   .about { grid-template-columns: 1fr; gap: 32px; }
