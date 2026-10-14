@@ -39,17 +39,23 @@ a:hover { color: var(--accent); }
   gap: 28px;
   align-items: start;
   padding-top: 72px;
-  padding-bottom: 56px;
-  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
 }
-.eyebrow { margin: 0 0 20px; }
+.hero .eyebrow {
+  margin: 0 0 22px;
+  font: 500 1.8rem/1.2 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.03em;
+  text-transform: none;
+}
 h1 {
   font-size: clamp(2rem, 4.6vw, 3.4rem);
   font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.035em;
-  margin: 0 0 32px;
+  margin: 0;
 }
+.hero { gap: 0; padding-bottom: 0; }
+#interests { padding-top: 40px; }
 .pills { display: flex; flex-wrap: wrap; gap: 10px; }
 .pill {
   padding: 10px 16px;
@@ -99,11 +105,14 @@ h3 { font-size: 1.1rem; font-weight: 500; margin: 0 0 6px; }
 /* About: bio + photo */
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 .about p { color: var(--body); margin: 0 0 16px; }
-.photo { margin: 0 0 20px; }
+.about-side { width: min(100%, 420px); justify-self: center; }
+.about-side .pills { justify-content: center; flex-wrap: nowrap; gap: 8px; }
+.about-side .pill { padding: 10px 12px; white-space: nowrap; }
+.photo { width: min(100%, 360px); margin: 0 auto 20px; }
 .photo img, .photo-placeholder {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border: 1px solid var(--border);
   background: var(--panel);
@@ -164,6 +173,8 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   font: 400 9px var(--mono);
   text-transform: uppercase;
 }
+
+#interests .focus { margin-top: 28px; }
 
 /* Areas of interest: three cards under the goal */
 .interests-block h2 { margin-bottom: 24px; }
@@ -246,6 +257,7 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; padding-top: 48px; gap: 28px; }
   .about { grid-template-columns: 1fr; gap: 32px; }
+  .about-side .pills { flex-wrap: wrap; }
   .interest-row { grid-template-columns: 1fr; }
   .timeline li { grid-template-columns: 1fr; gap: 4px; padding-left: 26px; }
   .timeline li::before { left: 4px; }
