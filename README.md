@@ -1,24 +1,13 @@
-# Penghuy Srean
+# Penghuy Srean — Portfolio
 
-**Space engineer | Orbit and attitude simulation, trajectory optimisation**
+A minimal static portfolio for a space systems engineer working across orbital simulation, AOCS/GNC, mission software, and space sustainability.
 
-MSc Space Engineering, TU Berlin (2026). Originally from Cambodia, based in Germany. I build my own simulation tools for orbit, attitude and trajectory problems, and I am looking for a role in spacecraft engineering, ideally in satellite manufacturing or flight dynamics.
+## GitHub Pages
 
-[CV (PDF)](LINK-TO-CV) | [LinkedIn](LINK-TO-LINKEDIN) | me.penghuy@gmail.com
+This folder is ready to publish without a build step:
 
-## Projects
+1. Create a GitHub repository.
+2. Add these files at the repository root.
+3. In **Settings → Pages**, choose **Deploy from a branch**, select main, and use the repository root.
 
-### Orbital-lifetime simulator
-Simulates how a LEO satellite's orbit decays under atmospheric drag. I later extended it into a six-degree-of-freedom attitude and orbit simulator. [Code](LINK-TO-REPO)
-
-### Cislunar trajectory design (MSc thesis work)
-Worked on lunar transfer design using trajectory optimisation methods, including low-thrust transfers, in my own Python toolkit for three-body orbits.
-
-### Space safety software
-Thesis work on collision-risk analysis software for interplanetary missions.
-
-## Skills
-Python, orbital mechanics, attitude dynamics, numerical simulation, trajectory optimisation
-
-## Contact
-me.penghuy@gmail.com
+The site uses only HTML, CSS, JavaScript, and SVG.
