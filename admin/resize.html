@@ -29,7 +29,7 @@
       <p>Choose one or more photos. Each is made smaller (longest side 1600 px, high quality) and keeps its own shape. Then upload the small copies in the admin page. Everything happens in your browser.</p>
 
       <div class="step">1 · Choose photos (you can select several)</div>
-      <input id="files" type="file" accept="image/*" multiple />
+      <input id="files" type="file" accept="image/*,.heic,.heif,.avif,.webp,.tif,.tiff,.bmp,.gif,.jpg,.jpeg,.png" multiple />
 
       <div class="step">2 · Download the small copies</div>
       <button id="all" disabled>Download all</button>
@@ -37,6 +37,7 @@
       <ul id="list"></ul>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/heic2any/0.0.4/heic2any.min.js"></script>
     <script>
       const MAX = 1600, QUALITY = 0.88;
       const input = document.getElementById("files");
@@ -45,13 +46,23 @@
       const msg = document.getElementById("msg");
       let results = [];
 
-      const load = (file) => new Promise((res, rej) => {
-        const url = URL.createObjectURL(file);
-        const im = new Image();
-        im.onload = () => res(im);
-        im.onerror = () => rej(new Error("Cannot read " + file.name));
-        im.src = url;
-      });
+      const isHeic = (f) => /heic|heif/i.test(f.type) || /\.(heic|heif)$/i.test(f.name);
+      const toDecodable = async (file) => {
+        if (!isHeic(file)) return file;
+        if (!window.heic2any) throw new Error("HEIC converter not loaded");
+        const out = await heic2any({ blob: file, toType: "image/jpeg", quality: 0.92 });
+        return Array.isArray(out) ? out[0] : out;
+      };
+      const load = async (file) => {
+        const src = await toDecodable(file);
+        return new Promise((res, rej) => {
+          const url = URL.createObjectURL(src);
+          const im = new Image();
+          im.onload = () => res(im);
+          im.onerror = () => rej(new Error("Cannot read " + file.name));
+          im.src = url;
+        });
+      };
 
       input.addEventListener("change", async () => {
         results = [];
@@ -83,7 +94,7 @@
             list.appendChild(li);
           } catch (e) {
             const li = document.createElement("li");
-            li.textContent = "Could not read " + f.name + ". Try another photo or export it as JPEG first.";
+            li.textContent = "Could not read " + f.name + ". Try exporting it as JPEG from your photo app, then choose that file.";
             list.appendChild(li);
           }
         }
