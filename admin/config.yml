@@ -189,3 +189,13 @@ collections:
         required: false
         hint: "Auto puts consecutive images side by side (up to 4). Choose 1 to stack them one under another."
       - { label: "Text (a poem, or a few words)", name: body, widget: markdown, required: false }
+
+  - name: artmaking_pages
+    label: "Artmaking intro lines"
+    files:
+      - name: artmaking
+        label: "Intro lines"
+        file: content/artmaking.json
+        format: json
+        fields:
+          - { label: "Sketch: one line (or a short paragraph) shown above the sketches", name: intro_sketch, widget: text, required: false }

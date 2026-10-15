@@ -108,6 +108,21 @@
     const w = NOUN[cat] || ["item", "items"];
     return n + " " + (n === 1 ? w[0] : w[1]);
   };
+  // categories shown as a plain gallery (just the pictures, newest first)
+  const GALLERY_CATS = ["Sketch"];
+  const allPics = (it) => {
+    const out = [];
+    const add = (s) => {
+      if (s && !out.includes(s)) out.push(s);
+    };
+    add(it.meta.image);
+    if (Array.isArray(it.meta.gallery)) it.meta.gallery.forEach(add);
+    const re = /!\[[^\]]*\]\(([^)\s]+)[^)]*\)/g;
+    let m;
+    while ((m = re.exec(it.body || "")) !== null) add(m[1]);
+    return out;
+  };
+
   const plainTitle = (t) => String(t || "").replace(/^[\s_*#~-]+|[\s_*#~-]+$/g, "");
   const fmtDate = (d) => {
     const t = new Date(d);
@@ -238,6 +253,41 @@
       if (list.length) {
         const cat = list[0].category;
         setHead(cat, countLabel(cat, list.length), "artmaking.html", "← Artmaking");
+        if (GALLERY_CATS.includes(list[0].category)) {
+          // gallery categories: no rows, no titles; just the pictures, with an optional intro line above
+          const gcat = list[0].category;
+          const pages = (await getJSON("content/artmaking.json")) || {};
+          const intro = String(pages["intro_" + gcat.toLowerCase()] || "").trim();
+          setHead(gcat, "", "artmaking.html", "← Artmaking");
+          if (intro) {
+            const p = document.createElement("p");
+            p.className = "category-intro";
+            p.textContent = intro;
+            root.appendChild(p);
+          }
+          const pics = [];
+          list.forEach((it) => {
+            allPics(it).forEach((src) => {
+              if (src && !pics.includes(src)) pics.push(src);
+            });
+          });
+          const wrap = document.createElement("div");
+          wrap.className = "sketch-gallery";
+          pics.forEach((src) => {
+            const a = document.createElement("a");
+            a.href = src;
+            a.target = "_blank";
+            a.rel = "noopener";
+            const im = document.createElement("img");
+            im.src = src;
+            im.alt = gcat;
+            im.loading = "lazy";
+            a.appendChild(im);
+            wrap.appendChild(a);
+          });
+          root.appendChild(wrap);
+          return;
+        }
         const ul = document.createElement("ul");
         ul.className = "item-rows";
         list.forEach((it) => {
