@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Crop photo · Penghuy Srean</title>
+    <style>
+      :root { --bg:#0a0a0a; --panel:#0b0c0f; --border:#30343a; --text:#f2f1ed; --body:#9aa8c5; --accent:#ff7043; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+      main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+      h1 { font-size: 1.6rem; font-weight: 500; margin: 0 0 6px; }
+      p { color: var(--body); margin: 0 0 18px; }
+      .step { color: var(--accent); font: 400 11px ui-monospace, Consolas, monospace; letter-spacing: .05em; text-transform: uppercase; margin: 22px 0 8px; }
+      input[type=file] { width: 100%; padding: 12px; background: var(--panel); color: var(--text); border: 1px solid var(--border); }
+      #stage { position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto; background: #000; border: 1px solid var(--border); touch-action: none; cursor: grab; overflow: hidden; }
+      #stage:active { cursor: grabbing; }
+      canvas { display: block; width: 100%; height: 100%; }
+      .grid { position: absolute; inset: 0; pointer-events: none; background:
+        linear-gradient(to right, transparent 33.2%, rgba(255,255,255,.25) 33.3%, transparent 33.5%, transparent 66.5%, rgba(255,255,255,.25) 66.6%, transparent 66.8%),
+        linear-gradient(to bottom, transparent 33.2%, rgba(255,255,255,.25) 33.3%, transparent 33.5%, transparent 66.5%, rgba(255,255,255,.25) 66.6%, transparent 66.8%); }
+      .row { display: flex; align-items: center; gap: 12px; margin: 16px auto 0; max-width: 480px; }
+      input[type=range] { flex: 1; accent-color: var(--accent); }
+      button { padding: 12px 18px; background: var(--accent); color: #000; border: 0; font: 600 12px ui-monospace, Consolas, monospace; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; }
+      button:disabled { opacity: .4; cursor: default; }
+      .hint { font-size: .9rem; }
+      #msg { color: var(--accent); min-height: 1.4em; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Crop your photo</h1>
+      <p>Choose a photo, drag it into place, zoom, then download a square copy to upload in the admin page. Everything happens in your browser; nothing is uploaded here.</p>
+
+      <div class="step">1 · Choose the photo</div>
+      <input id="file" type="file" accept="image/*" />
+
+      <div class="step">2 · Drag to move, slide to zoom</div>
+      <div id="stage"><canvas id="cv" width="960" height="960"></canvas><div class="grid"></div></div>
+      <div class="row"><span>−</span><input id="zoom" type="range" min="100" max="400" value="100" disabled /><span>+</span></div>
+      <p class="hint" style="text-align:center;margin-top:10px">The square is exactly what visitors will see.</p>
+
+      <div class="step">3 · Download, then upload it in the admin page</div>
+      <button id="save" disabled>Download square photo</button>
+      <p id="msg" role="status"></p>
+    </main>
+
+    <script>
+      const SIZE = 960;       // preview resolution
+      const OUT = 1200;       // exported square (px)
+      const cv = document.getElementById("cv");
+      const ctx = cv.getContext("2d");
+      const zoomEl = document.getElementById("zoom");
+      const saveEl = document.getElementById("save");
+      const msg = document.getElementById("msg");
+      let img = null, scale = 1, minScale = 1, x = 0, y = 0, drag = null;
+
+      const clamp = () => {
+        const w = img.width * scale, h = img.height * scale;
+        x = Math.min(0, Math.max(SIZE - w, x));
+        y = Math.min(0, Math.max(SIZE - h, y));
+      };
+      const draw = (c, size) => {
+        const k = size / SIZE;
+        c.fillStyle = "#000"; c.fillRect(0, 0, size, size);
+        c.imageSmoothingQuality = "high";
+        c.drawImage(img, x * k, y * k, img.width * scale * k, img.height * scale * k);
+      };
+      const render = () => { if (img) draw(ctx, SIZE); };
+
+      document.getElementById("file").addEventListener("change", (e) => {
+        const f = e.target.files[0];
+        if (!f) return;
+        const url = URL.createObjectURL(f);
+        const im = new Image();
+        im.onload = () => {
+          img = im;
+          minScale = Math.max(SIZE / im.width, SIZE / im.height); // cover the square
+          scale = minScale;
+          x = (SIZE - im.width * scale) / 2;
+          y = (SIZE - im.height * scale) / 2;
+          zoomEl.value = 100; zoomEl.disabled = false; saveEl.disabled = false;
+          msg.textContent = "";
+          render();
+        };
+        im.src = url;
+      });
+
+      zoomEl.addEventListener("input", () => {
+        if (!img) return;
+        const old = scale;
+        scale = minScale * (zoomEl.value / 100);
+        // zoom around the centre of the square
+        const cx = SIZE / 2, cy = SIZE / 2;
+        x = cx - ((cx - x) / old) * scale;
+        y = cy - ((cy - y) / old) * scale;
+        clamp(); render();
+      });
+
+      const stage = document.getElementById("stage");
+      const toLocal = (e) => { const r = stage.getBoundingClientRect(); return { px: (e.clientX - r.left) * SIZE / r.width, py: (e.clientY - r.top) * SIZE / r.height }; };
+      stage.addEventListener("pointerdown", (e) => { if (!img) return; stage.setPointerCapture(e.pointerId); const p = toLocal(e); drag = { px: p.px, py: p.py, x, y }; });
+      stage.addEventListener("pointermove", (e) => { if (!drag) return; const p = toLocal(e); x = drag.x + (p.px - drag.px); y = drag.y + (p.py - drag.py); clamp(); render(); });
+      stage.addEventListener("pointerup", () => { drag = null; });
+      stage.addEventListener("pointercancel", () => { drag = null; });
+      stage.addEventListener("wheel", (e) => { if (!img) return; e.preventDefault(); zoomEl.value = Math.min(400, Math.max(100, Number(zoomEl.value) + (e.deltaY < 0 ? 10 : -10))); zoomEl.dispatchEvent(new Event("input")); }, { passive: false });
+
+      saveEl.addEventListener("click", () => {
+        if (!img) return;
+        const out = document.createElement("canvas");
+        out.width = OUT; out.height = OUT;
+        draw(out.getContext("2d"), OUT);
+        out.toBlob((b) => {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(b);
+          a.download = "profile-photo.jpg";
+          document.body.appendChild(a); a.click(); a.remove();
+          msg.textContent = "Saved as profile-photo.jpg (" + Math.round(b.size / 1024) + " KB). Now upload it in the admin page under Profile photo.";
+        }, "image/jpeg", 0.9);
+      });
+    </script>
+  </body>
+</html>
