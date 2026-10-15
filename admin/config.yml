@@ -5,7 +5,6 @@ backend:
 
 site_url: https://penghuysrean.github.io/portfolio/
 display_url: https://penghuysrean.github.io/portfolio/musing.html
-locale: en
 
 media_folder: uploads
 public_folder: /portfolio/uploads
