@@ -43,7 +43,10 @@ html { scroll-behavior: smooth; }
   border-bottom: 1px solid var(--line);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 56px; }
-.nav-name { font-weight: 600; white-space: nowrap; }
+.nav-name { display: flex; flex-direction: column; line-height: 1.25; padding: 8px 0; white-space: nowrap; }
+.nav-name:hover { color: var(--text); }
+.nav-title { font-weight: 600; font-size: 1rem; color: var(--text); }
+.nav-sub { font: 400 11px var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
 .nav-links { display: flex; gap: 22px; overflow-x: auto; scrollbar-width: none; }
 .nav-links::-webkit-scrollbar { display: none; }
 .nav-links a { color: var(--body); font: 400 11px var(--mono); text-transform: uppercase; white-space: nowrap; }
