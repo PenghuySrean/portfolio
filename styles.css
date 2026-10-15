@@ -76,7 +76,7 @@ html { scroll-behavior: smooth; }
 .coming-soon { margin: 24px 0 8px; color: var(--accent); font: 400 14px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
 .dropdown a { display: block; padding: 9px 18px; }
 .dropdown a:hover { background: #0e1014; }
-.nav-name:hover { color: var(--text); }
+.nav-name:hover { color: var(--accent); }
 .nav-title { font-weight: 600; font-size: 1rem; color: var(--text); }
 .nav-sub { font: 400 11px var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
 section[id] { scroll-margin-top: 72px; }
