@@ -43,6 +43,7 @@ html { scroll-behavior: smooth; }
   border-bottom: 1px solid var(--line);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 56px; }
+.nav-sep { color: var(--accent); margin: 0 6px; font-weight: 400; }
 .nav-name { font-weight: 600; font-size: 1rem; color: var(--text); white-space: nowrap; }
 .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 28px; }
 .nav-menu > li { position: relative; }
