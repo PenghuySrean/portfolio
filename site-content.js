@@ -252,7 +252,7 @@
       const list = items.filter((x) => x.category.toLowerCase() === wantCat.toLowerCase());
       if (list.length) {
         const cat = list[0].category;
-        setHead(cat, countLabel(cat, list.length), "artmaking.html", "← Artmaking");
+        if (!GALLERY_CATS.includes(cat)) setHead(cat, countLabel(cat, list.length), "artmaking.html", "← Artmaking");
         if (GALLERY_CATS.includes(list[0].category)) {
           // gallery categories: no rows, no titles; just the pictures, with an optional intro line above
           const gcat = list[0].category;
