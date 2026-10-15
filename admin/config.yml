@@ -87,10 +87,10 @@ collections:
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: sloshing-rocket
-        label: "Sloshing rocket"
+        label: "Airbus Sloshing Rocket"
         file: content/projects/sloshing-rocket.md
         fields:
-          - { label: Title, name: title, widget: hidden, default: "Sloshing rocket" }
+          - { label: Title, name: title, widget: hidden, default: "Airbus Sloshing Rocket" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: rover-navigation
