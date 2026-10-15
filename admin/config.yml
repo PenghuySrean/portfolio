@@ -2,12 +2,11 @@ backend:
   name: github
   repo: PenghuySrean/portfolio
   branch: main
-  # GitHub Pages has no OAuth server. Use a repository-scoped token so the
-  # editor can create commits instead of failing only when an entry is saved.
-  auth_methods: [token]
 
 site_url: https://penghuysrean.github.io/portfolio/
 display_url: https://penghuysrean.github.io/portfolio/musing.html
+locale: en
+
 media_folder: uploads
 public_folder: /portfolio/uploads
 
@@ -137,6 +136,9 @@ collections:
         format: json
         fields:
           - { label: "Photo (shown in About)", name: photo, widget: image, required: false }
+          - { label: "Photo: left/right position (0 = left, 50 = centre, 100 = right)", name: focus_x, widget: number, value_type: int, min: 0, max: 100, default: 50, required: false }
+          - { label: "Photo: up/down position (0 = top, 50 = centre, 100 = bottom)", name: focus_y, widget: number, value_type: int, min: 0, max: 100, default: 50, required: false }
+          - { label: "Photo: zoom in (100 = whole photo, 200 = twice as close)", name: zoom, widget: number, value_type: int, min: 100, max: 300, default: 100, required: false }
 
   - name: making
     label: Making

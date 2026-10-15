@@ -456,3 +456,6 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .making-item h3 { margin: 0 0 8px; font-size: 1.05rem; font-weight: 500; }
 .making-item .md { font-size: 0.95rem; }
 .making-item .more { display: inline-block; margin-top: 10px; font: 400 11px var(--mono); text-transform: uppercase; }
+
+/* profile photo: crop by position and zoom (set in the admin page) */
+.photo { overflow: hidden; }

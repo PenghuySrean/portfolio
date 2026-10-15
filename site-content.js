@@ -63,6 +63,16 @@
         const img = document.createElement("img");
         img.src = profile.photo;
         img.alt = "Penghuy Srean";
+        const num = (v, d, lo, hi) => {
+          const n = Number(v);
+          return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : d;
+        };
+        const fx = num(profile.focus_x, 50, 0, 100);
+        const fy = num(profile.focus_y, 50, 0, 100);
+        const z = num(profile.zoom, 100, 100, 300) / 100;
+        img.style.objectPosition = fx + "% " + fy + "%";
+        img.style.transformOrigin = fx + "% " + fy + "%";
+        if (z !== 1) img.style.transform = "scale(" + z + ")";
         holder.replaceWith(img);
       }
     }
