@@ -369,8 +369,9 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .rail { display: none; }
 @media (min-width: 1200px) {
   .rail { display: block; position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 40; }
-  .rail-ticks { list-style: none; margin: 0; padding: 10px 14px 10px 10px; display: flex; flex-direction: column; gap: 6px; }
-  .rail-ticks a { position: relative; display: flex; align-items: center; padding: 6px 0; }
+  .rail-ticks { list-style: none; margin: 0; padding: 10px 0 10px 10px; display: flex; flex-direction: column; gap: 0; }
+  /* wide, gap-free hit area: hovering a bit to the right of a tick still counts */
+  .rail-ticks a { position: relative; display: flex; align-items: center; width: 90px; padding: 9px 0; }
   .tick { display: block; width: 14px; height: 2px; background: var(--border); transition: width 0.15s ease, background 0.15s ease; }
   .rail-ticks a.active .tick { width: 24px; background: var(--accent); }
   /* the tick under the cursor is large, its neighbours a little larger */
