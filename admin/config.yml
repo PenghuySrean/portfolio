@@ -140,7 +140,7 @@ collections:
           - { label: "Photo: zoom in (100 = whole photo, 200 = twice as close)", name: zoom, widget: number, value_type: int, min: 100, max: 300, default: 100, required: false }
 
   - name: making
-    label: Artistry
+    label: Art
     label_singular: Item
     folder: making
     create: true
