@@ -1,18 +1,16 @@
 const year = document.querySelector("#year");
 if (year) year.textContent = new Date().getFullYear();
 
-// Portfolio dropdown: click or tap to open, click elsewhere or press Escape to close
-const toggle = document.querySelector(".nav-toggle");
-const menu = document.querySelector(".has-dropdown");
-if (toggle && menu) {
-  const setOpen = (open) => {
-    menu.classList.toggle("open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-  };
-  toggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-    setOpen(!menu.classList.contains("open"));
-  });
-  document.addEventListener("click", () => setOpen(false));
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+// Section rail: highlight the section currently in view
+const railLinks = document.querySelectorAll("[data-sec]");
+if (railLinks.length && "IntersectionObserver" in window) {
+  const setActive = (id) => railLinks.forEach((a) => a.classList.toggle("active", a.dataset.sec === id));
+  const seen = new Map();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e) => seen.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0));
+    let best = null, bestRatio = 0;
+    seen.forEach((r, id) => { if (r > bestRatio) { best = id; bestRatio = r; } });
+    if (best) setActive(best);
+  }, { rootMargin: "-20% 0px -50% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] });
+  document.querySelectorAll("main > section[id]").forEach((s) => observer.observe(s));
 }

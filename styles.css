@@ -364,3 +364,39 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   .nav-menu > li { position: static; }
   .dropdown { left: 0; right: 0; min-width: 0; border-left: 0; border-right: 0; }
 }
+
+/* Section rail (home page): thin ticks on the left, panel with names on hover */
+.rail { display: none; }
+@media (min-width: 1200px) {
+  .rail { display: block; position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 40; }
+  .rail-ticks { list-style: none; margin: 0; padding: 12px 10px; display: flex; flex-direction: column; gap: 14px; }
+  .rail-ticks a { display: block; padding: 3px 0; }
+  .tick { display: block; width: 14px; height: 2px; background: var(--border); transition: width 0.18s ease, background 0.18s ease; }
+  .rail-ticks a.active .tick { width: 26px; background: var(--accent); }
+  .rail:hover .tick { background: var(--muted); }
+  .rail:hover .rail-ticks a.active .tick { background: var(--accent); }
+  .rail-panel {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 210px;
+    padding: 8px 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease;
+  }
+  .rail:hover .rail-panel, .rail:focus-within .rail-panel { opacity: 1; visibility: visible; }
+  .rail-panel a {
+    display: block;
+    padding: 9px 18px;
+    color: var(--body);
+    font: 400 12px var(--mono);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .rail-panel a:hover { background: #0e1014; color: var(--accent); }
+  .rail-panel a.active { color: var(--accent); }
+}
