@@ -86,13 +86,6 @@ collections:
           - { label: Title, name: title, widget: hidden, default: "Sloshing rocket" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
-      - name: engineering-model-board
-        label: "Satellite engineering-model board"
-        file: content/projects/engineering-model-board.md
-        fields:
-          - { label: Title, name: title, widget: hidden, default: "Satellite engineering-model board" }
-          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
-          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: rover-navigation
         label: "Rover navigation"
         file: content/projects/rover-navigation.md
