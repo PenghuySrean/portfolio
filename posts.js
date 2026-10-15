@@ -77,19 +77,19 @@
     const soon = document.querySelector(".coming-soon");
     if (soon) soon.remove();
     root.innerHTML =
-      '<ul class="post-list">' +
+      '<div class="grid post-grid">' +
       posts
         .map((p) => {
           const plain = p.body.replace(/[#*_>`!\[\]()]/g, "").replace(/\s+/g, " ").trim();
           return (
-            '<li><a href="musing.html?post=' + encodeURIComponent(p.slug) + '">' +
-            '<span class="post-meta">' + esc([fmt(p.meta.date), p.meta.tag].filter(Boolean).join(" · ")) + "</span>" +
-            '<span class="post-title">' + esc(p.meta.title || p.slug) + "</span>" +
-            '<span class="post-excerpt">' + esc(plain.slice(0, 160)) + (plain.length > 160 ? "…" : "") + "</span></a></li>"
+            '<a class="card" href="musing.html?post=' + encodeURIComponent(p.slug) + '">' +
+            '<span class="meta">' + esc([fmt(p.meta.date), p.meta.tag].filter(Boolean).join(" · ")) + "</span>" +
+            "<h3>" + esc(p.meta.title || p.slug) + "</h3>" +
+            "<p>" + esc(plain.slice(0, 160)) + (plain.length > 160 ? "…" : "") + "</p></a>"
           );
         })
         .join("") +
-      "</ul>";
+      "</div>";
   }
 
   (wanted ? showPost(wanted) : showList()).catch(() => {});
