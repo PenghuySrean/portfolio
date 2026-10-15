@@ -101,10 +101,10 @@ collections:
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: van-allen-belt-mission
-        label: "Van Allen Belt mission"
+        label: "International Space Challenge"
         file: content/projects/van-allen-belt-mission.md
         fields:
-          - { label: Title, name: title, widget: hidden, default: "Van Allen Belt mission" }
+          - { label: Title, name: title, widget: hidden, default: "International Space Challenge" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
 

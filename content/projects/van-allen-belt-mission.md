@@ -1,4 +1,4 @@
 ---
-title: "Van Allen Belt mission"
+title: "International Space Challenge"
 demo: ""
 ---
