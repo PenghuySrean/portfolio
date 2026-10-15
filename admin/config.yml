@@ -2,11 +2,12 @@ backend:
   name: github
   repo: PenghuySrean/portfolio
   branch: main
+  # GitHub Pages has no OAuth server. Use a repository-scoped token so the
+  # editor can create commits instead of failing only when an entry is saved.
+  auth_methods: [token]
 
 site_url: https://penghuysrean.github.io/portfolio/
 display_url: https://penghuysrean.github.io/portfolio/musing.html
-locale: en
-
 media_folder: uploads
 public_folder: /portfolio/uploads
 
