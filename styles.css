@@ -403,3 +403,17 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   /* the two neighbours show their names faded, so three are visible at once */
   .rail-ticks li:hover + li .tick-label, .rail-ticks li:has(+ li:hover) .tick-label { opacity: 0.28; visibility: visible; color: var(--muted); }
 }
+
+/* Musing posts */
+.post-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 18px; }
+.post-list a { display: block; padding: 22px 24px; background: var(--panel); border: 1px solid var(--border); color: var(--text); }
+.post-list a:hover { border-color: var(--accent); color: var(--text); }
+.post-meta { display: block; margin-bottom: 8px; color: var(--accent); font: 400 11px var(--mono); letter-spacing: 0.05em; text-transform: uppercase; }
+.post-title { display: block; font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; }
+.post-excerpt { display: block; margin-top: 8px; color: var(--body); font-size: 0.95rem; }
+.post-body { margin-top: 24px; color: var(--body); font-size: 1.05rem; line-height: 1.8; }
+.post-body h2, .post-body h3 { color: var(--text); margin-top: 1.6em; }
+.post-body h2::after { display: none; }
+.post-body a { color: var(--accent); }
+.post-body img, .post-image { max-width: 100%; height: auto; border: 1px solid var(--border); }
+.post-body blockquote { margin: 1.4em 0; padding-left: 18px; border-left: 2px solid var(--accent); color: var(--text); }
