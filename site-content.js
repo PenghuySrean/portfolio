@@ -155,6 +155,26 @@
           const isPoem = String(it.meta.category || "").toLowerCase() === "poetry";
           if (isPoem) card.classList.add("poem");
           if (it.body.trim()) card.appendChild(renderMd(it.body, { breaks: isPoem }));
+          const pics = Array.isArray(it.meta.gallery) ? it.meta.gallery.filter(Boolean) : [];
+          if (pics.length) {
+            const row = document.createElement("div");
+            row.className = "gallery-row";
+            pics.forEach((src) => {
+              const a = document.createElement("a");
+              a.href = src;
+              a.target = "_blank";
+              a.rel = "noopener";
+              const im = document.createElement("img");
+              im.src = src;
+              im.alt = it.meta.title || "";
+              im.loading = "lazy";
+              a.appendChild(im);
+              row.appendChild(a);
+            });
+            card.classList.add("has-gallery");
+            card.appendChild(row);
+          }
+          if (card.querySelector(".gallery-row")) card.classList.add("has-gallery");
           if (it.meta.link) {
             const a = document.createElement("a");
             a.className = "more";

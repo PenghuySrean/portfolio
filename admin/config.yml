@@ -167,5 +167,11 @@ collections:
         options: [Sketch, Drawing, Photography, Poetry, Music]
         default: Sketch
       - { label: Image, name: image, widget: image, required: false }
+      - label: "More images (shown together in one row, 4 across)"
+        name: gallery
+        widget: list
+        required: false
+        hint: "Add up to 4 images. They appear in one row of 4 on a computer and in 2 x 2 on a phone."
+        field: { label: Image, name: image, widget: image }
       - { label: "Link (for music: YouTube, SoundCloud...)", name: link, widget: string, required: false }
       - { label: "Text (a poem, or a few words)", name: body, widget: markdown, required: false }
