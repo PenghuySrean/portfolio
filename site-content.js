@@ -288,6 +288,16 @@
           root.appendChild(wrap);
           return;
         }
+        {
+          const pages = (await getJSON("content/artmaking.json")) || {};
+          const intro = String(pages["intro_" + cat.toLowerCase()] || "").trim();
+          if (intro) {
+            const p = document.createElement("p");
+            p.className = "category-intro";
+            p.textContent = intro;
+            root.appendChild(p);
+          }
+        }
         const ul = document.createElement("ul");
         ul.className = "item-rows";
         list.forEach((it) => {

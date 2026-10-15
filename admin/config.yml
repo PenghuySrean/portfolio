@@ -199,3 +199,4 @@ collections:
         format: json
         fields:
           - { label: "Sketch: one line (or a short paragraph) shown above the sketches", name: intro_sketch, widget: text, required: false }
+          - { label: "Poetry: a few lines shown above the list of poems", name: intro_poetry, widget: text, required: false }
