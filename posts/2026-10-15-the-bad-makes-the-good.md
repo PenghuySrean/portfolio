@@ -2,7 +2,7 @@
 title: The Bad Makes the Good
 date: 2026-10-15T04:28:00
 tag: Thought
-image: /portfolio/uploads/the-bad-makes-the-good.jpg
+image: /portfolio/uploads/f22ebdc7-ee0c-4acf-9de5-6a1245c5aae7.webp
 ---
 
 In Khmer, there is a dish called *samlor korko*, a soup of mixed vegetables. No single ingredient makes it good. It needs every flavour, even the bitter ones.
