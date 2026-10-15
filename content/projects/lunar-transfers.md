@@ -1,4 +1,4 @@
 ---
-title: "Lunar transfers & collision risk"
+title: "Interplanetary collision risk analysis"
 demo: ""
 ---
