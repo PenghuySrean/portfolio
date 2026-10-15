@@ -417,3 +417,25 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .post-body a { color: var(--accent); }
 .post-body img, .post-image { max-width: 100%; height: auto; border: 1px solid var(--border); }
 .post-body blockquote { margin: 1.4em 0; padding-left: 18px; border-left: 2px solid var(--accent); color: var(--text); }
+
+/* Request CV pop-up */
+#cv-dialog { width: min(92vw, 460px); padding: 28px; background: var(--panel); color: var(--text); border: 1px solid var(--border); }
+#cv-dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
+#cv-dialog h2 { margin: 0 0 8px; font-size: 1.4rem; }
+#cv-dialog h2::after { display: none; }
+.cv-note { margin: 0 0 18px; color: var(--body); font-size: 0.92rem; }
+#cv-dialog label { display: block; margin-bottom: 14px; color: var(--accent); font: 400 11px var(--mono); letter-spacing: 0.05em; text-transform: uppercase; }
+#cv-dialog input[type="text"], #cv-dialog input[type="email"], #cv-dialog textarea {
+  display: block; width: 100%; margin-top: 6px; padding: 10px 12px;
+  background: var(--bg); color: var(--text); border: 1px solid var(--border);
+  font: 400 15px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-transform: none; letter-spacing: 0;
+}
+#cv-dialog input:focus, #cv-dialog textarea:focus { outline: none; border-color: var(--accent); }
+.cv-hp { position: absolute; left: -9999px; }
+.cv-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+.cv-cancel, .cv-send { padding: 10px 16px; font: 400 11px var(--mono); letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+.cv-send { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.cv-send:disabled { opacity: 0.6; cursor: default; }
+.cv-status { min-height: 1.4em; margin: 0 0 8px; font-size: 0.92rem; color: var(--body); }
+.cv-status.ok { color: var(--accent); }
+.cv-status.bad { color: #ff9b85; }

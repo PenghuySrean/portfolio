@@ -9,7 +9,8 @@
     <meta property="og:description" content="Orbit and attitude simulation, trajectory optimisation, small satellites." />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0a0a0a" />
-    <link rel="stylesheet" href="styles.css?v=202610150250" />
+    <meta name="cv-form-key" content="" />
+    <link rel="stylesheet" href="styles.css?v=202610150402" />
   </head>
   <body id="top">
     <nav class="site-nav" aria-label="Main">
@@ -55,7 +56,7 @@
             <div class="photo-placeholder">Photo</div>
           </figure>
           <div class="pills">
-            <a class="pill primary" href="mailto:me.penghuy@gmail.com?subject=CV%20request">Request CV</a>
+            <a class="pill primary" id="request-cv" href="mailto:me.penghuy@gmail.com?subject=CV%20request">Request CV</a>
             <a class="pill" href="mailto:me.penghuy@gmail.com">Email</a>
             <a class="pill" href="https://www.linkedin.com/in/penghuy-srean/" target="_blank" rel="noopener">LinkedIn</a>
             <span class="pill disabled" title="Coming soon" aria-disabled="true">GitHub · soon</span>
@@ -232,6 +233,21 @@
       <span>© <span id="year"></span> Penghuy Srean · Earth</span>
       <span class="motto">Per aspera ad astra</span>
     </footer>
-    <script src="script.js?v=202610150250"></script>
+    <dialog id="cv-dialog" aria-labelledby="cv-title">
+      <form id="cv-form" method="dialog">
+        <h2 id="cv-title">Request my CV</h2>
+        <p class="cv-note">Tell me who you are and I will reply by email. Your details are only used to answer this request.</p>
+        <label>Name <input name="name" type="text" required autocomplete="name" /></label>
+        <label>Email <input name="email" type="email" required autocomplete="email" /></label>
+        <label>Message <textarea name="message" rows="4" placeholder="Optional: company, role, or what you are looking for"></textarea></label>
+        <input type="checkbox" name="botcheck" class="cv-hp" tabindex="-1" autocomplete="off" />
+        <p class="cv-status" id="cv-status" role="status"></p>
+        <div class="cv-actions">
+          <button type="button" class="cv-cancel" id="cv-cancel">Cancel</button>
+          <button type="submit" class="cv-send" id="cv-send">Send request</button>
+        </div>
+      </form>
+    </dialog>
+    <script src="script.js?v=202610150402"></script>
   </body>
 </html>
