@@ -24,9 +24,10 @@ if (railLinks.length && "IntersectionObserver" in window) {
   const status = document.querySelector("#cv-status");
   const send = document.querySelector("#cv-send");
   const key = () => (document.querySelector('meta[name="cv-form-key"]') || {}).content || "";
+  const endpoint = () => (document.querySelector('meta[name="cv-endpoint"]') || {}).content || "";
 
   link.addEventListener("click", (e) => {
-    if (!key()) return; // no key yet: keep the normal mailto link
+    if (!key() && !endpoint()) return; // nothing set up: keep the normal mailto link
     e.preventDefault();
     status.textContent = "";
     status.className = "cv-status";
@@ -39,15 +40,30 @@ if (railLinks.length && "IntersectionObserver" in window) {
     e.preventDefault();
     const data = new FormData(form);
     if (data.get("botcheck")) return;
-    data.append("access_key", key());
-    data.append("subject", "CV request from " + data.get("name"));
-    data.append("from_name", "Portfolio website");
     send.disabled = true;
     status.className = "cv-status";
     status.textContent = "Sending...";
     try {
-      const r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
-      const out = await r.json();
+      let out;
+      if (endpoint()) {
+        // Google Apps Script: emails me with Approve / Decline links
+        const payload = { name: data.get("name"), email: data.get("email"), message: data.get("message"), botcheck: "" };
+        const r = await fetch(endpoint(), { method: "POST", body: JSON.stringify(payload) });
+        out = await r.json();
+        if (!out.ok && out.error === "limit") {
+          status.className = "cv-status bad";
+          status.textContent = "You have sent a few requests already today. Please try again tomorrow.";
+          send.disabled = false;
+          return;
+        }
+        out.success = out.ok;
+      } else {
+        data.append("access_key", key());
+        data.append("subject", "CV request from " + data.get("name"));
+        data.append("from_name", "Portfolio website");
+        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+        out = await r.json();
+      }
       if (out.success) {
         form.reset();
         status.className = "cv-status ok";
