@@ -42,3 +42,118 @@ collections:
         default: Thought
       - { label: Image, name: image, widget: image, required: false }
       - { label: Text, name: body, widget: markdown }
+
+  - name: projects
+    label: "Engineering projects"
+    files:
+      - name: lunar-transfers
+        label: "Lunar transfers & collision risk"
+        file: content/projects/lunar-transfers.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "Lunar transfers & collision risk" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: tubin-imagery
+        label: "TUBIN imagery user segment"
+        file: content/projects/tubin-imagery.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "TUBIN imagery user segment" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: adcs-demonstrator
+        label: "ADCS demonstrator"
+        file: content/projects/adcs-demonstrator.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "ADCS demonstrator" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: leo-orbital-simulator
+        label: "LEO orbital simulator"
+        file: content/projects/leo-orbital-simulator.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "LEO orbital simulator" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: beesat-2-decoders
+        label: "BEESAT-2 decoders"
+        file: content/projects/beesat-2-decoders.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "BEESAT-2 decoders" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: sloshing-rocket
+        label: "Sloshing rocket"
+        file: content/projects/sloshing-rocket.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "Sloshing rocket" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: engineering-model-board
+        label: "Satellite engineering-model board"
+        file: content/projects/engineering-model-board.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "Satellite engineering-model board" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: rover-navigation
+        label: "Rover navigation"
+        file: content/projects/rover-navigation.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "Rover navigation" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: van-allen-belt-mission
+        label: "Van Allen Belt mission"
+        file: content/projects/van-allen-belt-mission.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "Van Allen Belt mission" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: astrognosis
+        label: "Astrognosis"
+        file: content/projects/astrognosis.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "Astrognosis" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+
+  - name: certificates
+    label: "Award certificates"
+    files:
+      - name: certificates
+        label: "Certificates"
+        file: content/certificates.json
+        format: json
+        fields:
+          - { label: "Airbus Sloshing Rocket (Top 3, 2024)", name: airbus_top3, widget: file, required: false }
+          - { label: "International Space Challenge (Distinction Award, 2022)", name: isc_distinction, widget: file, required: false }
+
+  - name: profile
+    label: "Profile photo"
+    files:
+      - name: profile
+        label: "Profile photo"
+        file: content/profile.json
+        format: json
+        fields:
+          - { label: "Photo (shown in About)", name: photo, widget: image, required: false }
+
+  - name: making
+    label: Making
+    label_singular: Item
+    folder: making
+    create: true
+    extension: md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{category}}: {{title}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime }
+      - label: Category
+        name: category
+        widget: select
+        options: [Sketch, Drawing, Photography, Poetry, Music]
+        default: Sketch
+      - { label: Image, name: image, widget: image, required: false }
+      - { label: "Link (for music: YouTube, SoundCloud...)", name: link, widget: string, required: false }
+      - { label: "Text (a poem, or a few words)", name: body, widget: markdown, required: false }

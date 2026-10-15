@@ -10,7 +10,7 @@
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="cv-form-key" content="" />
-    <link rel="stylesheet" href="styles.css?v=202610150402" />
+    <link rel="stylesheet" href="styles.css?v=202610150452" />
   </head>
   <body id="top">
     <nav class="site-nav" aria-label="Main">
@@ -215,8 +215,8 @@
       <section id="achievements">
         <h2>Achievements</h2>
         <ol class="timeline">
-          <li><span class="date">2024</span><div><h3>Top 3 of 20 teams</h3><p>Airbus Sloshing Rocket Workshop Competition, Portugal.</p><p class="cert-placeholder">Certificate · coming soon</p></div></li>
-          <li><span class="date">2022</span><div><h3>Distinction Award</h3><p>International Space Challenge, organised by Singapore Space and Technology Ltd.</p><p class="cert-placeholder">Certificate · coming soon</p></div></li>
+          <li data-cert="airbus_top3"><span class="date">2024</span><div><h3>Top 3 of 20 teams</h3><p>Airbus Sloshing Rocket Workshop Competition, Portugal.</p><p class="cert-placeholder">Certificate · coming soon</p></div></li>
+          <li data-cert="isc_distinction"><span class="date">2022</span><div><h3>Distinction Award</h3><p>International Space Challenge, organised by Singapore Space and Technology Ltd.</p><p class="cert-placeholder">Certificate · coming soon</p></div></li>
         </ol>
       </section>
 
@@ -248,6 +248,10 @@
         </div>
       </form>
     </dialog>
-    <script src="script.js?v=202610150402"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+    <script src="md.js?v=202610150452"></script>
+    <script src="site-content.js?v=202610150452"></script>
+    <script src="script.js?v=202610150452"></script>
   </body>
 </html>
