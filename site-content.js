@@ -152,7 +152,9 @@
           if (it.meta.image) html += '<img src="' + esc(it.meta.image) + '" alt="' + esc(it.meta.title || "") + '" loading="lazy" />';
           if (it.meta.title) html += "<h3>" + esc(it.meta.title) + "</h3>";
           card.innerHTML = html;
-          if (it.body.trim()) card.appendChild(renderMd(it.body));
+          const isPoem = String(it.meta.category || "").toLowerCase() === "poetry";
+          if (isPoem) card.classList.add("poem");
+          if (it.body.trim()) card.appendChild(renderMd(it.body, { breaks: isPoem }));
           if (it.meta.link) {
             const a = document.createElement("a");
             a.className = "more";

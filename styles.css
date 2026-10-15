@@ -466,3 +466,9 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .project-meta div:last-child { border-bottom: 1px solid var(--line); }
 .project-meta dt { color: var(--accent); font: 400 11px var(--mono); letter-spacing: 0.05em; text-transform: uppercase; padding-top: 3px; }
 .project-meta dd { margin: 0; color: var(--body); }
+
+/* Poems: every line break kept, comfortable reading width and spacing */
+.making-item.poem { grid-column: 1 / -1; max-width: 640px; padding: 28px 30px; }
+.making-item.poem h3 { font-size: 1.25rem; margin-bottom: 14px; }
+.making-item.poem .md { font-size: 1.05rem; line-height: 1.9; color: var(--text); }
+.making-item.poem .md p { margin: 0 0 1.4em; }

@@ -24,8 +24,9 @@
   };
 
   // Markdown -> safe element. Images stay where you put them; video files and YouTube/Vimeo links become players.
-  window.renderMd = function (md) {
-    const raw = window.marked ? marked.parse(md || "") : "";
+  window.renderMd = function (md, opts) {
+    const breaks = !!(opts && opts.breaks); // poems: keep every line break
+    const raw = window.marked ? marked.parse(md || "", { breaks: breaks, gfm: true }) : "";
     const html = window.DOMPurify ? DOMPurify.sanitize(raw) : raw;
     const box = document.createElement("div");
     box.className = "md";
