@@ -397,4 +397,6 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
     pointer-events: none;
   }
   .rail-ticks li:hover .tick-label, .rail-ticks a:focus-visible .tick-label { opacity: 1; visibility: visible; }
+  /* the two neighbours also show their names, dimmer, so three are visible at once */
+  .rail-ticks li:hover + li .tick-label, .rail-ticks li:has(+ li:hover) .tick-label { opacity: 0.55; visibility: visible; }
 }
