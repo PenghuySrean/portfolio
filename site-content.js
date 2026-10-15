@@ -321,6 +321,7 @@
     const groups = {};
     items.forEach((it) => (groups[it.category] = groups[it.category] || []).push(it));
     const cats = ORDER.filter((c) => groups[c]).concat(Object.keys(groups).filter((c) => !ORDER.includes(c)));
+    const intros = (await getJSON("content/artmaking.json")) || {};
     const grid = document.createElement("div");
     grid.className = "grid cat-grid";
     cats.forEach((c) => {
@@ -330,7 +331,10 @@
       const cover = picsOf(groups[c][0])[0];
       a.innerHTML =
         (cover ? '<img class="cms-card-cover" src="' + esc(cover) + '" alt="" loading="lazy" />' : "") +
-        "<h3>" + esc(c) + "</h3><p>" + esc(countLabel(c, groups[c].length)) + "</p>";
+        "<h3>" + esc(c) + "</h3><p>" + esc(countLabel(c, groups[c].length)) + "</p>" +
+        (String(intros["intro_" + c.toLowerCase()] || "").trim()
+          ? '<p class="card-intro">' + esc(String(intros["intro_" + c.toLowerCase()]).trim()) + "</p>"
+          : "");
       grid.appendChild(a);
     });
     root.appendChild(grid);
