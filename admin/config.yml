@@ -39,6 +39,13 @@ collections:
         options: [Thought, Opinion, Experience, Space, Book, Poem]
         default: Thought
       - { label: Image, name: image, widget: image, required: false }
+      - label: "Images per row (when you put several images together)"
+        name: columns
+        widget: select
+        options: ["Auto", "1", "2", "3", "4"]
+        default: "Auto"
+        required: false
+        hint: "Auto puts consecutive images side by side (up to 4). Choose 1 to stack them one under another."
       - { label: Text, name: body, widget: markdown }
 
   - name: projects
@@ -174,4 +181,11 @@ collections:
         hint: "Add up to 4 images. They appear in one row of 4 on a computer and in 2 x 2 on a phone."
         field: { label: Image, name: image, widget: image }
       - { label: "Link (for music: YouTube, SoundCloud...)", name: link, widget: string, required: false }
+      - label: "Images per row (when you put several images together)"
+        name: columns
+        widget: select
+        options: ["Auto", "1", "2", "3", "4"]
+        default: "Auto"
+        required: false
+        hint: "Auto puts consecutive images side by side (up to 4). Choose 1 to stack them one under another."
       - { label: "Text (a poem, or a few words)", name: body, widget: markdown, required: false }

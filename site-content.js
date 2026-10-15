@@ -154,7 +154,7 @@
           card.innerHTML = html;
           const isPoem = String(it.meta.category || "").toLowerCase() === "poetry";
           if (isPoem) card.classList.add("poem");
-          if (it.body.trim()) card.appendChild(renderMd(it.body, { breaks: isPoem }));
+          if (it.body.trim()) card.appendChild(renderMd(it.body, { breaks: isPoem, columns: it.meta.columns }));
           const pics = Array.isArray(it.meta.gallery) ? it.meta.gallery.filter(Boolean) : [];
           if (pics.length) {
             const row = document.createElement("div");

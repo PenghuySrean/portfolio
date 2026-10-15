@@ -62,7 +62,10 @@
     root.innerHTML =
       '<p><a class="back" href="musing.html">← All musings</a></p>' +
       img +
-      '<div class="post-body">' + clean(marked.parse(p.body)) + "</div>";
+      '<div class="post-body" id="post-body"></div>';
+    const holder = document.getElementById("post-body");
+    if (window.renderMd) holder.appendChild(renderMd(p.body, { columns: p.meta.columns }));
+    else holder.innerHTML = clean(marked.parse(p.body));
   }
 
   async function showList() {

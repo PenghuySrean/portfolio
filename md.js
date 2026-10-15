@@ -59,7 +59,8 @@
   };
 
   // Consecutive images become one row: 2 images = 2 columns, up to 4 columns across; 2 x 2 on a phone.
-  const groupImages = (box) => {
+  const groupImages = (box, cols) => {
+    if (cols === 1) return; // one image per line
     const kids = [...box.children];
     let i = 0;
     while (i < kids.length) {
@@ -77,7 +78,7 @@
       if (imgs.length >= 2) {
         const row = document.createElement("div");
         row.className = "gallery-row";
-        row.style.setProperty("--cols", String(Math.min(imgs.length, 4)));
+        row.style.setProperty("--cols", String(cols >= 2 ? Math.min(cols, 4) : Math.min(imgs.length, 4)));
         imgs.forEach((img) => {
           const a = document.createElement("a");
           a.href = img.getAttribute("src");
@@ -128,7 +129,7 @@
       wrap.appendChild(f);
       p.replaceWith(wrap);
     });
-    groupImages(box);
+    groupImages(box, opts && Number(opts.columns) ? Number(opts.columns) : 0);
     return box;
   };
 })();
