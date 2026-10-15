@@ -10,6 +10,18 @@ locale: en
 media_folder: uploads
 public_folder: /portfolio/uploads
 
+# Photos are resized and converted in the browser before upload,
+# so large originals work and the saved files stay small but sharp.
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 90
+          width: 2400
+          height: 2400
+
 collections:
   - name: musing
     label: Musing
