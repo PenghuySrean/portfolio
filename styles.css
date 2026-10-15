@@ -459,3 +459,10 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 
 /* profile photo: crop by position and zoom (set in the admin page) */
 .photo { overflow: hidden; }
+
+/* Project page: tools and skills rows */
+.project-meta { margin: 20px 0 8px; }
+.project-meta div { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.project-meta div:last-child { border-bottom: 1px solid var(--line); }
+.project-meta dt { color: var(--accent); font: 400 11px var(--mono); letter-spacing: 0.05em; text-transform: uppercase; padding-top: 3px; }
+.project-meta dd { margin: 0; color: var(--body); }

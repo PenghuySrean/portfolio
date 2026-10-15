@@ -37,6 +37,13 @@
     const details = find("Details");
     const demo = find("Demo");
     const hasBody = body.trim().length > 0;
+    if (meta.tools || meta.skills) {
+      const box = document.querySelector(".project-meta");
+      if (box) {
+        const mk = (label, v) => v ? '<div><dt>' + label + '</dt><dd>' + esc(v) + '</dd></div>' : "";
+        box.innerHTML = mk("Tools", meta.tools) + mk("Skills", meta.skills);
+      }
+    }
     if (details && hasBody) {
       const ph = details.querySelector(".placeholder");
       if (ph) ph.remove();

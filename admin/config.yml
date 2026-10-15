@@ -50,6 +50,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "Interplanetary collision risk analysis" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: tubin-imagery
         label: "TUBIN imagery user segment"
@@ -57,6 +59,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "TUBIN imagery user segment" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: adcs-demonstrator
         label: "ADCS demonstrator"
@@ -64,6 +68,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "ADCS demonstrator" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: student-led-satellite
         label: "Student-led satellite development project"
@@ -71,6 +77,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "Student-led satellite development project" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: leo-orbital-simulator
         label: "LEO orbital simulator"
@@ -78,6 +86,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "LEO orbital simulator" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: beesat-2-decoders
         label: "BEESAT-2 decoders"
@@ -85,6 +95,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "BEESAT-2 decoders" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: sloshing-rocket
         label: "Airbus Sloshing Rocket"
@@ -92,6 +104,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "Airbus Sloshing Rocket" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: rover-navigation
         label: "European Rover Challenge"
@@ -99,6 +113,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "European Rover Challenge" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: van-allen-belt-mission
         label: "International Space Challenge"
@@ -106,6 +122,8 @@ collections:
         fields:
           - { label: Title, name: title, widget: hidden, default: "International Space Challenge" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
 
   - name: certificates
