@@ -101,11 +101,20 @@
     }
   }
 
-  // ---- Making page ----------------------------------------------------------
+  // ---- Artmaking page: category cards -> list of items -> one item ------------
   const ORDER = ["Sketch", "Drawing", "Photography", "Poetry", "Music"];
-  async function makingPage() {
-    const root = document.querySelector("#making");
-    if (!root) return;
+  const NOUN = { Poetry: ["poem", "poems"], Sketch: ["sketch", "sketches"], Drawing: ["drawing", "drawings"], Photography: ["photo", "photos"], Music: ["track", "tracks"] };
+  const countLabel = (cat, n) => {
+    const w = NOUN[cat] || ["item", "items"];
+    return n + " " + (n === 1 ? w[0] : w[1]);
+  };
+  const plainTitle = (t) => String(t || "").replace(/^[\s_*#~-]+|[\s_*#~-]+$/g, "");
+  const fmtDate = (d) => {
+    const t = new Date(d);
+    return isNaN(t) ? "" : t.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  };
+
+  async function loadMaking() {
     let names = [];
     const idx = await getJSON("making/index.json");
     if (idx) names = idx.map((n) => (n.endsWith(".md") ? n : n + ".md"));
@@ -122,79 +131,149 @@
           if (!t) return null;
           const p = parseFrontMatter(t);
           p.slug = n.replace(/\.md$/, "");
+          p.category = p.meta.category || "Other";
           return p;
         })
       )
     ).filter(Boolean);
+    items.sort((a, b) => new Date(b.meta.date || 0) - new Date(a.meta.date || 0));
+    return items;
+  }
+
+  const picsOf = (it) => {
+    const list = Array.isArray(it.meta.gallery) ? it.meta.gallery.filter(Boolean) : [];
+    if (it.meta.image && !list.includes(it.meta.image)) list.unshift(it.meta.image);
+    return list;
+  };
+
+  const galleryRow = (it) => {
+    const pics = Array.isArray(it.meta.gallery) ? it.meta.gallery.filter(Boolean) : [];
+    if (!pics.length) return null;
+    const row = document.createElement("div");
+    row.className = "gallery-row";
+    pics.forEach((src) => {
+      const a = document.createElement("a");
+      a.href = src;
+      a.target = "_blank";
+      a.rel = "noopener";
+      const im = document.createElement("img");
+      im.src = src;
+      im.alt = plainTitle(it.meta.title);
+      im.loading = "lazy";
+      a.appendChild(im);
+      row.appendChild(a);
+    });
+    const nCols = Number(it.meta.columns);
+    if (nCols >= 1) row.style.setProperty("--cols", String(Math.min(nCols, 4)));
+    return row;
+  };
+
+  const setHead = (title, lead, backHref, backText) => {
+    const h1 = document.querySelector("main h1");
+    if (h1) h1.textContent = title;
+    const l = document.querySelector("main .lead");
+    if (l) {
+      if (lead) l.textContent = lead;
+      else l.style.display = "none";
+    }
+    const holder = document.querySelector("#making");
+    if (backHref) {
+      const p = document.createElement("p");
+      p.className = "making-back";
+      p.innerHTML = '<a class="back" href="' + backHref + '">' + backText + "</a>";
+      holder.parentNode.insertBefore(p, holder.parentNode.firstChild);
+    }
+    document.title = title + " · Penghuy Srean";
+  };
+
+  async function makingPage() {
+    const root = document.querySelector("#making");
+    if (!root) return;
+    const items = await loadMaking();
     if (!items.length) return; // keep "Coming soon"
     const soon = document.querySelector(".coming-soon");
     if (soon) soon.remove();
-    const groups = {};
-    items.forEach((it) => {
-      const c = it.meta.category || "Other";
-      (groups[c] = groups[c] || []).push(it);
-    });
-    const cats = ORDER.filter((c) => groups[c]).concat(Object.keys(groups).filter((c) => !ORDER.includes(c)));
-    cats.forEach((c) => {
-      const sec = document.createElement("section");
-      sec.id = "making-" + c.toLowerCase();
-      const h = document.createElement("h2");
-      h.textContent = c;
-      sec.appendChild(h);
-      const grid = document.createElement("div");
-      grid.className = "making-grid";
-      groups[c]
-        .sort((a, b) => new Date(b.meta.date || 0) - new Date(a.meta.date || 0))
-        .forEach((it) => {
-          const card = document.createElement("article");
-          card.className = "making-item";
-          let html = "";
-          if (it.meta.image) html += '<img src="' + esc(it.meta.image) + '" alt="' + esc(it.meta.title || "") + '" loading="lazy" />';
-          const shownTitle = String(it.meta.title || "").replace(/^[\s_*#~-]+|[\s_*#~-]+$/g, "");
-          if (shownTitle) html += "<h3>" + esc(shownTitle) + "</h3>";
-          card.innerHTML = html;
-          const isPoem = String(it.meta.category || "").toLowerCase() === "poetry";
-          if (isPoem) card.classList.add("poem");
-          if (it.body.trim()) card.appendChild(renderMd(it.body, { breaks: isPoem, columns: it.meta.columns }));
-          const pics = Array.isArray(it.meta.gallery) ? it.meta.gallery.filter(Boolean) : [];
-          if (pics.length) {
-            const row = document.createElement("div");
-            row.className = "gallery-row";
-            pics.forEach((src) => {
-              const a = document.createElement("a");
-              a.href = src;
-              a.target = "_blank";
-              a.rel = "noopener";
-              const im = document.createElement("img");
-              im.src = src;
-              im.alt = it.meta.title || "";
-              im.loading = "lazy";
-              a.appendChild(im);
-              row.appendChild(a);
-            });
-            const nCols = Number(it.meta.columns);
-            if (nCols >= 1) row.style.setProperty("--cols", String(Math.min(nCols, 4)));
-            card.classList.add("has-gallery");
-            // images from the "More images" list sit above the text
-            const mdEl = card.querySelector(".md");
-            if (mdEl) card.insertBefore(row, mdEl);
-            else card.appendChild(row);
-          }
-          if (card.querySelector(".gallery-row")) card.classList.add("has-gallery");
-          if (it.meta.link) {
-            const a = document.createElement("a");
-            a.className = "more";
-            a.href = it.meta.link;
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.textContent = "Open →";
-            card.appendChild(a);
-          }
-          grid.appendChild(card);
+    const params = new URLSearchParams(location.search);
+    const wantItem = params.get("item");
+    const wantCat = params.get("category");
+
+    // 3) one item
+    if (wantItem) {
+      const it = items.find((x) => x.slug === wantItem);
+      if (it) {
+        const cat = it.category;
+        const isPoem = cat.toLowerCase() === "poetry";
+        setHead(plainTitle(it.meta.title) || it.slug, fmtDate(it.meta.date), "artmaking.html?category=" + encodeURIComponent(cat), "← " + cat);
+        const art = document.createElement("article");
+        art.className = "making-item single" + (isPoem ? " poem" : "");
+        const row = galleryRow(it);
+        if (row) art.appendChild(row);
+        if (it.meta.image && !(Array.isArray(it.meta.gallery) && it.meta.gallery.includes(it.meta.image))) {
+          const im = document.createElement("img");
+          im.className = "single-image";
+          im.src = it.meta.image;
+          im.alt = plainTitle(it.meta.title);
+          art.appendChild(im);
+        }
+        let body = it.body || "";
+        if (isPoem) body = body.replace(/^#{1,6}[ \t]+/gm, "").replace(/^([ \t]*\d+)\.(?=[ \t])/gm, "$1\\."); // a poem line is never a heading, and "1." is not a list
+        if (body.trim()) art.appendChild(renderMd(body, { breaks: isPoem, columns: it.meta.columns }));
+        if (it.meta.link) {
+          const a = document.createElement("a");
+          a.className = "more";
+          a.href = it.meta.link;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = "Open →";
+          art.appendChild(a);
+        }
+        root.appendChild(art);
+        return;
+      }
+    }
+
+    // 2) rows of one category
+    if (wantCat) {
+      const list = items.filter((x) => x.category.toLowerCase() === wantCat.toLowerCase());
+      if (list.length) {
+        const cat = list[0].category;
+        setHead(cat, countLabel(cat, list.length), "artmaking.html", "← Artmaking");
+        const ul = document.createElement("ul");
+        ul.className = "item-rows";
+        list.forEach((it) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = "artmaking.html?item=" + encodeURIComponent(it.slug);
+          const plain = (it.body || "").replace(/^#{1,6}[ \t]+/gm, "").replace(/[*_>`!\[\]()]/g, "").replace(/\s+/g, " ").trim();
+          a.innerHTML =
+            '<span class="row-meta">' + esc(fmtDate(it.meta.date)) + "</span>" +
+            '<span class="row-title">' + esc(plainTitle(it.meta.title) || it.slug) + "</span>" +
+            '<span class="row-excerpt">' + esc(plain.slice(0, 110)) + (plain.length > 110 ? "…" : "") + "</span>";
+          li.appendChild(a);
+          ul.appendChild(li);
         });
-      sec.appendChild(grid);
-      root.appendChild(sec);
+        root.appendChild(ul);
+        return;
+      }
+    }
+
+    // 1) category cards (only categories that have something)
+    const groups = {};
+    items.forEach((it) => (groups[it.category] = groups[it.category] || []).push(it));
+    const cats = ORDER.filter((c) => groups[c]).concat(Object.keys(groups).filter((c) => !ORDER.includes(c)));
+    const grid = document.createElement("div");
+    grid.className = "grid cat-grid";
+    cats.forEach((c) => {
+      const a = document.createElement("a");
+      a.className = "card";
+      a.href = "artmaking.html?category=" + encodeURIComponent(c);
+      const cover = picsOf(groups[c][0])[0];
+      a.innerHTML =
+        (cover ? '<img class="cms-card-cover" src="' + esc(cover) + '" alt="" loading="lazy" />' : "") +
+        "<h3>" + esc(c) + "</h3><p>" + esc(countLabel(c, groups[c].length)) + "</p>";
+      grid.appendChild(a);
     });
+    root.appendChild(grid);
   }
 
   if (inProjects) projectPage();
