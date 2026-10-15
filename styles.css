@@ -516,3 +516,6 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .cat-grid .card .cms-card-cover { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: 50% 62%; margin: 0 0 14px; border: 1px solid var(--border); }
 
 .cat-grid .card .card-intro { margin-top: 12px; color: var(--body); font-size: 0.95rem; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Musing: one long card per row */
+.post-grid { grid-template-columns: 1fr; margin-top: 32px; }
