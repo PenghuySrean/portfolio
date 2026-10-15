@@ -480,3 +480,9 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .making-item.poem.has-gallery { max-width: 960px; }
 .making-item.poem .md > *:not(.gallery-row) { max-width: 640px; }
 @media (max-width: 600px) { .gallery-row { grid-template-columns: repeat(2, 1fr); } }
+
+/* Headings inside a poem are just lines of the poem, not page headings */
+.making-item.poem .md h1, .making-item.poem .md h2, .making-item.poem .md h3, .making-item.poem .md h4 {
+  font-size: inherit; font-weight: 500; letter-spacing: 0; line-height: inherit; margin: 0 0 0.2em; color: var(--text);
+}
+.making-item .gallery-row { margin: 0 0 22px; }

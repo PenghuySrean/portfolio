@@ -150,7 +150,8 @@
           card.className = "making-item";
           let html = "";
           if (it.meta.image) html += '<img src="' + esc(it.meta.image) + '" alt="' + esc(it.meta.title || "") + '" loading="lazy" />';
-          if (it.meta.title) html += "<h3>" + esc(it.meta.title) + "</h3>";
+          const shownTitle = String(it.meta.title || "").replace(/^[\s_*#~-]+|[\s_*#~-]+$/g, "");
+          if (shownTitle) html += "<h3>" + esc(shownTitle) + "</h3>";
           card.innerHTML = html;
           const isPoem = String(it.meta.category || "").toLowerCase() === "poetry";
           if (isPoem) card.classList.add("poem");
@@ -171,8 +172,13 @@
               a.appendChild(im);
               row.appendChild(a);
             });
+            const nCols = Number(it.meta.columns);
+            if (nCols >= 1) row.style.setProperty("--cols", String(Math.min(nCols, 4)));
             card.classList.add("has-gallery");
-            card.appendChild(row);
+            // images from the "More images" list sit above the text
+            const mdEl = card.querySelector(".md");
+            if (mdEl) card.insertBefore(row, mdEl);
+            else card.appendChild(row);
           }
           if (card.querySelector(".gallery-row")) card.classList.add("has-gallery");
           if (it.meta.link) {
