@@ -474,9 +474,9 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .making-item.poem .md p { margin: 0 0 1.4em; }
 
 /* Several images shown together in one row: 4 columns on desktop, 2 x 2 on a phone */
-.gallery-row { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 10px; margin-top: 18px; }
+.gallery-row { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 10px; margin-top: 18px; align-items: start; }
 .gallery-row a { display: block; }
-.gallery-row img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; margin: 0; border: 1px solid var(--border); }
+.gallery-row img { display: block; width: 100%; height: auto; margin: 0; border: 1px solid var(--border); }
 .making-item.poem.has-gallery { max-width: 960px; }
 .making-item.poem .md > *:not(.gallery-row) { max-width: 640px; }
 @media (max-width: 600px) { .gallery-row { grid-template-columns: repeat(2, 1fr); } }
