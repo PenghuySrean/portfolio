@@ -46,6 +46,7 @@ html { scroll-behavior: smooth; }
 .nav-name { font-weight: 600; font-size: 1rem; color: var(--text); white-space: nowrap; }
 .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 28px; }
 .nav-menu > li { position: relative; }
+.has-dropdown { display: flex; align-items: center; gap: 4px; }
 .nav-menu a, .nav-toggle {
   color: var(--body);
   font: 400 12px var(--mono);
@@ -70,6 +71,8 @@ html { scroll-behavior: smooth; }
   border: 1px solid var(--border);
 }
 .has-dropdown.open .dropdown, .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+.dropdown { top: 100%; }
+.coming-soon { margin: 24px 0 8px; color: var(--accent); font: 400 14px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
 .dropdown a { display: block; padding: 9px 18px; }
 .dropdown a:hover { background: #0e1014; }
 .nav-name:hover { color: var(--text); }
