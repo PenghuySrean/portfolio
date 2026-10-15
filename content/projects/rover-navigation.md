@@ -1,4 +1,4 @@
 ---
-title: "Rover navigation"
+title: "European Rover Challenge"
 demo: ""
 ---
