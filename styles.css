@@ -365,38 +365,36 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
   .dropdown { left: 0; right: 0; min-width: 0; border-left: 0; border-right: 0; }
 }
 
-/* Section rail (home page): thin ticks on the left, panel with names on hover */
+/* Section rail (home page): ticks on the left; the one under the cursor grows and shows its name */
 .rail { display: none; }
 @media (min-width: 1200px) {
   .rail { display: block; position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 40; }
-  .rail-ticks { list-style: none; margin: 0; padding: 12px 10px; display: flex; flex-direction: column; gap: 14px; }
-  .rail-ticks a { display: block; padding: 3px 0; }
-  .tick { display: block; width: 14px; height: 2px; background: var(--border); transition: width 0.18s ease, background 0.18s ease; }
-  .rail-ticks a.active .tick { width: 26px; background: var(--accent); }
-  .rail:hover .tick { background: var(--muted); }
-  .rail:hover .rail-ticks a.active .tick { background: var(--accent); }
-  .rail-panel {
+  .rail-ticks { list-style: none; margin: 0; padding: 10px 14px 10px 10px; display: flex; flex-direction: column; gap: 6px; }
+  .rail-ticks a { position: relative; display: flex; align-items: center; padding: 6px 0; }
+  .tick { display: block; width: 14px; height: 2px; background: var(--border); transition: width 0.15s ease, background 0.15s ease; }
+  .rail-ticks a.active .tick { width: 24px; background: var(--accent); }
+  /* the tick under the cursor is large, its neighbours a little larger */
+  .rail-ticks li:hover .tick { width: 40px; background: var(--text); }
+  .rail-ticks li:hover a.active .tick { background: var(--accent); }
+  .rail-ticks li:hover + li .tick, .rail-ticks li:has(+ li:hover) .tick { width: 24px; }
+  /* only the hovered section shows its name */
+  .tick-label {
     position: absolute;
-    left: 100%;
+    left: 56px;
     top: 50%;
     transform: translateY(-50%);
-    min-width: 210px;
-    padding: 8px 0;
+    padding: 8px 14px;
     background: var(--panel);
     border: 1px solid var(--border);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.18s ease;
-  }
-  .rail:hover .rail-panel, .rail:focus-within .rail-panel { opacity: 1; visibility: visible; }
-  .rail-panel a {
-    display: block;
-    padding: 9px 18px;
-    color: var(--body);
+    color: var(--text);
     font: 400 12px var(--mono);
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease;
+    pointer-events: none;
   }
-  .rail-panel a:hover { background: #0e1014; color: var(--accent); }
-  .rail-panel a.active { color: var(--accent); }
+  .rail-ticks li:hover .tick-label, .rail-ticks a:focus-visible .tick-label { opacity: 1; visibility: visible; }
 }
