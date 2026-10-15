@@ -47,8 +47,8 @@ html { scroll-behavior: smooth; }
 .nav-name { font-weight: 600; font-size: 1rem; color: var(--text); white-space: nowrap; }
 .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 28px; }
 .nav-menu > li { position: relative; }
-.has-dropdown { display: flex; align-items: center; gap: 4px; }
-.nav-menu a, .nav-toggle {
+.nav-menu > li > a, .nav-toggle {
+  display: block;
   color: var(--body);
   font: 400 12px var(--mono);
   text-transform: uppercase;
