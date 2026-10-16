@@ -58,6 +58,14 @@ For comparison, I analysed four spacecraft that stay in Earth orbit: an ISS-like
 - **Risk is concentrated.** Most of the catastrophic contribution comes from a small share of the cells a transfer passes through.
 - **Some risk cannot be screened.** A meaningful share of the catastrophic contribution comes from debris too small to be tracked.
 
+Spacecraft that stay in orbit pass through the same cells again and again, so their exposure is continuous:
+
+![Collision probability (top) and catastrophic fraction (bottom) per grid cell for the four Earth-orbit baselines: ISS-like, Starlink-like, sun-synchronous and geostationary transfer orbit.](/portfolio/uploads/crl-cells-baselines.webp)
+
+*Earth-orbit baselines, by right ascension and declination (altitude for the transfer orbit).*
+
+The transfers cross a smaller set of cells, once or a few times:
+
 ![Collision probability (top) and catastrophic fraction (bottom) per grid cell for the three transfers, by right ascension and altitude.](/portfolio/uploads/crl-cells-transfer.webp)
 
 *Collision probability (top) and catastrophic fraction (bottom) per grid cell.*
