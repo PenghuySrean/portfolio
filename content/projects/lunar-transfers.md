@@ -17,15 +17,15 @@ Existing collision-risk tools are built for spacecraft that stay in orbit. ESA's
 
 ### The project
 
-**PlanetSSA** is an ESA-funded project that is building an integrated analysis software toolbox for safe and sustainable interplanetary return missions. MAITY Space is a subcontractor to the project, and I carried out my master's thesis at Technische Universität Berlin with them. My work covers the **collision-risk assessment module**, outlined in red below, which takes a mission trajectory as input and produces risk metrics.
+This is the overall structure of the project and the scope of my thesis.
 
-![Overview of the project and the scope of the thesis: the collision-risk assessment module within PlanetSSA, its research questions, and the three lunar transfers used to demonstrate it.](/portfolio/uploads/crl-objective.webp)
+![Overview of the project and the scope of the thesis: the collision-risk assessment module within the project, its research questions, and the three lunar transfers used to demonstrate it.](/portfolio/uploads/crl-objective.webp)
 
-*The project and the scope of my work.*
+*The overall structure of the project and the scope of my thesis, outlined in red.*
 
 ### My contribution
 
-As part of the project, besides implementing the collision-risk computation software module, I designed the orbit transfers used to demonstrate it. Each represents a different way of reaching the Moon:
+As part of the work, I designed the orbit transfers used to demonstrate the collision-risk module. Designing them led me to learn about the three-body problem and the trajectory optimisation techniques required to design these orbits.
 
 - **Free-return:** a ballistic round trip around the Moon.
 - **Phasing loop:** a chemical-propulsion transfer that spends several revolutions around Earth to arrive at the Moon at the right time.
@@ -35,8 +35,6 @@ As part of the project, besides implementing the collision-risk computation soft
 
 *The three transfer trajectories.*
 
-I also carried out the verification of the tools and the trajectories.
-
 ### Methodology and results
 
-The methodology and the results are part of my master's thesis and are not shown here, as I am preparing them for publication. I am happy to discuss them in person.
+The methodology and the results are not public yet: they are part of my master's thesis and are being prepared for publication. I am happy to discuss them in person.
