@@ -2,5 +2,5 @@
 title: "STRIKE sounding rocket"
 demo: ""
 tools: ""
-skills: "Recovery system design, Parachute drop testing, Ejection system testing, Static-fire test stand, MAIT, Test campaigns"
+skills: "Recovery system design, Parachute drop testing, Ejection system testing, Static-fire test stand, MAIT, Flight test campaigns"
 ---
