@@ -13,7 +13,7 @@ Lunar and interplanetary exploration is growing. More and more actors are joinin
 
 *The protected regions around Earth.*
 
-Existing collision-risk tools are built for spacecraft that stay in orbit. ESA's own guidelines state that no fully dedicated tool exists for assessing collision risk outside Earth orbits.
+Most existing collision-risk tools are built for spacecraft that stay in orbit and cannot take an interplanetary trajectory as input, and ESA's own guidelines state that no fully dedicated tool exists for assessing collision risk outside Earth orbits. To fill this gap, I built a software tool that takes an interplanetary trajectory and analyses its collision risk in Earth's protected regions.
 
 ### The project
 
