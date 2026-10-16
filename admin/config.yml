@@ -52,10 +52,10 @@ collections:
     label: "Engineering projects"
     files:
       - name: lunar-transfers
-        label: "Interplanetary collision risk analysis"
+        label: "Cislunar collision risk assessment"
         file: content/projects/lunar-transfers.md
         fields:
-          - { label: Title, name: title, widget: hidden, default: "Interplanetary collision risk analysis" }
+          - { label: Title, name: title, widget: hidden, default: "Cislunar collision risk assessment" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
