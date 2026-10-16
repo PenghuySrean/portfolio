@@ -17,13 +17,9 @@ Existing collision-risk tools are built for spacecraft that stay in orbit. ESA's
 
 ### Objective
 
-To build and demonstrate a collision-risk assessment tool for missions that cross Earth's protected regions, working directly from the mission trajectory. It was developed as a module of an ESA-funded space-safety software suite and was the subject of my master's thesis at Technische Universität Berlin. It answers three questions:
+To build and demonstrate a collision-risk assessment tool for missions that cross Earth's protected regions, working directly from the mission trajectory. It was developed as a module of **PlanetSSA**, an ESA-funded project led by GMV that is building an integrated analysis software toolbox for safe and sustainable interplanetary return missions, and it was the subject of my master's thesis at Technische Universität Berlin, carried out with MAITY Space, a subcontractor to the project.
 
-1. How does the collision probability of a transfer mission compare with that of a spacecraft that stays in Earth orbit?
-2. Of those collisions, how many would be catastrophic?
-3. Of those catastrophic collisions, how many are caused by debris too small to be tracked?
-
-![Scope of the thesis: the collision-risk assessment module of a space-safety software suite takes a trajectory as input and produces risk metrics, answering three questions and demonstrated on three lunar transfer cases.](/portfolio/uploads/crl-objective.webp)
+![Scope of the thesis: the collision-risk assessment module within PlanetSSA takes a trajectory as input and produces risk metrics, and is demonstrated on three lunar transfer cases.](/portfolio/uploads/crl-objective.webp)
 
 *Scope of the work.*
 
@@ -45,4 +41,4 @@ The methodology and the results are part of my master's thesis and are not shown
 
 ### My role
 
-I developed the collision-risk assessment tool, designed the three test trajectories, and carried out the verification and the analysis, as part of an ESA-funded project.
+I developed the collision-risk assessment tool, designed the three test trajectories, and carried out the verification and the analysis, as part of PlanetSSA, an ESA-funded project.
