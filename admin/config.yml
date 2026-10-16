@@ -69,47 +69,29 @@ collections:
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
-      - name: adcs-demonstrator
-        label: "ADCS demonstrator"
-        file: content/projects/adcs-demonstrator.md
-        fields:
-          - { label: Title, name: title, widget: hidden, default: "ADCS demonstrator" }
-          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
-          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
-          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
-          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
-      - name: student-led-satellite
-        label: "Student-led satellite development project"
-        file: content/projects/student-led-satellite.md
-        fields:
-          - { label: Title, name: title, widget: hidden, default: "Student-led satellite development project" }
-          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
-          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
-          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
-          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
-      - name: leo-orbital-simulator
-        label: "LEO orbital simulator"
-        file: content/projects/leo-orbital-simulator.md
-        fields:
-          - { label: Title, name: title, widget: hidden, default: "LEO orbital simulator" }
-          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
-          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
-          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
-          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
-      - name: beesat-2-decoders
-        label: "BEESAT-2 decoders"
-        file: content/projects/beesat-2-decoders.md
-        fields:
-          - { label: Title, name: title, widget: hidden, default: "BEESAT-2 decoders" }
-          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
-          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
-          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
-          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: sloshing-rocket
         label: "Airbus Sloshing Rocket"
         file: content/projects/sloshing-rocket.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "Airbus Sloshing Rocket" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: aocs
+        label: "AOCS: from simulation to hardware"
+        file: content/projects/aocs.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "AOCS: from simulation to hardware" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: satellite-communications
+        label: "Satellite communications"
+        file: content/projects/satellite-communications.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "Satellite communications" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
