@@ -524,3 +524,9 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 .post-grid .card .meta { display: block; margin: 0 0 8px; font-size: 11px; }
 .post-grid .card h3 { margin: 0; font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.3; }
 .post-grid .card p { margin: 8px 0 0; font-size: 0.95rem; line-height: 1.7; }
+
+/* Projects grouped by theme */
+#projects .proj-group { margin: 56px 0 18px; color: var(--accent); font: 400 12px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+#projects .featured-grid { grid-template-columns: 1fr; }
+#projects .card.featured { border-color: var(--accent); }
+#projects .proj-also { margin: 14px 0 0; color: var(--muted); font-size: 0.9rem; }

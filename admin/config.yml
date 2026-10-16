@@ -114,6 +114,15 @@ collections:
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: strike-rocket
+        label: "STRIKE sounding rocket"
+        file: content/projects/strike-rocket.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "STRIKE sounding rocket" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: rover-navigation
         label: "European Rover Challenge"
         file: content/projects/rover-navigation.md
