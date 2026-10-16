@@ -1,56 +1,64 @@
 ---
 title: "Cislunar collision risk assessment"
 demo: ""
-tools: "ESA MASTER debris model, CCSDS OEM"
+tools: "ESA MASTER debris model"
 skills: "Collision risk assessment, Mission design, Test trajectory generation, Software verification"
 ---
 
-### The problem
+### Motivation
 
-Lunar and interplanetary missions leave Earth through the low Earth orbit region, where the debris population keeps growing. The crossing is fast and brief, so the chance of a collision is small, but at these speeds an impact is far more likely to be catastrophic. Existing collision-risk tools are built for spacecraft that stay in orbit and are described by a single set of Keplerian elements. ESA's compliance guidelines state that no fully dedicated tool exists for assessing collision risk outside Earth orbits.
+Lunar and interplanetary missions are expected to multiply in the coming years. Each one departs from Earth, and often returns to it, through the low Earth orbit region and the geostationary belt, the **protected regions** where the debris population keeps growing. The crossing is fast and brief, so a collision is unlikely, but at these speeds an impact is far more likely to be catastrophic.
 
-### What I built
+![Earth's protected regions: the low Earth orbit region up to 2000 km altitude and the geostationary region, within 15 degrees of the equator.](/portfolio/uploads/crl-protected-regions.webp)
 
-A collision-risk assessment tool that takes a mission trajectory directly as an Orbit Ephemeris Message (OEM) state history, so it can handle any trajectory, including hyperbolic segments. It was developed as a module of an ESA-funded space-safety software suite and was the subject of my master's thesis at Technische Universität Berlin.
+*The protected regions around Earth.*
 
-![Block diagram of the collision-risk assessment pipeline: OEM state history, locally Keplerian arcs, grid-cell passages, debris flux from ESA MASTER with a cache, and risk metrics.](/portfolio/uploads/crl-pipeline.svg)
+Existing collision-risk tools are built for spacecraft that stay in orbit. ESA's own guidelines state that no fully dedicated tool exists for assessing collision risk outside Earth orbits.
 
-*The pipeline, from a trajectory file to risk metrics per cell and per mission.*
+### Objective
 
-The tool reports three metrics: the **collision probability**, the **catastrophic fraction** (the share of collisions energetic enough to destroy the spacecraft), and the **unmitigable catastrophic fraction** (the share caused by debris of 10 cm or smaller, which is too small to be tracked and avoided).
+To build and demonstrate a tool that assesses the collision risk of missions crossing Earth's protected regions, starting from the trajectory itself, and to answer two questions:
 
-### Test cases
+1. How does the collision probability of a transfer mission compare with that of a spacecraft that stays in Earth orbit?
+2. Of those collisions, how many would be catastrophic, and how small can the debris be to cause one?
 
-I designed three lunar transfers from scratch to demonstrate the tool, and compared them with four resident Earth-orbit baselines (ISS-like, Starlink-like, sun-synchronous and GTO-like). All cases use a 1000 kg spacecraft with a 1 m² cross-section, the same epoch and the same debris model.
+### Methodology
 
-- **Free-return transfer:** a ballistic round trip around the Moon, computed in the circular restricted three-body problem.
-- **Phasing loop:** a sequence of Earth-centred two-body arcs connected by impulsive manoeuvres to meet a lunar arrival epoch.
-- **Low-thrust spiral:** a transfer from a GTO-like orbit to an Earth–Moon L1 halo orbit, in three phases: a tangential-thrust spiral, an optimised bridge arc (direct shooting solved with SLSQP), and a coast along the stable manifold.
+The tool reads a mission trajectory, breaks it into arcs, finds where the arcs cross a spatial grid over the protected regions, and combines each crossing with the local debris environment from ESA's MASTER model. It was developed as a module of an ESA-funded space-safety software suite, and was the subject of my master's thesis at Technische Universität Berlin.
+
+![Block diagram of the pipeline: mission trajectory, locally Keplerian arcs, crossings of a spatial grid, statistical debris flux from ESA MASTER, and risk metrics per cell and per mission.](/portfolio/uploads/crl-pipeline.svg)
+
+*The pipeline, from a trajectory file to risk metrics.*
+
+It reports three metrics, for every cell and for the mission as a whole: the **collision probability**, the **catastrophic fraction** (the share of collisions energetic enough to destroy the spacecraft), and the **unmitigable fraction** (the share caused by debris too small to be tracked and avoided).
+
+### Mission design of the test cases
+
+To demonstrate the tool, I designed three lunar transfers from scratch, each representing a different way of reaching the Moon:
+
+- **Free-return:** a ballistic round trip around the Moon.
+- **Phasing loop:** a chemical-propulsion transfer that spends several revolutions around Earth to arrive at the Moon at the right time.
+- **Low-thrust spiral:** an electric-propulsion transfer that spirals out from a transfer orbit and then coasts along a path towards a halo orbit near the Moon.
 
 ![The three lunar transfer cases in an Earth-centred inertial frame: free-return, low-thrust spiral with its bridge, manifold coast and halo orbit, and phasing loop.](/portfolio/uploads/crl-cases.webp)
 
-*The three demonstration trajectories, in an inertial frame.*
+*The three test trajectories.*
 
-I verified the pipeline in two ways. The mission designs were checked against their own physics (the Jacobi constant stays constant for the free-return and the manifold, the loop count times the orbital period matches the phasing-loop duration, and the mass history of the low-thrust arc matches the rocket equation). The collision probability was compared with ESA MASTER's target-orbit mode on four circular-orbit cases.
+For comparison, I analysed four spacecraft that stay in Earth orbit: an ISS-like orbit, a Starlink-like orbit, a sun-synchronous orbit and a geostationary transfer orbit. The mission designs and the tool were verified against the physics of each case and against ESA MASTER's reference results.
 
 ### Results
 
-**Exposure is brief.** The transfers spend a very short time in the protected LEO region: 0.33 hours for the free-return (two passages), 7.76 hours for the phasing loop and 5.06 hours for the low-thrust transfer, compared with roughly 8,800 hours for a circular LEO baseline over a year. Their hourly collision accumulation is nearly identical, so residence time explains most of the differences in probability between them.
+- **Short exposure.** The transfers cross the protected region only briefly, so their collision probability is lower than that of spacecraft that stay in orbit.
+- **Probability is not severity.** A low collision probability does not mean a low catastrophic fraction: the places where a transfer collects most collision probability are not the places where its collisions are most severe.
+- **Risk is concentrated.** Most of the catastrophic contribution comes from a small share of the cells a transfer passes through.
+- **Some risk cannot be screened.** A meaningful share of the catastrophic contribution comes from debris too small to be tracked.
 
-**Probability and severity do not coincide.** The maps below show where each transfer collects collision probability (top) and where its collisions are most likely to be catastrophic (bottom). The two peak in different places, so a region with low probability can still carry the most severe encounters.
+![Collision probability (top) and catastrophic fraction (bottom) per grid cell for the three transfers, by right ascension and altitude.](/portfolio/uploads/crl-cells-transfer.webp)
 
-![Cell-level collision probability and catastrophic fraction for the free-return, phasing-loop and low-thrust transfers, by right ascension and altitude.](/portfolio/uploads/crl-cells-transfer.webp)
+*Collision probability (top) and catastrophic fraction (bottom) per grid cell.*
 
-*Collision probability (top) and catastrophic fraction (bottom) per grid cell for the three transfers.*
-
-**Risk is concentrated.** For the transfers, the most active 5% of cells carry 36–46% of the catastrophic contribution. For the circular resident baselines, the same share is only 11–16%.
-
-**A meaningful share cannot be screened.** Of the catastrophic contribution, 19–25% comes from debris of 10 cm or smaller, a larger share than for the ISS-like and Starlink-like baselines.
-
-![Collision probability and catastrophic fraction per altitude bin for the three transfers, with the unmitigable part highlighted.](/portfolio/uploads/crl-altitude-profiles.webp)
-
-*Risk by altitude. Blue is all collisions, red is the part caused by debris of 10 cm or smaller.*
+A single collision probability for the whole mission therefore does not describe the risk of a transfer: it has to be assessed spatially and by severity.
 
 ### My role
 
-I developed the collision-risk assessment tool, designed the three demonstration trajectories, and carried out the verification and the analysis, as part of an ESA-funded project.
+I developed the collision-risk assessment tool, designed the three test trajectories, and carried out the verification and the analysis, as part of an ESA-funded project.
