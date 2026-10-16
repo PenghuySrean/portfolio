@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="560" viewBox="0 0 1500 560" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c8431d"/>
+    </marker>
+  </defs>
+  <rect width="1500" height="560" fill="#ffffff"/>
+
+  <!-- software suite -->
+  <rect x="230" y="30" width="420" height="330" rx="10" fill="#f1f1f1" stroke="#c9c9c9" stroke-width="2"/>
+  <text x="440" y="68" font-size="26" fill="#1c2333" text-anchor="middle">ESA-funded space-safety</text>
+  <text x="440" y="98" font-size="26" fill="#1c2333" text-anchor="middle">software suite</text>
+
+  <!-- module -->
+  <rect x="270" y="125" width="340" height="120" rx="12" fill="#dcebf7" stroke="#5a8fc0" stroke-width="2"/>
+  <text x="440" y="175" font-size="27" font-weight="600" fill="#1c2333" text-anchor="middle">Collision-risk</text>
+  <text x="440" y="210" font-size="27" font-weight="600" fill="#1c2333" text-anchor="middle">assessment module</text>
+
+  <!-- scope outline -->
+  <rect x="250" y="112" width="380" height="146" rx="26" fill="none" stroke="#b5121b" stroke-width="4"/>
+
+  <!-- other modules -->
+  <rect x="270" y="285" width="340" height="56" rx="10" fill="#fbe3d3" stroke="#e2a98a"/>
+  <text x="440" y="322" font-size="24" fill="#1c2333" text-anchor="middle">Other modules</text>
+
+  <!-- inputs/outputs -->
+  <text x="90" y="190" font-size="26" fill="#1c2333" text-anchor="middle">Trajectory</text>
+  <text x="90" y="218" font-size="20" fill="#6b7585" text-anchor="middle">(OEM)</text>
+  <path d="M150,185 H246" stroke="#c8431d" stroke-width="4" fill="none" marker-end="url(#a)"/>
+  <path d="M634,185 H730" stroke="#c8431d" stroke-width="4" fill="none" marker-end="url(#a)"/>
+  <text x="745" y="192" font-size="26" fill="#1c2333">Risk metrics</text>
+  <path d="M614,313 H730" stroke="#c8431d" stroke-width="4" fill="none" marker-end="url(#a)"/>
+  <text x="745" y="320" font-size="24" fill="#1c2333">Other collaborators</text>
+  <text x="440" y="392" font-size="22" font-style="italic" fill="#b5121b" text-anchor="middle">Scope of this thesis</text>
+
+  <!-- research questions -->
+  <line x1="1010" y1="40" x2="1010" y2="250" stroke="#8a8f99" stroke-width="2"/>
+  <g font-size="26" fill="#1c2333">
+    <text x="1035" y="78">Collision probability: transfer missions</text>
+    <text x="1035" y="110">versus spacecraft that stay in Earth orbit?</text>
+    <text x="1035" y="170">Of those collisions, what fraction</text>
+    <text x="1035" y="202">is catastrophic?</text>
+    <text x="1035" y="262">Of those, what fraction is unmitigable?</text>
+  </g>
+
+  <!-- demonstration -->
+  <rect x="60" y="430" width="1380" height="105" rx="10" fill="none" stroke="#9aa0ab" stroke-width="2"/>
+  <rect x="640" y="415" width="220" height="32" fill="#ffffff"/>
+  <text x="750" y="440" font-size="24" fill="#3a4559" text-anchor="middle">Demonstration</text>
+  <g font-size="26" fill="#1c2333" text-anchor="middle">
+    <rect x="150" y="470" width="300" height="46" fill="#fff59a"/><text x="300" y="504">Low-thrust transfer</text>
+    <rect x="600" y="470" width="300" height="46" fill="#fff59a"/><text x="750" y="504">Free return</text>
+    <rect x="1050" y="470" width="300" height="46" fill="#fff59a"/><text x="1200" y="504">Phasing loop</text>
+  </g>
+  <path d="M90,360 V470 H146" stroke="#c8431d" stroke-width="3" stroke-dasharray="3 6" fill="none" marker-end="url(#a)"/>
+  <path d="M90,225 V360" stroke="#c8431d" stroke-width="3" stroke-dasharray="3 6" fill="none"/>
+</svg>

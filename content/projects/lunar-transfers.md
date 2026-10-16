@@ -20,7 +20,12 @@ Existing collision-risk tools are built for spacecraft that stay in orbit. ESA's
 To build and demonstrate a tool that assesses the collision risk of missions crossing Earth's protected regions, starting from the trajectory itself, and to answer two questions:
 
 1. How does the collision probability of a transfer mission compare with that of a spacecraft that stays in Earth orbit?
-2. Of those collisions, how many would be catastrophic, and how small can the debris be to cause one?
+2. Of those collisions, how many would be catastrophic?
+3. Of those catastrophic collisions, how many are caused by debris too small to be tracked?
+
+![Scope of the thesis: the collision-risk assessment module of a space-safety software suite takes a trajectory as input and produces risk metrics, answering three questions and demonstrated on three lunar transfer cases.](/portfolio/uploads/crl-objective.svg)
+
+*Scope of the work.*
 
 ### Methodology
 
