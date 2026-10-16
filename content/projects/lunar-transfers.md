@@ -19,7 +19,7 @@ Existing collision-risk tools are built for spacecraft that stay in orbit. ESA's
 
 **PlanetSSA** is an ESA-funded project that is building an integrated analysis software toolbox for safe and sustainable interplanetary return missions. MAITY Space is a subcontractor to the project, and I carried out my master's thesis at Technische Universität Berlin with them. My work covers the **collision-risk assessment module**, outlined in red below, which takes a mission trajectory as input and produces risk metrics.
 
-![Overview of the project and the scope of the thesis: the collision-risk assessment module within PlanetSSA, its three objectives, and the three lunar transfers used to demonstrate it.](/portfolio/uploads/crl-objective.webp)
+![Overview of the project and the scope of the thesis: the collision-risk assessment module within PlanetSSA, its research questions, and the three lunar transfers used to demonstrate it.](/portfolio/uploads/crl-objective.webp)
 
 *The project and the scope of my work.*
 
