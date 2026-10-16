@@ -37,4 +37,4 @@ As part of the work, I designed the orbit transfers used to demonstrate the coll
 
 ### Methodology and results
 
-To be added after publication. I am happy to discuss them in person.
+To be added. I am happy to discuss them in person.
