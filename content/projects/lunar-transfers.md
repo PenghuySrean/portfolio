@@ -39,6 +39,10 @@ To demonstrate the tool, I designed three lunar transfers from scratch, each rep
 
 *The three test trajectories.*
 
+### Methodology and results
+
+The methodology and the results are part of my master's thesis and are not shown here, as I am preparing them for publication. I am happy to discuss them in person.
+
 ### My role
 
 I developed the collision-risk assessment tool, designed the three test trajectories, and carried out the verification and the analysis, as part of an ESA-funded project.
