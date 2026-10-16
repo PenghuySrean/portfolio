@@ -78,11 +78,20 @@ collections:
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
-      - name: aocs
-        label: "AOCS: from simulation to hardware"
-        file: content/projects/aocs.md
+      - name: orbital-decay-analysis
+        label: "Orbital decay analysis"
+        file: content/projects/orbital-decay-analysis.md
         fields:
-          - { label: Title, name: title, widget: hidden, default: "AOCS: from simulation to hardware" }
+          - { label: Title, name: title, widget: hidden, default: "Orbital decay analysis" }
+          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
+          - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
+          - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
+      - name: adcs-development
+        label: "ADCS development"
+        file: content/projects/adcs-development.md
+        fields:
+          - { label: Title, name: title, widget: hidden, default: "ADCS development" }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
