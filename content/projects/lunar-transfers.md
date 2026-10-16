@@ -37,4 +37,4 @@ As part of the work, I designed the orbit transfers used to demonstrate the coll
 
 ### Methodology and results
 
-The methodology and the results are not public yet: they are part of my master's thesis and are being prepared for publication. I am happy to discuss them in person.
+Coming after publication. I am happy to discuss them in person.
