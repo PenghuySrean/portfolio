@@ -13,9 +13,11 @@ Lunar and interplanetary missions leave Earth through the low Earth orbit region
 
 A collision-risk assessment tool that takes a mission trajectory directly as an Orbit Ephemeris Message (OEM) state history, so it can handle any trajectory, including hyperbolic segments. It was developed as a module of an ESA-funded space-safety software suite and was the subject of my master's thesis at Technische Universität Berlin.
 
-| 1. OEM state history | → | 2. Locally Keplerian arcs | → | 3. Grid-cell passages | → | 4. Debris flux (ESA MASTER) | → | 5. Risk metrics |
-|---|---|---|---|---|---|---|---|---|
-| position and velocity over time | | the trajectory is split where the orbit changes | | arcs are intersected with a spherical grid of the protected region | | local flux, relative velocity and debris size per cell, cached | | per cell and per mission |
+1. **OEM state history:** the trajectory as position and velocity over time.
+2. **Locally Keplerian arcs:** the trajectory is split wherever the orbit changes.
+3. **Grid-cell passages:** the arcs are intersected with a spherical grid of the protected region.
+4. **Debris flux:** local flux, relative velocity and debris size in each cell, taken from ESA's MASTER model and cached.
+5. **Risk metrics:** computed per cell and per mission.
 
 The tool reports three metrics: the **collision probability**, the **catastrophic fraction** (the share of collisions energetic enough to destroy the spacecraft), and the **unmitigable catastrophic fraction** (the share caused by debris of 10 cm or smaller, which is too small to be tracked and avoided).
 
