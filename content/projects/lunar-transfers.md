@@ -7,7 +7,7 @@ skills: "Collision risk assessment, Mission design, Test trajectory generation, 
 
 ### Motivation
 
-Lunar and interplanetary missions are expected to multiply in the coming years. Each one departs from Earth, and often returns to it, through the low Earth orbit region and the geostationary belt, the **protected regions** where the debris population keeps growing. The crossing is fast and brief, so a collision is unlikely, but at these speeds an impact is far more likely to be catastrophic.
+Lunar and interplanetary exploration is growing. More and more actors are joining, and lunar activity is now expanding globally and commercially, with an industry forecast of more than 250 missions planned over the coming decade ([NSR, 2022](https://www.analysysmason.com/press/it-news-online-nsr-developing-moon-market-propelled-by-250-missions-and-$105-billion-in-revenue-through-decade/)). Each of these missions leaves Earth, and often returns to it, through the protected regions of low Earth orbit and the geostationary belt, where the debris population keeps growing.
 
 ![Earth's protected regions: the low Earth orbit region up to 2000 km altitude and the geostationary region, within 15 degrees of the equator.](/portfolio/uploads/crl-protected-regions.webp)
 
