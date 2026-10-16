@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 760" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c8431d"/>
+    </marker>
+  </defs>
+  <rect width="1500" height="760" fill="#ffffff"/>
+
+  <!-- column titles -->
+  <g font-size="26" font-weight="600" fill="#1c2333" text-anchor="middle">
+    <text x="130" y="60">1. OEM</text>
+    <text x="400" y="60">2. Arcs</text>
+    <text x="690" y="60">3. Cell passages</text>
+    <text x="1010" y="60">4. Debris flux</text>
+    <text x="1330" y="60">5. Risk metrics</text>
+  </g>
+
+  <!-- 1 OEM -->
+  <rect x="30" y="90" width="200" height="300" rx="14" fill="#e8f1fb" stroke="#9db8d6"/>
+  <path d="M85,130 C60,230 60,300 100,360" fill="none" stroke="#7a8696" stroke-width="3" stroke-dasharray="9 7"/>
+  <g font-size="20" fill="#3a4559">
+    <text x="130" y="160" text-anchor="start">t₀ x₀ y₀ z₀ vₓ v_y v_z</text>
+    <text x="130" y="195">t₁ x₁ y₁ z₁ …</text>
+    <text x="130" y="230">…</text>
+  </g>
+  <text x="130" y="425" font-size="19" fill="#3a4559" text-anchor="middle">position and velocity</text>
+  <text x="130" y="450" font-size="19" fill="#3a4559" text-anchor="middle">over time</text>
+
+  <!-- 2 Arcs -->
+  <rect x="290" y="90" width="220" height="300" rx="14" fill="#e8f1fb" stroke="#9db8d6"/>
+  <g fill="none" stroke="#1f6aa5" stroke-width="5" stroke-linecap="round">
+    <path d="M360,130 C400,170 420,210 410,240" marker-end="url(#a)"/>
+    <path d="M410,248 C430,290 420,320 395,350" marker-end="url(#a)"/>
+  </g>
+  <text x="400" y="425" font-size="19" fill="#3a4559" text-anchor="middle">locally Keplerian arcs:</text>
+  <text x="400" y="450" font-size="19" fill="#3a4559" text-anchor="middle">split where the orbit changes</text>
+  <text x="400" y="480" font-size="19" fill="#3a4559" text-anchor="middle">(a, e, i, ω, Ω, ν per arc)</text>
+  <rect x="270" y="510" width="260" height="92" rx="12" fill="#f1f1f1" stroke="#cfcfcf"/>
+  <text x="400" y="540" font-size="19" fill="#3a4559" text-anchor="middle">end the arc when</text>
+  <text x="400" y="575" font-size="21" font-style="italic" fill="#1c2333" text-anchor="middle">δ = |Δa|/a_ref + |Δe| + |Δi| &gt; tol</text>
+
+  <!-- 3 Cell passages -->
+  <rect x="570" y="90" width="240" height="300" rx="14" fill="#e8f1fb" stroke="#9db8d6"/>
+  <g transform="translate(690,240)" fill="none" stroke="#6b7a90" stroke-width="2">
+    <circle r="110"/><circle r="85"/><circle r="60"/><circle r="35"/>
+    <path d="M0,-110 V110 M-110,0 H110 M-78,-78 L78,78 M78,-78 L-78,78"/>
+    <circle r="14" fill="#5db4e6" stroke="#3b8fbf"/>
+    <path d="M-30,-105 C40,-70 70,-20 40,60 C25,95 10,105 -5,108" stroke="#1f6aa5" stroke-width="5" marker-end="url(#a)"/>
+  </g>
+  <text x="690" y="425" font-size="19" fill="#3a4559" text-anchor="middle">arcs are intersected with a</text>
+  <text x="690" y="450" font-size="19" fill="#3a4559" text-anchor="middle">spherical grid (r, right ascension,</text>
+  <text x="690" y="475" font-size="19" fill="#3a4559" text-anchor="middle">declination) of the protected region</text>
+  <text x="690" y="515" font-size="19" fill="#3a4559" text-anchor="middle">each passage: cell, entry and exit,</text>
+  <text x="690" y="540" font-size="19" fill="#3a4559" text-anchor="middle">residence time Δt, velocity v_t</text>
+
+  <!-- 4 Debris flux -->
+  <rect x="870" y="90" width="280" height="300" rx="14" fill="#e8f1fb" stroke="#9db8d6"/>
+  <polygon points="1010,125 1100,160 1010,195 920,160" fill="#fff" stroke="#c8431d" stroke-width="2.5"/>
+  <text x="1010" y="166" font-size="19" fill="#1c2333" text-anchor="middle">cache exists?</text>
+  <text x="1112" y="150" font-size="18" fill="#1c2333">yes</text>
+  <text x="1018" y="226" font-size="18" fill="#1c2333">no</text>
+  <path d="M1010,195 V250" stroke="#c8431d" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="905" y="255" width="210" height="50" rx="10" fill="#fbe3d3" stroke="#e2a98a"/>
+  <text x="1010" y="287" font-size="19" fill="#1c2333" text-anchor="middle">query ESA MASTER</text>
+  <path d="M1010,305 V330" stroke="#c8431d" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="925" y="335" width="170" height="42" rx="10" fill="#cfe6f6" stroke="#8fb9d6"/>
+  <text x="1010" y="363" font-size="19" fill="#1c2333" text-anchor="middle">save cache</text>
+  <text x="1010" y="425" font-size="19" fill="#3a4559" text-anchor="middle">per cell: debris velocity v_p,</text>
+  <text x="1010" y="450" font-size="19" fill="#3a4559" text-anchor="middle">mass m_p, diameter d_p, flux F̄</text>
+  <rect x="880" y="480" width="260" height="122" rx="12" fill="#f1f1f1" stroke="#cfcfcf"/>
+  <text x="1010" y="520" font-size="22" font-style="italic" fill="#1c2333" text-anchor="middle">F = F̄ · |v_t − v_p| / v_p</text>
+  <text x="1010" y="565" font-size="22" font-style="italic" fill="#1c2333" text-anchor="middle">k = F · A · Δt</text>
+  <text x="1010" y="591" font-size="17" fill="#6b7585" text-anchor="middle">expected collisions in the cell</text>
+
+  <!-- 5 Risk metrics -->
+  <rect x="1195" y="90" width="285" height="300" rx="14" fill="#e8f1fb" stroke="#9db8d6"/>
+  <rect x="1210" y="108" width="255" height="82" rx="10" fill="#e6d4fb"/>
+  <text x="1337" y="140" font-size="21" fill="#6a2fb3" text-anchor="middle">Collision probability</text>
+  <text x="1337" y="174" font-size="22" font-style="italic" fill="#1c2333" text-anchor="middle">P = 1 − e^(−k)</text>
+  <rect x="1210" y="200" width="255" height="82" rx="10" fill="#fde3cb"/>
+  <text x="1337" y="232" font-size="21" fill="#b8620f" text-anchor="middle">Catastrophic fraction</text>
+  <text x="1337" y="266" font-size="22" font-style="italic" fill="#1c2333" text-anchor="middle">η_cat = k_cat / k</text>
+  <rect x="1210" y="292" width="255" height="82" rx="10" fill="#f8d4d8"/>
+  <text x="1337" y="324" font-size="21" fill="#b3283a" text-anchor="middle">Unmitigable fraction</text>
+  <text x="1337" y="358" font-size="22" font-style="italic" fill="#1c2333" text-anchor="middle">f_unmit = k_cat,unmit / k_cat</text>
+  <text x="1337" y="425" font-size="19" fill="#3a4559" text-anchor="middle">per cell and per mission</text>
+  <text x="1337" y="460" font-size="17" fill="#6b7585" text-anchor="middle">k_cat: catastrophic collisions</text>
+  <text x="1337" y="485" font-size="17" fill="#6b7585" text-anchor="middle">k_cat,unmit: from debris ≤ 10 cm</text>
+
+  <!-- arrows between stages -->
+  <g stroke="#c8431d" stroke-width="5" fill="none" marker-end="url(#a)">
+    <path d="M232,240 H286"/>
+    <path d="M512,240 H566"/>
+    <path d="M812,240 H866"/>
+    <path d="M1152,240 H1191"/>
+  </g>
+
+  <text x="750" y="700" font-size="22" fill="#3a4559" text-anchor="middle">Collision-risk assessment pipeline: from a trajectory file to risk metrics per cell and per mission</text>
+</svg>

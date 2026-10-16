@@ -13,11 +13,9 @@ Lunar and interplanetary missions leave Earth through the low Earth orbit region
 
 A collision-risk assessment tool that takes a mission trajectory directly as an Orbit Ephemeris Message (OEM) state history, so it can handle any trajectory, including hyperbolic segments. It was developed as a module of an ESA-funded space-safety software suite and was the subject of my master's thesis at Technische Universität Berlin.
 
-1. **OEM state history:** the trajectory as position and velocity over time.
-2. **Locally Keplerian arcs:** the trajectory is split wherever the orbit changes.
-3. **Grid-cell passages:** the arcs are intersected with a spherical grid of the protected region.
-4. **Debris flux:** local flux, relative velocity and debris size in each cell, taken from ESA's MASTER model and cached.
-5. **Risk metrics:** computed per cell and per mission.
+![Block diagram of the collision-risk assessment pipeline: OEM state history, locally Keplerian arcs, grid-cell passages, debris flux from ESA MASTER with a cache, and risk metrics.](/portfolio/uploads/crl-pipeline.svg)
+
+*The pipeline, from a trajectory file to risk metrics per cell and per mission.*
 
 The tool reports three metrics: the **collision probability**, the **catastrophic fraction** (the share of collisions energetic enough to destroy the spacecraft), and the **unmitigable catastrophic fraction** (the share caused by debris of 10 cm or smaller, which is too small to be tracked and avoided).
 
@@ -47,15 +45,11 @@ I verified the pipeline in two ways. The mission designs were checked against th
 
 **Risk is concentrated.** For the transfers, the most active 5% of cells carry 36–46% of the catastrophic contribution. For the circular resident baselines, the same share is only 11–16%.
 
-**A meaningful share cannot be screened.** Of the catastrophic contribution, 19–25% comes from debris of 10 cm or smaller, a larger share than for the ISS-like and Starlink-like baselines. At the higher encounter velocities of faster interplanetary departures, I expect this share to grow.
+**A meaningful share cannot be screened.** Of the catastrophic contribution, 19–25% comes from debris of 10 cm or smaller, a larger share than for the ISS-like and Starlink-like baselines.
 
 ![Collision probability and catastrophic fraction per altitude bin for the three transfers, with the unmitigable part highlighted.](/portfolio/uploads/crl-altitude-profiles.webp)
 
 *Risk by altitude. Blue is all collisions, red is the part caused by debris of 10 cm or smaller.*
-
-### What it means
-
-A single mission-level collision probability does not describe the risk of a transfer. Transfer risk should be assessed **spatially and by severity**, which shows where a trajectory is most exposed and where conjunction screening should focus first. The analysis also has limits: it does not model navigation uncertainty or the spacecraft's ability to manoeuvre, and "unmitigable" is defined by a tracking threshold, not by actual avoidance performance.
 
 ### My role
 
