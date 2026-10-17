@@ -1,8 +1,8 @@
 ---
-title: "Cislunar collision risk assessment"
-demo: ""
-tools: "ESA MASTER debris model"
-skills: "Collision risk assessment, Mission design, Test trajectory generation, Software verification"
+title: Cislunar collision risk assessment
+demo: ''
+tools: ESA MASTER debris model
+skills: Collision risk assessment, Mission design, Test trajectory generation, Software verification
 ---
 
 ### Motivation
@@ -11,7 +11,7 @@ Lunar and interplanetary exploration is growing. More and more actors are joinin
 
 ![Earth's protected regions: the low Earth orbit region up to 2000 km altitude and the geostationary region, within 15 degrees of the equator.](/portfolio/uploads/crl-protected-regions.webp)
 
-*The protected regions around Earth.*
+_The protected regions around Earth._
 
 Most existing collision-risk tools are built for spacecraft that stay in orbit and cannot take an interplanetary trajectory as input, and ESA's own guidelines state that no fully dedicated tool exists for assessing collision risk outside Earth orbits. To fill this gap, I built a software tool that takes an interplanetary trajectory and analyses its collision risk in Earth's protected regions.
 
@@ -21,7 +21,7 @@ This is the overall structure of the project and the scope of my thesis.
 
 ![Overview of the project and the scope of the thesis: the collision-risk assessment module within the project, its research questions, and the three lunar transfers used to demonstrate it.](/portfolio/uploads/crl-objective.webp)
 
-*The overall structure of the project and the scope of my thesis, outlined in red.*
+_The overall structure of the project and the scope of my thesis, outlined in red._
 
 ### My contribution
 
@@ -33,8 +33,8 @@ As part of the work, I designed the orbit transfers used to demonstrate the coll
 
 ![The three lunar transfer cases in an Earth-centred inertial frame: free-return, low-thrust spiral with its bridge, manifold coast and halo orbit, and phasing loop.](/portfolio/uploads/crl-cases.webp)
 
-*The three transfer trajectories.*
+_The three transfer trajectories._
 
 ### Methodology and results
 
-To be added. I am happy to discuss them in person.
+To be added
