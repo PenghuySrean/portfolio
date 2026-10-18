@@ -82,6 +82,15 @@
       const { meta } = parseFrontMatter(text);
       if (String(meta.visible).toLowerCase() === "false") card.hidden = true;
     }));
+    if (projectCards.length && projectCards.every((card) => card.hidden)) {
+      const grid = document.querySelector("#projects .grid");
+      if (grid) {
+        const empty = document.createElement("p");
+        empty.className = "projects-empty";
+        empty.textContent = "Projects will be added here.";
+        grid.appendChild(empty);
+      }
+    }
 
     const profile = await getJSON("content/profile.json");
     if (profile && profile.photo) {
