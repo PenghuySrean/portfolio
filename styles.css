@@ -21,11 +21,6 @@ body {
 
 a { color: var(--text); text-decoration: none; }
 a:hover { color: var(--accent); }
-.back-icon { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: color 160ms ease, border-color 160ms ease, background 160ms ease; }
-.back-icon svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms ease; }
-.back-icon:hover { color: var(--accent); border-color: var(--accent); background: var(--panel); }
-.back-icon:hover svg { transform: translateX(-1px); }
-.back-icon:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
 
 .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
@@ -493,7 +488,6 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 
 /* Artmaking: category cards, rows of items, one item */
 .cat-grid { margin-top: 28px; }
-.making-back { margin: 0 0 8px; }
 .item-rows { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--line); }
 .item-rows li { border-bottom: 1px solid var(--line); }
 .item-rows a { display: block; padding: 22px 4px; color: var(--text); }

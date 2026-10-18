@@ -192,31 +192,13 @@
     return row;
   };
 
-  const setHead = (title, lead, backHref, backText) => {
+  const setHead = (title, lead) => {
     const h1 = document.querySelector("main h1");
     if (h1) h1.textContent = title;
     const l = document.querySelector("main .lead");
     if (l) {
       if (lead) l.textContent = lead;
       else l.style.display = "none";
-    }
-    const holder = document.querySelector("#making");
-    if (backHref) {
-      const p = document.createElement("p");
-      p.className = "making-back";
-      const a = document.createElement("a");
-      a.className = "back back-icon";
-      a.href = backHref;
-      a.setAttribute("aria-label", "Back to " + backText);
-      const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      icon.setAttribute("viewBox", "0 0 16 16");
-      icon.setAttribute("aria-hidden", "true");
-      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttribute("d", "M10.5 2.5 5 8l5.5 5.5M5.5 8H14");
-      icon.appendChild(path);
-      a.appendChild(icon);
-      p.appendChild(a);
-      holder.parentNode.insertBefore(p, holder.parentNode.firstChild);
     }
     document.title = title + " · Penghuy Srean";
   };
@@ -238,7 +220,7 @@
       if (it) {
         const cat = it.category;
         const isPoem = cat.toLowerCase() === "poetry";
-        setHead(plainTitle(it.meta.title) || it.slug, fmtDate(it.meta.date), "artmaking.html?category=" + encodeURIComponent(cat), cat.toUpperCase());
+        setHead(plainTitle(it.meta.title) || it.slug, fmtDate(it.meta.date));
         const art = document.createElement("article");
         art.className = "making-item single" + (isPoem ? " poem" : "");
         const row = galleryRow(it);
@@ -272,13 +254,13 @@
       const list = items.filter((x) => x.category.toLowerCase() === wantCat.toLowerCase());
       if (list.length) {
         const cat = list[0].category;
-        if (!GALLERY_CATS.includes(cat)) setHead(cat, countLabel(cat, list.length), "artmaking.html", "ARTMAKING");
+        if (!GALLERY_CATS.includes(cat)) setHead(cat, countLabel(cat, list.length));
         if (GALLERY_CATS.includes(list[0].category)) {
           // gallery categories: no rows, no titles; just the pictures, with an optional intro line above
           const gcat = list[0].category;
           const pages = (await getJSON("content/artmaking.json")) || {};
           const intro = String(pages["intro_" + gcat.toLowerCase()] || "").trim();
-          setHead(gcat, "", "artmaking.html", "ARTMAKING");
+          setHead(gcat, "");
           if (intro) {
             const p = document.createElement("p");
             p.className = "category-intro";

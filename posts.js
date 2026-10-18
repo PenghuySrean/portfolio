@@ -60,7 +60,6 @@
     if (lead) lead.textContent = [fmt(p.meta.date), p.meta.tag].filter(Boolean).join(" · ");
     const img = p.meta.image ? '<img class="post-image" src="' + esc(p.meta.image) + '" alt="" />' : "";
     root.innerHTML =
-      '<p><a class="back back-icon" href="musing.html" aria-label="Back to Musings"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5 5 8l5.5 5.5M5.5 8H14" /></svg></a></p>' +
       img +
       '<div class="post-body" id="post-body"></div>';
     const holder = document.getElementById("post-body");
