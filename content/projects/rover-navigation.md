@@ -1,22 +1,22 @@
 ---
 title: "European Rover Challenge"
 demo: "/portfolio/uploads/rover-flat-yard-nav2.webm"
-tools: "ROS 2, Nav2, SLAM Toolbox, AMCL, Gazebo, RViz, LiDAR, IMU, ArUco"
-skills: "Rover kinematics, mapping, localisation, sensor fusion, autonomous navigation"
+tools: "ROS 2, Nav2, slam_toolbox, robot_localization, Gazebo, RViz, LiDAR, stereo camera, ArUco"
+skills: "Mobile robotics, mapping, localization, sensor fusion, navigation, simulation"
 ---
 
-I worked on our ERC rover. I got Nav2 driving in a flat simulation, then built a separate localisation test for the rough Mars Yard, where GNSS wasn’t allowed.
+I worked on navigation and localization for our European Rover Challenge rover.
 
-## Flat world
+## Flat test world
 
-I set up the rover model in URDF and Gazebo. `ros2_control` drove the simulated joints; I wrote the four-wheel-steering kinematics and encoder odometry. Nav2 sends a body-velocity command `(vₓ, vᵧ, ω)`. For a wheel at `(x, y)`, I calculate its required velocity as `(vₓ − ωy, vᵧ + ωx)`. That gives the steering direction and wheel speed. I added steering and acceleration limits, and slowed the wheels while steering caught up.
+I used SLAM Toolbox to make a 2D LiDAR map, then ran Nav2 in Gazebo to drive between goals. The video is from the flat test world; we didn’t get autonomous navigation working in the Mars Yard.
 
-I drove with keyboard teleop while SLAM Toolbox built a 2D LiDAR map and localised the rover at the same time, using wheel odometry as its motion estimate. After saving the map, I configured Nav2’s planner, controller, costmaps and rover footprint. For saved-map localisation, our setup used AMCL, which matches LiDAR scans to the map. SLAM Toolbox has a localisation-only mode too.
+## Mars Yard localization
 
-## Mars Yard
+On rough ground, wheel odometry can slip and IMU errors build up. Our 2D LiDAR matching wasn’t reliable enough, so I tested a 3D EKF that predicts motion from wheel and IMU data, then corrects it when the camera sees a known ArUco marker.
 
-Wheel slip and uneven ground made odometry drift, and our 2D LiDAR matching struggled on the terrain. I wrote a 3D EKF that predicts motion from wheel and IMU data, then corrects it when the camera sees a known ArUco marker. In a 44-second simulation with an eight-second marker gap, position error was 3.6 cm RMS.
-
-We drove manually from a control room without a direct view of the rover. I didn’t finish Mars Yard autonomy. Next, I wanted to build a 2.5D traversability map and use it for terrain-aware Nav2 planning.
+In a 44-second manual simulation, including 8 seconds without marker updates, position error was 3.6 cm RMS against Gazebo ground truth. This was a short simulation test.
 
 ![Mars Yard rover and ArUco detection in Gazebo and RViz](/portfolio/uploads/rover-mars-yard-localization.png)
+
+At the competition, we drove manually from a remote room without a direct view of the rover. The localization display was meant to help us see where it was and steer it remotely. I got the flat-world autonomous driving and Mars Yard localization working separately, but didn’t have time to combine them.
