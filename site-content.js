@@ -192,9 +192,27 @@
     return row;
   };
 
-  const setHead = (title, lead) => {
+  const makeBackLink = (href, label) => {
+    const a = document.createElement("a");
+    a.className = "icon-back";
+    a.href = href;
+    a.setAttribute("aria-label", label);
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    icon.setAttribute("viewBox", "0 0 16 16");
+    icon.setAttribute("aria-hidden", "true");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "M10.5 2.5 5 8l5.5 5.5M5.5 8H14");
+    icon.appendChild(path);
+    a.appendChild(icon);
+    return a;
+  };
+
+  const setHead = (title, lead, backHref, backLabel) => {
     const h1 = document.querySelector("main h1");
-    if (h1) h1.textContent = title;
+    if (h1) {
+      h1.textContent = title;
+      if (backHref) h1.parentNode.insertBefore(makeBackLink(backHref, backLabel), h1);
+    }
     const l = document.querySelector("main .lead");
     if (l) {
       if (lead) l.textContent = lead;
@@ -220,7 +238,7 @@
       if (it) {
         const cat = it.category;
         const isPoem = cat.toLowerCase() === "poetry";
-        setHead(plainTitle(it.meta.title) || it.slug, fmtDate(it.meta.date));
+        setHead(plainTitle(it.meta.title) || it.slug, fmtDate(it.meta.date), "artmaking.html?category=" + encodeURIComponent(cat), "Back to " + cat);
         const art = document.createElement("article");
         art.className = "making-item single" + (isPoem ? " poem" : "");
         const row = galleryRow(it);
@@ -254,13 +272,13 @@
       const list = items.filter((x) => x.category.toLowerCase() === wantCat.toLowerCase());
       if (list.length) {
         const cat = list[0].category;
-        if (!GALLERY_CATS.includes(cat)) setHead(cat, countLabel(cat, list.length));
+        if (!GALLERY_CATS.includes(cat)) setHead(cat, countLabel(cat, list.length), "artmaking.html", "Back to Artmaking");
         if (GALLERY_CATS.includes(list[0].category)) {
           // gallery categories: no rows, no titles; just the pictures, with an optional intro line above
           const gcat = list[0].category;
           const pages = (await getJSON("content/artmaking.json")) || {};
           const intro = String(pages["intro_" + gcat.toLowerCase()] || "").trim();
-          setHead(gcat, "");
+          setHead(gcat, "", "artmaking.html", "Back to Artmaking");
           if (intro) {
             const p = document.createElement("p");
             p.className = "category-intro";

@@ -55,7 +55,15 @@
     }
     document.title = (p.meta.title || "Musing") + " · Penghuy Srean";
     const h1 = document.querySelector("h1");
-    if (h1) h1.textContent = p.meta.title || "Musing";
+    if (h1) {
+      h1.textContent = p.meta.title || "Musing";
+      const back = document.createElement("a");
+      back.className = "icon-back";
+      back.href = "musing.html";
+      back.setAttribute("aria-label", "Back to Musings");
+      back.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5 5 8l5.5 5.5M5.5 8H14" /></svg>';
+      h1.parentNode.insertBefore(back, h1);
+    }
     const lead = document.querySelector(".lead");
     if (lead) lead.textContent = [fmt(p.meta.date), p.meta.tag].filter(Boolean).join(" · ");
     const img = p.meta.image ? '<img class="post-image" src="' + esc(p.meta.image) + '" alt="" />' : "";
