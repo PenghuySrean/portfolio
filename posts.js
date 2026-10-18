@@ -60,7 +60,7 @@
     if (lead) lead.textContent = [fmt(p.meta.date), p.meta.tag].filter(Boolean).join(" · ");
     const img = p.meta.image ? '<img class="post-image" src="' + esc(p.meta.image) + '" alt="" />' : "";
     root.innerHTML =
-      '<p><a class="back" href="musing.html">← All musings</a></p>' +
+      '<p><a class="back" href="musing.html">&lt; All musings</a></p>' +
       img +
       '<div class="post-body" id="post-body"></div>';
     const holder = document.getElementById("post-body");

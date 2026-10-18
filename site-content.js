@@ -54,7 +54,16 @@
       if (url) {
         const ph = demo.querySelector(".placeholder");
         if (ph) ph.remove();
-        demo.appendChild(renderMd(url));
+        if (/\.(mp4|webm|mov)(\?|$)/i.test(url)) {
+          const video = document.createElement("video");
+          video.controls = true;
+          video.preload = "metadata";
+          video.playsInline = true;
+          video.src = url.startsWith("/") ? url : base + url;
+          demo.appendChild(video);
+        } else {
+          demo.appendChild(renderMd(url));
+        }
       } else if (hasBody) {
         demo.remove();
       }
@@ -218,7 +227,7 @@
       if (it) {
         const cat = it.category;
         const isPoem = cat.toLowerCase() === "poetry";
-        setHead(plainTitle(it.meta.title) || it.slug, fmtDate(it.meta.date), "artmaking.html?category=" + encodeURIComponent(cat), "← " + cat);
+        setHead(plainTitle(it.meta.title) || it.slug, fmtDate(it.meta.date), "artmaking.html?category=" + encodeURIComponent(cat), "< " + cat);
         const art = document.createElement("article");
         art.className = "making-item single" + (isPoem ? " poem" : "");
         const row = galleryRow(it);
@@ -252,13 +261,13 @@
       const list = items.filter((x) => x.category.toLowerCase() === wantCat.toLowerCase());
       if (list.length) {
         const cat = list[0].category;
-        if (!GALLERY_CATS.includes(cat)) setHead(cat, countLabel(cat, list.length), "artmaking.html", "← Artmaking");
+        if (!GALLERY_CATS.includes(cat)) setHead(cat, countLabel(cat, list.length), "artmaking.html", "< Artmaking");
         if (GALLERY_CATS.includes(list[0].category)) {
           // gallery categories: no rows, no titles; just the pictures, with an optional intro line above
           const gcat = list[0].category;
           const pages = (await getJSON("content/artmaking.json")) || {};
           const intro = String(pages["intro_" + gcat.toLowerCase()] || "").trim();
-          setHead(gcat, "", "artmaking.html", "← Artmaking");
+          setHead(gcat, "", "artmaking.html", "< Artmaking");
           if (intro) {
             const p = document.createElement("p");
             p.className = "category-intro";

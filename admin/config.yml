@@ -119,7 +119,7 @@ collections:
         file: content/projects/rover-navigation.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "European Rover Challenge" }
-          - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
+          - { label: "Demo video URL or YouTube/Vimeo link", name: demo, widget: string, required: false, hint: "A local MP4, WebM or MOV file and YouTube/Vimeo links are supported." }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
