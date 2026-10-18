@@ -1,3 +1,4 @@
+visible: false
 ---
 title: "TUBIN imagery user segment"
 demo: ""

@@ -1,3 +1,4 @@
+visible: false
 ---
 title: "Satellite communications"
 demo: ""
