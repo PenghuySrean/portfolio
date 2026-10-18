@@ -9,14 +9,14 @@ I worked on our ERC rover: Nav2 autonomy in a flat simulation, then localisation
 
 ## Flat world
 
-I set up the URDF and Gazebo model. `ros2_control` drove the joints; I wrote the four-wheel-steering kinematics and encoder odometry. I teleoperated while SLAM Toolbox built a 2D LiDAR map and localised the rover from scans and odometry. SLAM does both, so mapping needed no separate localiser.
+I built the URDF and Gazebo setup. `ros2_control` drove the simulated joints; I wrote the rover-specific four-wheel-steering controller and encoder odometry. Nav2 sends a body-velocity command `(vₓ, vᵧ, ω)`. For each wheel at `(xᵢ, yᵢ)`, its velocity is `vᵢ = (vₓ − ωyᵢ, vᵧ + ωxᵢ)`. I set its steering angle to `atan2(vᵢy, vᵢx)` and wheel speed to `|vᵢ| / r`. I limited steering angle, steering rate and acceleration, reduced turn commands the steering could not follow, and slowed the wheels until steering caught up. `ros2_control` applies position PID to steering joints and velocity PID to wheel joints. For odometry, I solve for the body motion that best fits all four measured wheel turns and steering angles, then integrate it over time.
 
-With the map saved, I configured Nav2’s planner, controller, costmaps, footprint and motion limits. AMCL matched scans to the map; SLAM Toolbox localisation was another option. My controller converted Nav2 commands to wheel and steering commands.
+I used `pointcloud_to_laserscan` to convert the 3D LiDAR data to a 2D scan. While I drove with keyboard teleop, SLAM Toolbox used scan matching and wheel odometry to build the map and estimate the rover pose together; a separate AMCL wasn’t needed during mapping. After saving the map, I configured Nav2’s NavFn planner, DWB controller with rotation shim, obstacle and inflation costmaps, rover footprint and motion limits. For saved-map localisation, `map_server` loaded the occupancy grid and AMCL estimated pose by matching scans to it. SLAM Toolbox also has a localisation-only mode that loads its saved pose graph; our Nav2 launch used AMCL with the saved 2D map.
 
 ## Mars Yard
 
-Wheel slip and uneven terrain made odometry drift and our 2D LiDAR matching unreliable. A 3D EKF predicted from wheel and IMU data, then corrected with known ArUco marker poses. In a 44-second test with an eight-second marker gap, position error was 3.6 cm RMS.
+Wheel slip and uneven terrain made odometry drift and our 2D LiDAR matching unreliable. I wrote a 3D EKF that predicts motion from wheel and IMU data, then corrects the pose when the camera sees a surveyed ArUco marker. In a 44-second simulation with an eight-second marker outage, position error was 3.6 cm RMS against Gazebo ground truth.
 
-We drove manually from a control room without a direct view. I didn’t finish Mars Yard autonomy. Next: build a 2.5D traversability map for terrain-aware Nav2 planning.
+We drove manually from a control room without a direct view. I didn’t finish Mars Yard autonomy. Next: build a 2.5D traversability map and add terrain-aware costmap/planning support to Nav2.
 
 ![Mars Yard rover and ArUco detection in Gazebo and RViz](/portfolio/uploads/rover-mars-yard-localization.png)
