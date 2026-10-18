@@ -205,17 +205,16 @@
       const p = document.createElement("p");
       p.className = "making-back";
       const a = document.createElement("a");
-      a.className = "back";
+      a.className = "back back-icon";
       a.href = backHref;
+      a.setAttribute("aria-label", "Back to " + backText);
       const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       icon.setAttribute("viewBox", "0 0 16 16");
       icon.setAttribute("aria-hidden", "true");
       const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
       path.setAttribute("d", "M10.5 2.5 5 8l5.5 5.5M5.5 8H14");
       icon.appendChild(path);
-      const label = document.createElement("span");
-      label.textContent = backText;
-      a.append(icon, label);
+      a.appendChild(icon);
       p.appendChild(a);
       holder.parentNode.insertBefore(p, holder.parentNode.firstChild);
     }
