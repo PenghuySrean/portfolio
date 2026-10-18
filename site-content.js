@@ -72,6 +72,17 @@
 
   // ---- Home page: photo and certificates ----------------------------------
   async function homePage() {
+    // Project visibility is managed in the admin page alongside each project's copy.
+    const projectCards = [...document.querySelectorAll('#projects .grid > .card[href^="projects/"]')];
+    await Promise.all(projectCards.map(async (card) => {
+      const match = card.getAttribute("href").match(/projects\/([^/]+)\.html$/);
+      if (!match) return;
+      const text = await getText("content/projects/" + match[1] + ".md");
+      if (!text) return;
+      const { meta } = parseFrontMatter(text);
+      if (String(meta.visible).toLowerCase() === "false") card.hidden = true;
+    }));
+
     const profile = await getJSON("content/profile.json");
     if (profile && profile.photo) {
       const holder = document.querySelector(".photo-placeholder");
