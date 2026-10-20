@@ -37,4 +37,4 @@ _The three transfer trajectories._
 
 ### Methodology and results
 
-To be added
+More detail on the methodology and results may be added later.
