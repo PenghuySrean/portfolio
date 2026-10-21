@@ -23,8 +23,6 @@ This diagram shows the overall structure of the project and the scope of my work
 
 _The overall structure of PlanetSSA, with the scope of my work outlined in red._
 
-### My contribution
-
 As part of the work, I designed the orbit transfers used to demonstrate the collision-risk module. Designing them led me to learn about the three-body problem and the trajectory optimisation techniques required to design these orbits.
 
 - **Free-return:** a ballistic round trip around the Moon.
