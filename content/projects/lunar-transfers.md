@@ -17,11 +17,11 @@ Most existing collision-risk tools are built for spacecraft that stay in orbit a
 
 ### The project
 
-This is the overall structure of the project and the scope of my thesis.
+This diagram shows the overall structure of the project and the scope of my work.
 
 ![Overview of the project and the scope of the thesis: the collision-risk assessment module within the project, its research questions, and the three lunar transfers used to demonstrate it.](/portfolio/uploads/crl-objective.webp)
 
-_The overall structure of the project and the scope of my thesis, outlined in red._
+_The overall structure of PlanetSSA, with the scope of my work outlined in red._
 
 ### My contribution
 
