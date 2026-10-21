@@ -56,7 +56,8 @@ collections:
         file: content/projects/lunar-transfers.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "Space Debris Risk for Interplanetary Trajectories" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -66,7 +67,8 @@ collections:
         file: content/projects/tubin-imagery.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "TUBIN imagery user segment" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -76,7 +78,8 @@ collections:
         file: content/projects/sloshing-rocket.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "Airbus Sloshing Rocket" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -86,7 +89,8 @@ collections:
         file: content/projects/apsara-1.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "APSARA-1 CubeSat project" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -96,7 +100,8 @@ collections:
         file: content/projects/adcs-development.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "6-DOF Spacecraft Simulator" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -106,7 +111,8 @@ collections:
         file: content/projects/satellite-communications.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "Satellite communications" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -116,7 +122,8 @@ collections:
         file: content/projects/strike-rocket.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "STRIKE sounding rocket" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -126,7 +133,8 @@ collections:
         file: content/projects/rover-navigation.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "European Rover Challenge" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video URL or YouTube/Vimeo link", name: demo, widget: string, required: false, hint: "A local MP4, WebM or MOV file and YouTube/Vimeo links are supported." }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
@@ -136,7 +144,8 @@ collections:
         file: content/projects/van-allen-belt-mission.md
         fields:
           - { label: Title, name: title, widget: hidden, default: "International Space Challenge" }
-          - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
+          - { label: Hidden, name: hidden, widget: boolean, default: false, required: false, hint: "When on, the project is completely hidden from the public portfolio." }
+          - { label: Draft, name: draft, widget: boolean, default: false, required: false, hint: "When on, the project card remains visible but the project page shows Details coming soon. Turn it off to publish the saved details and media." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }

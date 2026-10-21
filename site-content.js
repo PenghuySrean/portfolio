@@ -25,6 +25,7 @@
   };
   const esc = (s) =>
     String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const isTrue = (value) => String(value).toLowerCase() === "true";
 
   // ---- Project pages -------------------------------------------------------
   async function projectPage() {
@@ -32,11 +33,27 @@
     const text = await getText("content/projects/" + slug + ".md");
     if (!text) return;
     const { meta, body } = parseFrontMatter(text);
+    const isHidden = isTrue(meta.hidden) || String(meta.visible).toLowerCase() === "false";
+    if (isHidden) {
+      const main = document.querySelector("main");
+      if (main) main.hidden = true;
+      return;
+    }
     const sections = [...document.querySelectorAll("main section")];
     const find = (name) => sections.find((s) => (s.querySelector("h2") || {}).textContent === name);
     const details = find("Details");
     const demo = find("Demo");
     const hasBody = body.trim().length > 0;
+    if (isTrue(meta.draft)) {
+      sections.forEach((section) => section.remove());
+      const main = document.querySelector("main");
+      if (main) {
+        const section = document.createElement("section");
+        section.innerHTML = '<h2>Details</h2><p class="placeholder">Details coming soon.</p>';
+        main.appendChild(section);
+      }
+      return;
+    }
     if (meta.tools || meta.skills) {
       const box = document.querySelector(".project-meta");
       if (box) {
@@ -80,7 +97,7 @@
       const text = await getText("content/projects/" + match[1] + ".md");
       if (!text) return;
       const { meta } = parseFrontMatter(text);
-      if (String(meta.visible).toLowerCase() === "false") card.hidden = true;
+      if (isTrue(meta.hidden) || String(meta.visible).toLowerCase() === "false") card.hidden = true;
     }));
     if (projectCards.length && projectCards.every((card) => card.hidden)) {
       const grid = document.querySelector("#projects .grid");
