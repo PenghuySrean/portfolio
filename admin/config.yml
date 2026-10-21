@@ -92,10 +92,10 @@ collections:
           - { label: "Skills (comma separated, e.g. Sensor fusion, Link budget)", name: skills, widget: string, required: false }
           - { label: "Details, images and videos", name: body, widget: markdown, hint: "Write the story. Add images or videos exactly where they belong, in the order you want. A YouTube or Vimeo link on its own line becomes a video player." }
       - name: adcs-development
-        label: "ADCS development"
+        label: "Configurable 6-DOF Spacecraft Simulator"
         file: content/projects/adcs-development.md
         fields:
-          - { label: Title, name: title, widget: hidden, default: "ADCS development" }
+          - { label: Title, name: title, widget: hidden, default: "Configurable 6-DOF Spacecraft Simulator" }
           - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
