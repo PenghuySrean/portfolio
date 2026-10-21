@@ -52,10 +52,10 @@ collections:
     label: "Engineering projects"
     files:
       - name: lunar-transfers
-        label: "Cislunar collision risk assessment"
+        label: "Space Debris Risk for Interplanetary Trajectories"
         file: content/projects/lunar-transfers.md
         fields:
-          - { label: Title, name: title, widget: hidden, default: "Cislunar collision risk assessment" }
+          - { label: Title, name: title, widget: hidden, default: "Space Debris Risk for Interplanetary Trajectories" }
           - { label: Show project, name: visible, widget: boolean, default: true, required: false, hint: "When off, this project is hidden from the home page." }
           - { label: "Demo video link (YouTube or Vimeo, optional)", name: demo, widget: string, required: false }
           - { label: "Tools (comma separated, e.g. Python, KiCad)", name: tools, widget: string, required: false }
