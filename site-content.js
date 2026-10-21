@@ -123,7 +123,7 @@
           a.href = url;
           a.target = "_blank";
           a.rel = "noopener";
-          a.textContent = "View certificate →";
+          a.textContent = "View certificate";
           ph.replaceWith(a);
         }
       });
@@ -279,7 +279,7 @@
           a.href = it.meta.link;
           a.target = "_blank";
           a.rel = "noopener";
-          a.textContent = "Open →";
+          a.textContent = "Open";
           art.appendChild(a);
         }
         root.appendChild(art);
