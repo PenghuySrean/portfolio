@@ -23,7 +23,7 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 
 ### Methodology
 
-**Simulation-first strategy**
+**Approach**
 - As the rover hardware was still under construction, the navigation software was developed and verified in simulation first, with deployment on the rover planned once the software was functional and the hardware available.
 - A model of the rover was derived from the CAD design and integrated into Gazebo and RViz, including the LiDAR, camera and IMU sensors and the drive controllers (ros2_control). Two environments were used: a flat test world and a Mars yard with ArUco markers at surveyed positions.
 
