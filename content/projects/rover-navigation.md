@@ -51,15 +51,15 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 
 Teammates helped with the simulation (rover model fixes, teleoperation and the competition field) and developed the rover's mechanical design, electronics and other subsystems.
 
-### At the competition (2023)
-
-The rover had to work on an artificial Mars yard without GPS, and we operated it from a remote room without a direct view of it. Our navigation worked on flat ground in simulation, but on rough ground 2D LiDAR matching was not reliable, so I used wheel odometry and the IMU as the internal source, corrected by ArUco markers as the external reference, fused with an EKF. I tested this localisation and it worked. Nav2 plans on a 2D map, and turning the 3D terrain into a usable 2.5D map needed more time than we had, so we made localisation the priority and drove the rover manually. The team qualified for the finals.
-
-### Flat test world (simulation)
+### Results
 
 I used SLAM Toolbox to make a 2D LiDAR map, then ran Nav2 in Gazebo to drive between goals. The video is from the flat test world; autonomous navigation was not working in the Mars Yard.
 
 On a recorded drive in the flat world, the fused localisation stayed within about 7 cm (RMS) and 2° of the true pose.
+
+### At the competition (2023)
+
+The rover had to work on an artificial Mars yard without GPS, and we operated it from a remote room without a direct view of it. Our navigation worked on flat ground in simulation, but on rough ground 2D LiDAR matching was not reliable, so I used wheel odometry and the IMU as the internal source, corrected by ArUco markers as the external reference, fused with an EKF. I tested this localisation and it worked. Nav2 plans on a 2D map, and turning the 3D terrain into a usable 2.5D map needed more time than we had, so we made localisation the priority and drove the rover manually. The team qualified for the finals.
 
 ### After the competition (2026, simulation)
 
