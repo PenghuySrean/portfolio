@@ -55,11 +55,9 @@ The rover's mechanical design, electronics and the other subsystems were develop
 
 ### Results
 
-I used SLAM Toolbox to make a 2D LiDAR map, then ran Nav2 in Gazebo to drive between goals. The video is from the flat test world; autonomous navigation was not working in the Mars Yard.
-
 ![Autonomous navigation with Nav2 in the flat test world](/portfolio/uploads/rover-flat-yard-nav2.webm)
 
-_Autonomous navigation between goals in the flat test world._
+_Demo: the rover plans and drives autonomously between goals with Nav2 on the SLAM map in the flat test world._
 
 On a recorded drive in the flat world, the fused localisation stayed within about 7 cm (RMS) and 2° of the true pose.
 
