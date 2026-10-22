@@ -69,4 +69,4 @@ The rover had to work on an artificial Mars yard without GPS, and we operated it
 
 ### After the competition (2026, simulation)
 
-After the competition, I worked on integrating the Mars yard into my autonomous navigation simulation, to make the rover navigate autonomously on the Mars yard. The approach combines a traversability map built from the yard's height map (slopes and steps the rover cannot cross), the ArUco-corrected localisation, and Nav2 with a controller for the rover's four-wheel steering. A demo will be added.
+I then worked on integrating the Mars yard into my autonomous navigation simulation, to make the rover navigate autonomously on the Mars yard. The approach combines a traversability map built from the yard's height map (slopes and steps the rover cannot cross), the ArUco-corrected localisation, and Nav2 with a controller for the rover's four-wheel steering. A demo will be added.
