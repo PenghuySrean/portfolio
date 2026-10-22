@@ -53,5 +53,3 @@ The rest of the concept, developed by my teammates, shows that the mission is fe
 ### Future work
 
 - The attitude control, thermal control and onboard data handling design were not covered and would be the next step
-
-![Distinction Award certificate, International Space Challenge 2022](/portfolio/uploads/certificates/isc-2022-distinction-award.jpeg)
