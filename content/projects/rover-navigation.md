@@ -32,7 +32,9 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 - In the flat world, LiDAR scan matching on the saved map is fused as an additional correction.
 
 **2. Mapping**
-- Built a 2D LiDAR map of the flat test world with SLAM Toolbox (scan matching with loop closure, 5 cm resolution), then reused it for localisation and planning.
+- Built a 2D LiDAR map of the flat test world with SLAM Toolbox (scan matching with loop closure, 5 cm resolution).
+- To build it, I drove the rover slowly and carefully around the field by teleoperation, with the motion estimate from wheel odometry and the IMU, while SLAM Toolbox matched the LiDAR scans into the map.
+- The saved map is the reference for the LiDAR scan-matching localisation and for the navigation planning.
 
 **3. Navigation**
 - **Framework:** Nav2, with its behaviour tree that replans the path regularly and runs recovery behaviours (spin, back up, wait) when the rover gets stuck.
