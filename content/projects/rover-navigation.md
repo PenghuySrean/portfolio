@@ -24,8 +24,8 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 ### Methodology
 
 **Simulation-first strategy**
-- The real rover was still being built, so I developed and tested the navigation software in simulation first, to deploy it on the rover once it worked and the hardware was available.
-- Built the rover model from the CAD design and loaded it into Gazebo and RViz, with the LiDAR, the camera, the IMU and the drive controllers through ros2_control, in a flat test world and in a Mars yard with ArUco markers at surveyed positions.
+- As the rover hardware was still under construction, the navigation software was developed and verified in simulation first, with deployment on the rover planned once the software was functional and the hardware available.
+- A model of the rover was derived from the CAD design and integrated into Gazebo and RViz, including the LiDAR, camera and IMU sensors and the drive controllers (ros2_control). Two environments were used: a flat test world and a Mars yard with ArUco markers at surveyed positions.
 
 **1. Localisation**
 - An extended Kalman filter fuses wheel odometry and the IMU as the internal motion estimate. The gyro bias is calibrated while the rover is parked.
