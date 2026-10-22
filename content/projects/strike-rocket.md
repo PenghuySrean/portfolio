@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "STRIKE sounding rocket"
 demo: ""
 tools: ""
