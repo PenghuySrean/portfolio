@@ -61,8 +61,6 @@ _Demo: the rover plans and drives autonomously between goals with Nav2 on the SL
 
 On a recorded drive in the flat world, the fused localisation stayed within about 7 cm (RMS) and 2° of the true pose.
 
-On rough ground, wheel odometry can slip and IMU errors build up. I tested a 3D EKF that predicts motion from wheel and IMU data, then corrects it when the camera sees a known ArUco marker. In a 44-second manual simulation, including 8 seconds without marker updates, position error was 3.6 cm RMS against Gazebo ground truth.
-
 I got flat-world autonomous driving and Mars Yard localisation working separately, but did not combine them.
 
 ### At the competition (2023)
