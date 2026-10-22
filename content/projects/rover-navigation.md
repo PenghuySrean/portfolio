@@ -35,8 +35,12 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 - Built a 2D LiDAR map of the flat test world with SLAM Toolbox (scan matching with loop closure, 5 cm resolution), then reused it for localisation and planning.
 
 **3. Navigation**
-- Nav2 on the saved map: a global planner, a local controller that first turns the rover towards the path, and costmaps that combine the static map, LiDAR obstacles and an inflation layer for the rover's footprint.
-- Goals are sent from RViz, and the rover plans and drives between them.
+- **Framework:** Nav2, with its behaviour tree that replans the path regularly and runs recovery behaviours (spin, back up, wait) when the rover gets stuck.
+- **Global planner:** NavFn, a grid search over the global costmap built from the saved SLAM map.
+- **Local controller:** DWB samples velocity commands (up to 0.5 m/s and 1 rad/s), simulates each one 1.7 s ahead, and scores the trajectories by how well they follow the path, approach the goal and avoid obstacles. A rotation shim first turns the rover towards the path when its heading is off by more than 0.35 rad.
+- **Costmaps:** a global costmap (static map, LiDAR obstacles and a 0.75 m inflation layer) and a local 5 × 5 m rolling window at 5 cm resolution. The rover's footprint is a polygon that covers the wheels over their full steering range.
+- **Drive:** a four-wheel-steering node turns Nav2's velocity commands into steering angles and wheel speeds.
+- **Goals:** sent from RViz. A goal counts as reached within 0.25 m and 0.1 rad.
 
 ### My contribution
 
