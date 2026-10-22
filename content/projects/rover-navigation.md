@@ -75,4 +75,10 @@ The team qualified for the finals.
 
 ### After the competition (2026, simulation)
 
-I then worked on integrating the Mars yard into my autonomous navigation simulation, to make the rover navigate autonomously on the Mars yard. The approach combines a traversability map built from the yard's height map (slopes and steps the rover cannot cross), the ArUco-corrected localisation, and Nav2 with a controller for the rover's four-wheel steering. A demo will be added.
+After the competition, I attempted to integrate everything together to drive the rover autonomously on the Mars yard. To do this, I:
+
+- built a traversability map from the yard's height map, marking the slopes and steps the rover cannot cross, so that Nav2 can plan on it
+- used the ArUco-corrected localisation on rough ground, fitting several visible markers together for a more accurate fix
+- adapted Nav2 to the rover's four-wheel steering, with a controller that keeps the commanded motion within the steering limits and checks it against the rover's footprint
+
+A demo will be added.
