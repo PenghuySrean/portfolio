@@ -17,23 +17,25 @@ To observe, from a CubeSat in a geostationary transfer orbit, the boundary of th
 
 The mission was formulated together with the team, and formulating it was one of the hardest parts of the project.
 
-### Mission summary
-
-- **Science goal:** to study the dynamics of radiation belt loss due to two mechanisms, magnetopause incursion and EMIC waves
-- **Mission objectives:** observe magnetopause incursions during the solar maximum, and observe EMIC waves during solar wind and storm events
-- **Orbit:** super-synchronous transfer orbit, apogee about 47,800 km altitude, perigee about 400 km, inclination 10°, eccentricity 0.78
-- **Payload:** a particle telescope (MERiT) and a fluxgate magnetometer
-- **Spacecraft:** two 12U CubeSats with a green propulsion system, UHF and S-band communications and a deployed solar array
-- **Constraints:** pass through both radiation belts, operate for at least one year, include a propulsion system, and cost less than USD 50 million
-
 ### Objective
 
+**Science goal:** to study the dynamics of radiation belt loss due to two mechanisms, magnetopause incursion and EMIC waves.
+
+**Science questions**
+- Will magnetopause incursions occur during the solar maximum, and how frequent are they compared with regular conditions?
+- How strong is the effect of magnetopause incursions on the loss of outer belt electrons during the solar maximum?
+- When and where are EMIC waves generated?
+- Which EMIC wave bands occur during the loss process?
+- What role do EMIC waves play in the dynamics of the radiation belt, and is it relevant?
+
+**Design objectives for the orbit and mission analysis**
 - Design an orbit that takes the satellites through the outer radiation belt, on the sunward side where the loss events occur
 - Plan the mission phases from launch to deorbit
 - Make sure the satellites leave orbit within the space debris guidelines
 
 ### Methodology
 
+- **Design constraints:** pass through both radiation belts, operate for at least one year, include a propulsion system, and cost less than USD 50 million
 - **Orbit design:** a highly elliptical, super-synchronous transfer orbit (apogee about 47,800 km altitude, perigee about 400 km, inclination 10°). I chose the semi-major axis to reach the outer belt, and the low inclination keeps the satellites near the equatorial plane.
 - **Mission phases:** launch, orbit correction, one year of science operation, and deorbit. The orbit is maintained during the mission so the satellites keep observing the sunward side of the belt.
 - **Lifetime analysis:** I simulated the orbit decay for four initial orbit cases, changing the RAAN, with the public tool STELA. I used the sun-perigee angle to decide when the deorbit device works best.
@@ -73,6 +75,8 @@ The other parts of the design were developed by my teammates:
 - Led the orbit and mission analysis
 - Led the electrical power system
 - Contributed to project planning and coordination
+- Supervised a team member on the delta-V calculation
+- Taught teammates CAD modelling and radiation shielding design using SPENVIS
 
 ### Results
 
