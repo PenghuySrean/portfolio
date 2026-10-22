@@ -65,7 +65,11 @@ This autonomous driving was simulated on flat ground, while the real competition
 
 ### At the competition (2023)
 
-The rover had to work on an artificial Mars yard without GPS, and we operated it from a remote room without a direct view of it. Our navigation worked on flat ground in simulation, but on rough ground 2D LiDAR matching was not reliable, so I used wheel odometry and the IMU as the internal source, corrected by ArUco markers as the external reference, fused with an EKF. I tested this localisation and it worked. Nav2 plans on a 2D map, and turning the 3D terrain into a usable 2.5D map needed more time than we had, so we made localisation the priority and drove the rover manually. The team qualified for the finals.
+As mentioned above, we did not go with autonomous navigation. The rover was operated manually from an isolated room, without a direct view of it and without GPS. Good localisation was therefore very important: it shows the rover's position on the map in RViz, so the operators can see where the rover is and drive it. I put the focus on improving the localisation.
+
+In the simulation, I loaded the Mars yard with its ArUco markers at known positions and worked on the localisation for rough ground. 2D LiDAR matching was not reliable on rough ground, so I used wheel odometry and the IMU as the internal source, corrected by the ArUco markers as the external reference, fused with an EKF. In a 44-second manual drive in simulation, including 8 seconds without marker updates, the position error was 3.6 cm RMS against the Gazebo ground truth.
+
+The team qualified for the finals.
 
 ![Mars Yard rover and ArUco detection in Gazebo and RViz](/portfolio/uploads/rover-mars-yard-localization.png)
 
