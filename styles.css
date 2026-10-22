@@ -539,3 +539,8 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 
 /* Make the hidden attribute win over component display rules (e.g. .card { display: flex }) */
 [hidden] { display: none !important; }
+
+/* Tables written in project pages */
+.project-page table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95em; }
+.project-page th, .project-page td { padding: 0.45rem 0.7rem; text-align: left; border-bottom: 1px solid rgba(128, 128, 128, 0.35); }
+.project-page th { font-weight: 600; }
