@@ -61,7 +61,7 @@ _Demo: the rover plans and drives autonomously between goals with Nav2 on the SL
 
 On a recorded drive in the flat world, the fused localisation stayed within about 7 cm (RMS) and 2° of the true pose.
 
-I got flat-world autonomous driving and Mars Yard localisation working separately, but did not combine them.
+This autonomous driving was simulated on flat ground, while the real competition field was a rough Mars yard. Because of the time limit and the technical difficulties at the time, we made a strategic change to manual operation instead of autonomous driving.
 
 ### At the competition (2023)
 
