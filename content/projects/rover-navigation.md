@@ -5,7 +5,7 @@ tools: "ROS 2, Nav2, slam_toolbox, robot_localization, Gazebo, RViz, LiDAR, ster
 skills: "Mobile robotics, mapping, localization, sensor fusion, navigation, simulation"
 ---
 
-I led the navigation subsystem of our European Rover Challenge rover in 2023: localisation, mapping and navigation in ROS 2.
+I led the navigation subsystem of our European Rover Challenge rover: localisation, mapping and navigation in ROS 2.
 
 ### Mission overview
 
@@ -64,7 +64,7 @@ On a recorded drive in the flat world, the fused localisation stayed within abou
 
 This autonomous driving was simulated on flat ground, while the real competition field was a rough Mars yard. Because of the time limit and the technical difficulties at the time, we made a strategic change to manual operation instead of autonomous driving.
 
-### At the competition (2023)
+### At the competition
 
 Since the rover was operated manually from an isolated room, good localisation was very important: it shows the rover's position on the map in RViz, so the operators can see where the rover is and drive it. I therefore put the focus on improving the localisation.
 
@@ -74,7 +74,7 @@ The team qualified for the finals.
 
 ![Mars Yard rover and ArUco detection in Gazebo and RViz](/portfolio/uploads/rover-mars-yard-localization.png)
 
-### After the competition (2026, simulation)
+### After the competition
 
 After the competition, I attempted to integrate everything together to drive the rover autonomously on the Mars yard. To do this, I:
 
