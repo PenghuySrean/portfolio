@@ -16,7 +16,7 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 
 ### Objective
 
-- Build a simulation of the rover and the competition field, so that the navigation software could be developed before the hardware existed
+- Build a simulation of the rover and the competition field
 - Localise the rover on the Mars yard without GPS
 - Build a map that the planner can use
 - Drive the rover autonomously between goals
@@ -48,9 +48,9 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 ### My contribution
 
 - Led the navigation subsystem: localisation, mapping and navigation
-- Built the rover simulation in Gazebo and RViz from the CAD model, as the platform for developing the navigation software
-- Developed the localisation: wheel odometry and IMU fused in an EKF, corrected by ArUco markers
-- Made the LiDAR map with SLAM Toolbox and set up Nav2 for autonomous navigation in the flat test world
+- Built the rover simulation
+- Developed the localisation
+- Built the map and set up Nav2 for autonomous navigation
 
 The rover's mechanical design, electronics and the other subsystems were developed by my teammates.
 
