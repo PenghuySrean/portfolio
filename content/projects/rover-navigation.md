@@ -1,6 +1,6 @@
 ---
 title: "European Rover Challenge"
-demo: "/portfolio/uploads/rover-flat-yard-nav2.webm"
+demo: ""
 tools: "ROS 2, Nav2, slam_toolbox, robot_localization, Gazebo, RViz, LiDAR, stereo camera, ArUco"
 skills: "Mobile robotics, mapping, localization, sensor fusion, navigation, simulation"
 ---
@@ -54,6 +54,10 @@ Teammates helped with the simulation (rover model fixes, teleoperation and the c
 ### Results
 
 I used SLAM Toolbox to make a 2D LiDAR map, then ran Nav2 in Gazebo to drive between goals. The video is from the flat test world; autonomous navigation was not working in the Mars Yard.
+
+![Autonomous navigation with Nav2 in the flat test world](/portfolio/uploads/rover-flat-yard-nav2.webm)
+
+_Autonomous navigation between goals in the flat test world._
 
 On a recorded drive in the flat world, the fused localisation stayed within about 7 cm (RMS) and 2° of the true pose.
 
