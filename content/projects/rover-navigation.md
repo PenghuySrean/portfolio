@@ -61,12 +61,12 @@ On rough ground, wheel odometry can slip and IMU errors build up. I tested a 3D 
 
 ![Mars Yard rover and ArUco detection in Gazebo and RViz](/portfolio/uploads/rover-mars-yard-localization.png)
 
+I got flat-world autonomous driving and Mars Yard localisation working separately, but did not combine them.
+
 ### At the competition (2023)
 
 The rover had to work on an artificial Mars yard without GPS, and we operated it from a remote room without a direct view of it. Our navigation worked on flat ground in simulation, but on rough ground 2D LiDAR matching was not reliable, so I used wheel odometry and the IMU as the internal source, corrected by ArUco markers as the external reference, fused with an EKF. I tested this localisation and it worked. Nav2 plans on a 2D map, and turning the 3D terrain into a usable 2.5D map needed more time than we had, so we made localisation the priority and drove the rover manually. The team qualified for the finals.
 
 ### After the competition (2026, simulation)
 
-I got flat-world autonomous driving and Mars Yard localisation working separately, but did not combine them.
-
-I then worked on integrating the Mars yard into my autonomous navigation simulation, to make the rover navigate autonomously on the Mars yard. The approach combines a traversability map built from the yard's height map (slopes and steps the rover cannot cross), the ArUco-corrected localisation, and Nav2 with a controller for the rover's four-wheel steering. A demo will be added.
+After the competition, I worked on integrating the Mars yard into my autonomous navigation simulation, to make the rover navigate autonomously on the Mars yard. The approach combines a traversability map built from the yard's height map (slopes and steps the rover cannot cross), the ArUco-corrected localisation, and Nav2 with a controller for the rover's four-wheel steering. A demo will be added.
