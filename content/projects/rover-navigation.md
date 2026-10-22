@@ -5,7 +5,7 @@ tools: "ROS 2, Nav2, slam_toolbox, robot_localization, Gazebo, RViz, LiDAR, ster
 skills: "Mobile robotics, mapping, localization, sensor fusion, navigation, simulation"
 ---
 
-I led the navigation subsystem of our European Rover Challenge rover in 2023: localisation, mapping and navigation in ROS 2. We could not test on the real rover while it was being built, so I developed everything first in simulation, in Gazebo and RViz, from the rover's CAD model.
+I led the navigation subsystem of our European Rover Challenge rover in 2023: localisation, mapping and navigation in ROS 2.
 
 ### Mission overview
 
@@ -23,7 +23,8 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 
 ### Methodology
 
-**Simulation**
+**Simulation-first strategy**
+- The real rover was still being built, so I developed and tested the navigation software in simulation first, to deploy it on the rover once it worked and the hardware was available.
 - Built the rover model from the CAD design and loaded it into Gazebo and RViz, with the LiDAR, the camera, the IMU and the drive controllers through ros2_control, in a flat test world and in a Mars yard with ArUco markers at surveyed positions.
 
 **1. Localisation**
@@ -65,9 +66,9 @@ This autonomous driving was simulated on flat ground, while the real competition
 
 ### At the competition (2023)
 
-As mentioned above, we did not go with autonomous navigation. The rover was operated manually from an isolated room, without a direct view of it and without GPS. Good localisation was therefore very important: it shows the rover's position on the map in RViz, so the operators can see where the rover is and drive it. I put the focus on improving the localisation.
+Since the rover was operated manually from an isolated room, good localisation was very important: it shows the rover's position on the map in RViz, so the operators can see where the rover is and drive it. I therefore put the focus on improving the localisation.
 
-In the simulation, I loaded the Mars yard with its ArUco markers at known positions and worked on the localisation for rough ground. 2D LiDAR matching was not reliable on rough ground, so I used wheel odometry and the IMU as the internal source, corrected by the ArUco markers as the external reference, fused with an EKF. In a 44-second manual drive in simulation, including 8 seconds without marker updates, the position error was 3.6 cm RMS against the Gazebo ground truth.
+In the simulation, I loaded the Mars yard and worked on the localisation for rough ground, where 2D LiDAR matching was not reliable, using the EKF with ArUco corrections described above. In a 44-second manual drive, including 8 seconds without marker updates, the position error was 3.6 cm RMS against the Gazebo ground truth.
 
 The team qualified for the finals.
 
@@ -78,7 +79,7 @@ The team qualified for the finals.
 After the competition, I attempted to integrate everything together to drive the rover autonomously on the Mars yard. To do this, I:
 
 - built a traversability map from the yard's height map, marking the slopes and steps the rover cannot cross, so that Nav2 can plan on it
-- used the ArUco-corrected localisation on rough ground, fitting several visible markers together for a more accurate fix
+- used the ArUco-corrected localisation on the rough ground
 - adapted Nav2 to the rover's four-wheel steering, with a controller that keeps the commanded motion within the steering limits and checks it against the rover's footprint
 
 A demo will be added.
