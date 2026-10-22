@@ -38,6 +38,10 @@ A student-led CubeSat project with teammates from TU Berlin, aimed at measuring 
 - Compared sensors, magnetorquers and drivers in a trade-off analysis
 - Estimated detumbling time and sized the actuators using the simulator
 
+### Results
+
+- B-dot detumbling at 800 km reduced the angular rate from about 1.1°/s to below 0.5°/s in about 2.2 hours (1.3 orbits)
+
 ### Future work
 
 - Implement and compare further attitude estimation algorithms, such as QUEST and a multiplicative extended Kalman filter (MEKF)
