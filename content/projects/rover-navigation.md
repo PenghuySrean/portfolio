@@ -41,11 +41,12 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 
 ### My contribution
 
-- Led the navigation subsystem of the rover
-- Built the simulation of the rover and integrated its sensors and controllers
-- Developed the localisation, mapping and navigation
+- Led the navigation subsystem: localisation, mapping and navigation
+- Built the rover simulation in Gazebo and RViz from the CAD model, as the platform for developing the navigation software
+- Developed the localisation: wheel odometry and IMU fused in an EKF, corrected by ArUco markers
+- Made the LiDAR map with SLAM Toolbox and set up Nav2 for autonomous navigation in the flat test world
 
-The rover's mechanical design, electronics and the other subsystems were developed by my teammates.
+Teammates helped with the simulation (rover model fixes, teleoperation and the competition field) and developed the rover's mechanical design, electronics and other subsystems.
 
 ### At the competition (2023)
 
