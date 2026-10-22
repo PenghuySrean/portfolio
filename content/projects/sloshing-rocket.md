@@ -12,5 +12,3 @@ skills: "Project management, Flight computer design, Flight simulation"
 ![Flight computer PCB, back side](/portfolio/uploads/sloshing-pcb-back.webp)
 
 ![MATLAB/Simulink rocket flight simulation model](/portfolio/uploads/Screenshot%202026-10-17%20034515.webp)
-
-Description will be added.
