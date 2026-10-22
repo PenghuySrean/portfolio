@@ -67,6 +67,16 @@ The simulator and its results are described in the paper ["Development of Orbita
 
 I also designed the command and data handling subsystem. I selected flight-proven commercial components after a trade study, including the onboard computer with 128 MB of flash memory, planned image compression to shorten the downlink, and a reset system based on watchdog timers to recover from temporary failures.
 
+### Other subsystems
+
+The other subsystems were developed by my teammates:
+
+- **Payload:** four cameras that give RGB and near-infrared images, from which vegetation maps (NDVI) are computed
+- **Attitude control:** sun sensors, a magnetometer and a gyroscope, with three magnetorquers for detumbling and nadir pointing
+- **Power:** four solar panels and two batteries of about 20 Wh in total
+- **Communications:** a UHF transceiver with a deployable antenna
+- **Structure and thermal:** an in-house machined structure, with a battery heater and passive insulation
+
 ### Future work
 
 - A more detailed atmosphere model that varies with latitude and longitude, and higher-order gravity terms
