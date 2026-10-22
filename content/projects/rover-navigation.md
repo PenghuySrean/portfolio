@@ -33,7 +33,6 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 
 **2. Mapping**
 - Built a 2D LiDAR map of the flat test world with SLAM Toolbox (scan matching with loop closure, 5 cm resolution), then reused it for localisation and planning.
-- For the Mars yard, generated an OctoMap from the 3D point cloud and worked on projecting it into a map the planner could use.
 
 **3. Navigation**
 - Nav2 on the saved map: a global planner, a local controller that first turns the rover towards the path, and costmaps that combine the static map, LiDAR obstacles and an inflation layer for the rover's footprint.
