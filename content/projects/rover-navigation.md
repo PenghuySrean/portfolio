@@ -23,8 +23,6 @@ I led the navigation subsystem of our European Rover Challenge rover in 2023: lo
 
 ### Methodology
 
-The simulation was refined after the competition; this section describes its current state.
-
 **Simulation**
 - Built the rover model from the CAD design and loaded it into Gazebo and RViz, with the LiDAR, the camera, the IMU and the drive controllers through ros2_control, in a flat test world and in a Mars yard with ArUco markers at surveyed positions.
 
