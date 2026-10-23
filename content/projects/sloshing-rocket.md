@@ -7,11 +7,17 @@ skills: ""
 
 A water rocket with a deployable wing, designed by Team Skyhawk Squadron, four TU Berlin master's students, for the Airbus Sloshing Water Rocket Workshop 2024. I was the team leader and in charge of the flight system: the flight computer and the 6-DOF flight simulation.
 
-Unfortunately, we could not launch the rocket at the event because of a technical problem. However, the team placed 3rd for the technical content, the engineering and the presentation.
-
 ![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
 
 _The rocket (CAD model by a teammate)._
+
+### Competition overview
+
+- **Competition:** the Airbus Sloshing Rocket Workshop, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it at the workshop in Portugal. The 2024 edition was my team's entry.
+- **Challenge:** a rocket whose flight is disturbed by the sloshing of water in an unpressurised tank, which the design has to manage, passively (for example with baffles) or actively (for example with control surfaces).
+- **Judged on:** the distance covered, the altitude reached, the total flight time and the payload, together with the technical report and the presentation.
+- **Main rules:** at most 1.5 m long, 2.25 m wingspan and 5 kg at take-off, launched at 85° and below 10 atmospheres. The unpressurised slosh tank holds at least 500 ml of water, half full, and the propulsion water must not weigh more than the water in the slosh tank. Water is the only propellant, and air the only gas.
+- **Team:** four TU Berlin master's students, each leading one subsystem and supporting another.
 
 ### Objective
 
@@ -56,7 +62,6 @@ The other subsystems were developed by my teammates:
 - The thrust model shows the pressure falling from about 6 bar to 3.5 bar in about 0.3 s while the water leaves the tank, with the thrust dropping from about 80 N to about 40 N
 - The simulation reproduces the expected behaviour: once all the water is out, the air expands until its pressure equals the atmosphere
 - The barometer model turns the simulated altitude into a noisy pressure signal, so the flight logic can be developed without flying
-- 3rd place for the technical content, the engineering and the presentation
 
 ![Thrust model results: thrust, inner air pressure and water mass flow over time.](/portfolio/uploads/skyhawk-thrust-model.webp)
 
@@ -70,3 +75,5 @@ _Barometer sensor model._
 
 - Validate the flight simulation against measured flight data
 - Add the rotational dynamics and the gyroscope to the flight logic
+
+Unfortunately, we could not launch the rocket at the event because of a technical problem. However, the team placed 3rd for the technical content, the engineering and the presentation.
