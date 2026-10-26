@@ -86,7 +86,15 @@ _The wing deployment mechanism._
 
 #### Wing analysis
 
-The wing analysis was done by my teammates. They chose a symmetric NACA 0012 airfoil, which keeps the effective area low and works for the swept wing despite its different chord at root and tip. Four fins and two wings are used, with the fins set to reduce the water shedding caused by the wings. The airfoil was analysed in XFLR5 for angles of attack from 75° to 120°, since the 85° launch rod and the sloshing change the angle of attack. The stability of the rocket was checked on a 1:10 scale model in OpenRocket: with the flight computer and a parachute added near the nose cone, the centre of gravity moves forward and the static margin reaches 1.73 calibres.
+The wing analysis was done by my teammates. They chose a symmetric NACA 0012 airfoil, which keeps the effective area low and works for the swept wing despite its different chord at root and tip. Four fins and two wings are used, with the fins set to reduce the water shedding caused by the wings. The airfoil was analysed in XFLR5, which gives the lift, drag and moment polars and the pressure distribution. The stability of the rocket was checked on a 1:10 scale model in OpenRocket: with the flight computer and a parachute added near the nose cone, the centre of gravity moves forward and the static margin reaches 1.73 calibres.
+
+![XFLR5 polars of the NACA 0012 airfoil for Reynolds numbers from 30,000 to 3,000,000: lift, drag, moment and lift-to-drag against angle of attack.](/portfolio/uploads/skyhawk-xflr5-polars.webp)
+
+_XFLR5 polars of the NACA 0012 (Reynolds numbers 30,000 to 3,000,000)._
+
+![XFLR5 pressure coefficient along the NACA 0012 chord at a Reynolds number of 30,000.](/portfolio/uploads/skyhawk-xflr5-cp.webp)
+
+_Pressure coefficient along the chord, Reynolds number 30,000._
 
 ![OpenRocket model of the scaled rocket with wings and four fins, with a static margin of 1.73 calibres.](/portfolio/uploads/skyhawk-wing-stability-openrocket.webp)
 
