@@ -7,8 +7,6 @@ skills: ""
 
 A water rocket with a deployable wing, designed by Team Skyhawk Squadron, four TU Berlin master's students, for the Airbus Sloshing Water Rocket Workshop 2024. I was the team leader and in charge of the flight system: the flight computer and the 6-DOF flight simulation.
 
-Unfortunately, we could not launch the rocket at the event because of a technical problem. However, the team placed 3rd for the technical content, the engineering and the presentation.
-
 ![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
 
 _The rocket (CAD model by a teammate)._
@@ -70,3 +68,5 @@ _Barometer sensor model._
 
 - Validate the flight simulation against measured flight data
 - Add the rotational dynamics and the gyroscope to the flight logic
+
+Unfortunately, we could not launch the rocket at the event because of a technical problem. However, the team placed 3rd for the technical content, the engineering and the presentation.
