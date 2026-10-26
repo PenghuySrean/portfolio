@@ -19,7 +19,7 @@ _The rocket (CAD model by a teammate)._
 
 ### Approach
 
-To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. Without a slosh tank, about 35% of the bottle is roughly the optimum. The rules change this: the water in the slosh tank must be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. With the wings folded, the best fill was about 12.5% (0.5 L), reaching 14.3 m, against 11.6 m at 35% (the tank masses are estimates). The second question was the wing. A folding wing could give a longer descent, but I first needed to see how a wing behaves in flight, so I extended the simulation with a wing model.
+To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. Without a slosh tank, about 35% of the bottle is roughly the optimum. The rules change this: the water in the slosh tank must be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. With the wings folded, the best fill was about 12.5% (0.5 L), reaching 14.3 m, against 11.6 m at 35% (the tank masses are estimates). The second question was the wing. A wing would give a longer descent, but a fixed wing was a problem: it could flip the rocket backwards during the climb, and its large area would make a near-vertical rocket sensitive to wind. This led to a deployable wing, folded during the climb and unfolded in flight. To choose when to unfold it, I extended the simulation with a wing model. Deploying near the apogee gives the rocket the best chance to glide far.
 
 ### Simulation
 
@@ -37,7 +37,7 @@ _The Simulink flight simulation._
 
 ### Design of the rocket
 
-The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold near the apogee. Deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide. The sloshing analysis, stability work and wing mechanism were handled by my teammates.
+The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold at the apogee. In the simulation, deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide. The sloshing analysis, stability work and wing mechanism were handled by my teammates.
 
 The rocket has a body made from PET bottles with a sharp nose cone, four swept fins, two foldable wings, and the slosh tank mounted on the body. My teammates designed the structure, the wing and the mechanism.
 
