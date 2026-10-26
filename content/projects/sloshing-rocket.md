@@ -17,9 +17,13 @@ _The rocket (CAD model by a teammate)._
 - **Main rules:** at most 1.5 m long, 2.25 m wingspan and 5 kg at take-off, launched at 85° with a pressure below 10 atmospheres. The unpressurised slosh tank holds at least 500 ml of water, half full, and the propulsion water must not weigh more than the water in the slosh tank. Water is the only propellant, and air the only gas.
 - **Team:** four TU Berlin master's students, each leading one subsystem and supporting another.
 
+### Approach
+
+To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. Without a slosh tank, about 35% of the bottle is roughly the optimum. The rules change this: the water in the slosh tank must be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. With the wings folded, the best fill was about 12.5% (0.5 L), reaching 14.3 m, against 11.6 m at 35% (the tank masses are estimates). The second question was the wing. A folding wing could give a longer descent, but I first needed to see how a wing behaves in flight, so I extended the simulation with a wing model.
+
 ### Simulation
 
-The first step was a flight simulation of the rocket in Simulink, which I built so that design options could be tested before anything was built.
+Both questions were answered with a flight simulation of the rocket in Simulink, which I built so that design options could be tested before anything was built.
 
 - **States:** the position and velocity in an Earth-fixed frame, and the masses of water and air in the bottle, integrated with a fixed-step Runge-Kutta solver (1 ms).
 - **Forces:** point-mass gravity, aerodynamic drag in an exponential atmosphere, and thrust along the flight direction, for a launch at 85°.
@@ -31,11 +35,41 @@ The first step was a flight simulation of the rocket in Simulink, which I built 
 
 _The Simulink flight simulation._
 
-### Design: a foldable wing
+### Design of the rocket
 
 The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold near the apogee. Deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide. The sloshing analysis, stability work and wing mechanism were handled by my teammates.
 
-### Expected performance
+The rocket has a body made from PET bottles with a sharp nose cone, four swept fins, two foldable wings, and the slosh tank mounted on the body. My teammates designed the structure, the wing and the mechanism.
+
+![The rocket with the wings folded for the climb.](/portfolio/uploads/skyhawk-rocket-folded.webp)
+
+_Wings folded during the climb._
+
+![The rocket with the wings unfolded at the apogee.](/portfolio/uploads/skyhawk-rocket-unfolded.webp)
+
+_Wings unfolded at the apogee._
+
+![The wing mechanism with its parts labelled: servo motor, rubber band, tension springs, pin puller, wing housings and mount.](/portfolio/uploads/skyhawk-wing-mechanism.webp)
+
+_The wing deployment mechanism._
+
+### Flight computer and wing deployment
+
+The wing has to unfold at the apogee, so the rocket needs to detect it. The flight computer, which I designed, does this:
+
+1. The **pressure sensor** measures the atmospheric pressure, and the microcontroller converts it into the altitude.
+2. The **inertial sensor** records the acceleration and the angular rate for the flight analysis.
+3. At the deployment altitude, set near the apogee, the microcontroller sends a signal to the **servo motor**.
+4. The servo releases the **rubber band** that holds the wings folded, and the **tension springs** unfold them against the air. A **pin puller** then locks each wing in the unfolded position.
+5. The board also logs the flight data on a memory card, and has indicators (LED and buzzer) for the development and the launch.
+
+The board has a microcontroller, an inertial sensor, a pressure sensor, a memory card, indicators and three servo outputs, one for the wing deployment and two as backup. The deployment logic was designed with the simulation, with a barometer model that includes sensor noise.
+
+![The flight computer board with its main components labelled: Arduino Nano, BME280 pressure sensor, MPU6050 inertial sensor, memory card holder, buzzer, LED, power switch and digital pins.](/portfolio/uploads/skyhawk-flight-computer-pcb.webp)
+
+_The flight computer board._
+
+### Results: expected performance
 
 The design report lists a structure mass of 3.24 kg before adding the water. With the revised model I explored a lighter redesign that keeps the slosh tank and the deployable wing: a **1.1 kg structure target**, including the wing, mechanism and electronics, with a 4 L propulsion tank, a 15 mm nozzle, a launch pressure of 10 bar absolute (9.87 atm, just under the limit) and 0.5 L each of propulsion and slosh water. The wing follows the CAD dimensions, enlarged to about 1.37 m span and 0.27 m mean chord so the panels still fold along the 0.8 m body tube. This is an unbuilt target: earlier component estimates totalled 1.2 kg, and the last 100 g have not been allocated to components.
 
@@ -60,38 +94,6 @@ Limits of these results:
 - **Flight model:** translational dynamics with a trimmed wing at a fixed lift coefficient of 0.8; no stall, pitch dynamics or deployment delay. The glide distances are upper bounds, and the large gap between the two glide columns shows how sensitive the range is to the pull-up.
 - **Verification:** the propulsion and glide models were cross-checked between Python and Simulink and against analytical checks. The 1.1 kg figures use native Simulink runs with a 1 ms step; the 1.5 g limit uses the Python replica.
 - **Validation:** none of these numbers has been compared with flight measurements. They are needed, especially for the wing aerodynamics and the transition from a near-vertical climb into a glide.
-
-### Flight computer and wing deployment
-
-The wing has to unfold at the apogee, so the rocket needs to detect it. The flight computer, which I designed, does this:
-
-1. The **pressure sensor** measures the atmospheric pressure, and the microcontroller converts it into the altitude.
-2. The **inertial sensor** records the acceleration and the angular rate for the flight analysis.
-3. At the deployment altitude, set near the apogee, the microcontroller sends a signal to the **servo motor**.
-4. The servo releases the **rubber band** that holds the wings folded, and the **tension springs** unfold them against the air. A **pin puller** then locks each wing in the unfolded position.
-5. The board also logs the flight data on a memory card, and has indicators (LED and buzzer) for the development and the launch.
-
-The board has a microcontroller, an inertial sensor, a pressure sensor, a memory card, indicators and three servo outputs, one for the wing deployment and two as backup. The deployment logic was designed with the simulation, with a barometer model that includes sensor noise.
-
-![The flight computer board with its main components labelled: Arduino Nano, BME280 pressure sensor, MPU6050 inertial sensor, memory card holder, buzzer, LED, power switch and digital pins.](/portfolio/uploads/skyhawk-flight-computer-pcb.webp)
-
-_The flight computer board._
-
-### The rocket
-
-The rocket has a body made from PET bottles with a sharp nose cone, four swept fins, two foldable wings, and the slosh tank mounted on the body. My teammates designed the structure, the wing and the mechanism.
-
-![The rocket with the wings folded for the climb.](/portfolio/uploads/skyhawk-rocket-folded.webp)
-
-_Wings folded during the climb._
-
-![The rocket with the wings unfolded at the apogee.](/portfolio/uploads/skyhawk-rocket-unfolded.webp)
-
-_Wings unfolded at the apogee._
-
-![The wing mechanism with its parts labelled: servo motor, rubber band, tension springs, pin puller, wing housings and mount.](/portfolio/uploads/skyhawk-wing-mechanism.webp)
-
-_The wing deployment mechanism._
 
 ### My contribution
 
