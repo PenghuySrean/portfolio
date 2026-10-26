@@ -38,11 +38,11 @@ The flight simulation was built in Simulink as a point-mass model with gravity, 
 
 _The Simulink flight simulation._
 
-**Propulsion water.** The fill was varied from 10% to 50% with the wings folded, with the slosh water and the tank mass increasing with the propellant. The height is highest for fills of about 12.5% to 20%, so 0.5 L was used. The tank masses are estimates.
+**Propulsion water.** The fill was varied from 10% to 40% with the wings folded, with the slosh water and the tank mass increasing with the propellant. The height is highest for fills of about 12.5% to 20%, so 0.5 L was used. The tank masses are estimates.
 
 ![Maximum height against propulsion water fill.](/portfolio/uploads/skyhawk-water-fill-height.png)
 
-_Maximum height against water fill, wings folded. Crosses mark take-off masses above 5 kg._
+_Maximum height against water fill, wings folded.._
 
 **Deployment point.** Varying the deployment point shows that the apogee is the best choice: an idealised glide gives 53 m, against 6 to 14 m for deployment during the climb or the descent. Early deployment can push the rocket backwards, an effect of the model having no attitude.
 
