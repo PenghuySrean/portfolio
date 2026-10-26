@@ -14,7 +14,7 @@ _The rocket (CAD model by a teammate)._
 - **Competition:** the Airbus Sloshing Rocket Workshop, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it at the workshop in Portugal. The 2024 edition was my team's entry.
 - **Challenge:** a rocket whose flight is disturbed by the sloshing of water in an unpressurised tank, which the design has to manage, passively (for example with baffles) or actively (for example with control surfaces).
 - **Judged on:** the distance covered, the altitude reached, the total flight time and the payload, together with the technical report and the presentation.
-- **Main rules:** at most 1.5 m long, 2.25 m wingspan and 5 kg at take-off, launched at 85° and below 10 atmospheres. The unpressurised slosh tank holds at least 500 ml of water, half full, and the propulsion water must not weigh more than the water in the slosh tank. Water is the only propellant, and air the only gas.
+- **Main rules:** at most 1.5 m long, 2.25 m wingspan and 5 kg at take-off, launched at 85° with a pressure below 10 atmospheres. The unpressurised slosh tank holds at least 500 ml of water, half full, and the propulsion water must not weigh more than the water in the slosh tank. Water is the only propellant, and air the only gas.
 - **Team:** four TU Berlin master's students, each leading one subsystem and supporting another.
 
 ### Objective
@@ -44,7 +44,7 @@ The team chose a foldable wing to combine a low-drag climb with a longer descent
 
 ### Expected performance
 
-The design report lists a structure mass of 3.24 kg before adding the water. With the revised model I explored a lighter redesign that keeps the slosh tank and the deployable wing: a **1.1 kg structure target**, including the wing, mechanism and electronics, with a 4 L propulsion tank, a 15 mm nozzle, 10 bar absolute launch pressure and 0.5 L each of propulsion and slosh water. The wing follows the CAD dimensions, enlarged to about 1.37 m span and 0.27 m mean chord so the panels still fold along the 0.8 m body tube. This is an unbuilt target: earlier component estimates totalled 1.2 kg, and the last 100 g have not been allocated to components.
+The design report lists a structure mass of 3.24 kg before adding the water. With the revised model I explored a lighter redesign that keeps the slosh tank and the deployable wing: a **1.1 kg structure target**, including the wing, mechanism and electronics, with a 4 L propulsion tank, a 15 mm nozzle, a launch pressure of 10 bar absolute (9.87 atm, just under the limit) and 0.5 L each of propulsion and slosh water. The wing follows the CAD dimensions, enlarged to about 1.37 m span and 0.27 m mean chord so the panels still fold along the 0.8 m body tube. This is an unbuilt target: earlier component estimates totalled 1.2 kg, and the last 100 g have not been allocated to components.
 
 **The model predicts a maximum height of 14.3 m.** With the wings folded, the rocket lands 5.6 m from the pad after 3.5 s. With instant deployment and an idealised trimmed wing, it travels 52.0 m and stays aloft for 7.9 s. Limiting the lift to 1.5 times the weight reduces this to 16.6 m and 4.0 s. The table changes only the structure mass.
 
