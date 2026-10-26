@@ -97,23 +97,4 @@ Limits of these results:
 - **Verification:** the propulsion and glide models were cross-checked between Python and Simulink and against analytical checks. The 1.1 kg figures use native Simulink runs with a 1 ms step; the 1.5 g limit uses the Python replica.
 - **Validation:** none of these numbers has been compared with flight measurements. They are needed, especially for the wing aerodynamics and the transition from a near-vertical climb into a glide.
 
-### My contribution
-
-- Designed the flight computer
-- Developed the flight simulation with the thrust and sensor models, and later extended it with the wing and glide phase
-- Set the timing of the wing deployment from the simulation
-
-### Other subsystems
-
-The other subsystems were developed by my teammates:
-
-- **Mechanical design:** the rocket structure and the wing
-- **Aerodynamics and flight dynamics:** the wing profile and the sloshing simulation
-- **Avionics and propulsion:** integration of the avionics and the propulsion system
-
-### Future work
-
-- Validate the flight simulation against measured flight data
-- Add the rotational dynamics (pitch and attitude) to the simulation and the gyroscope to the flight logic
-
 Unfortunately, we could not launch the rocket at the event because of a technical problem. However, the team placed 3rd for the technical content, the engineering and the presentation.
