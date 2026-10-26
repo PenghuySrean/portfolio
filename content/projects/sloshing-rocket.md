@@ -61,10 +61,6 @@ _Deployment point sweep for the 1.1 kg design, Python model._
 
 _Native Simulink, 1.1 kg structure and 15 mm nozzle. Solid: wings unfolded; dashed: wings folded._
 
-![Trajectory and altitude over time for the 1.1 kg structure study.](/portfolio/uploads/skyhawk-sim-balanced-1p1-trajectory.png)
-
-_The same rocket with the wings folded and unfolded at apogee._
-
 Limits of these results:
 
 - **Flight model:** translational dynamics with a trimmed wing at a fixed lift coefficient of 0.8; no stall, pitch dynamics or deployment delay. The glide distances are upper bounds, and the large gap between the two glide columns shows how sensitive the range is to the pull-up.
