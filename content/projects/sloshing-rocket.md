@@ -17,13 +17,6 @@ _The rocket (CAD model by a teammate)._
 - **Main rules:** at most 1.5 m long, 2.25 m wingspan and 5 kg at take-off, launched at 85° with a pressure below 10 atmospheres. The unpressurised slosh tank holds at least 500 ml of water, half full, and the propulsion water must not weigh more than the water in the slosh tank. Water is the only propellant, and air the only gas.
 - **Team:** four TU Berlin master's students, each leading one subsystem and supporting another.
 
-### Objective
-
-- Design a water rocket that maximises both the height and the flight time, by unfolding a wing at the apogee
-- Understand how sloshing liquid in the tank affects the stability of the rocket
-- Design a flight computer that deploys the wing and records the flight data
-- Build a flight simulation to plan the flight logic before any hardware is available
-
 ### Simulation
 
 The first step was a flight simulation of the rocket in Simulink, which I built so that design options could be tested before anything was built.
