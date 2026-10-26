@@ -42,7 +42,7 @@ _The Simulink flight simulation._
 
 ![Maximum height against propulsion water fill.](/portfolio/uploads/skyhawk-water-fill-height.png)
 
-_Maximum height against water fill, wings folded.._
+_Maximum height against water fill, wings folded._
 
 **Deployment point.** Varying the deployment point shows that the apogee is the best choice: an idealised glide gives 53 m, against 6 to 14 m for deployment during the climb or the descent. Early deployment can push the rocket backwards, an effect of the model having no attitude.
 
