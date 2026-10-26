@@ -29,7 +29,7 @@ Both questions were answered with a flight simulation of the rocket in Simulink,
 - **States:** the position and velocity in an Earth-fixed frame, and the masses of water and air in the bottle, integrated with a fixed-step Runge-Kutta solver (1 ms).
 - **Forces:** point-mass gravity, aerodynamic drag in an exponential atmosphere, and thrust along the flight direction, for a launch at 85°.
 - **Thrust model:** in the water phase, the air in the bottle expands adiabatically and pushes the water out as a jet (Bernoulli), including the area ratio between nozzle and bottle and the pressure of the water column under the thrust acceleration. Once the water is gone, the remaining air blows down isentropically through the nozzle, first choked and then subsonic, with the pressure thrust of the exhaust.
-- **After the event:** I revised the propulsion model, fixed a numerical error in it (a block update setting that held the thrust constant between solver stages) and a double-counted launch impulse at the start, cross-checked it with an independent Python implementation (apogee within 0.03 m), and extended it with a wing model (lift and drag at a fixed trimmed lift coefficient) checked against closed-form results such as the energy balance and the steady glide speed. The results below come from this revised model.
+- **Current version:** the model was refined after the event, and the results below come from this version. It was checked against an independent Python implementation and against closed-form results.
 
 ![Overview of the Simulink flight simulation: the translational dynamics, the simulated rocket states and the thrust model inspection.](/portfolio/uploads/skyhawk-simulink-model.webp)
 
