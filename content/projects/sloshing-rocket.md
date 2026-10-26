@@ -7,17 +7,22 @@ skills: ""
 
 ### Competition overview
 
-- **Competition:** the Airbus Sloshing Rocket Workshop, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it at the workshop in Portugal. The 2024 edition was my team's entry.
+- **Competition:** the Airbus Sloshing Rocket Workshop, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it at the workshop in Lisbon. The 2024 edition was my team's entry.
 - **Challenge:** a rocket whose flight is disturbed by the sloshing of water in an unpressurised tank, which the design has to manage, passively (for example with baffles) or actively (for example with control surfaces).
 - **Judged on:** the distance covered, the altitude reached, the total flight time and the payload, together with the technical report and the presentation.
 - **Main rules:** at most 1.5 m long, 2.25 m wingspan and 5 kg at take-off, launched at 85° with a pressure below 10 atmospheres. The unpressurised slosh tank holds at least 500 ml of water, half full, and the propulsion water must not weigh more than the water in the slosh tank. Water is the only propellant, and air the only gas.
 - **Team:** four TU Berlin master's students, each leading one subsystem and supporting another.
 
-### Approach
+### Objective
+
+- Fly as high and as far as possible
+- Manage the sloshing effect of the water in the tank
+
+### Methodology
 
 To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. Without a slosh tank, about 35% of the bottle is roughly the optimum. The rules change this: the water in the slosh tank must be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. With the wings folded, the best fill was about 12.5% (0.5 L), reaching 14.3 m, against 11.6 m at 35% (the tank masses are estimates). The second question was the wing. A wing would give a longer descent, but a fixed wing was a problem: it could flip the rocket backwards during the climb, and its large area would make a near-vertical rocket sensitive to wind. This led to a deployable wing, folded during the climb and unfolded in flight. To choose when to unfold it, I extended the simulation with a wing model. Deploying near the apogee gives the rocket the best chance to glide far.
 
-### Simulation
+#### Simulation
 
 Both questions were answered with a flight simulation of the rocket in Simulink, which I built so that design options could be tested before anything was built.
 
@@ -31,45 +36,7 @@ Both questions were answered with a flight simulation of the rocket in Simulink,
 
 _The Simulink flight simulation._
 
-### Wing design and analysis
-
-The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold at the apogee. In the simulation, deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide.
-
-![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
-
-_The rocket (CAD model by a teammate)._
-
-The sloshing analysis, the wing profile and the mechanism were handled by my teammates. For the wing and fins they chose a symmetric NACA 0012 airfoil, which keeps the effective area low and works for the swept wing despite its different chord at root and tip. Four fins and two wings are used, with the fins set to reduce the water shedding caused by the wings. The airfoil was analysed in XFLR5 for angles of attack from 75° to 120°, since the 85° launch rod and the sloshing change the angle of attack. The stability of the rocket was checked on a 1:10 scale model in OpenRocket: with the flight computer and a parachute added near the nose cone, the centre of gravity moves forward and the static margin reaches 1.73 calibres.
-
-![OpenRocket model of the scaled rocket with wings and four fins, with a static margin of 1.73 calibres.](/portfolio/uploads/skyhawk-wing-stability-openrocket.webp)
-
-_Scaled model with wings, four fins and the added nose mass (static margin 1.73 cal)._
-
-![The wing mechanism with its parts labelled: servo motor, rubber band, tension springs, pin puller, wing housings and mount.](/portfolio/uploads/skyhawk-wing-mechanism.webp)
-
-_The wing deployment mechanism._
-
-### Flight computer and wing deployment
-
-The wing has to unfold at the apogee, so the rocket needs to detect it, and the flight needs to be recorded. I designed this flight computer in KiCad to operate the wing and to collect the flight data:
-
-![KiCad 3D model of the flight computer, front and back, with its main components labelled: Arduino Nano, BME280 pressure sensor, MPU6050 inertial sensor, memory card holder, buzzer, LED, power switch and digital pins.](/portfolio/uploads/skyhawk-flight-computer-pcb.webp)
-
-_The flight computer in KiCad (front and back)._
-
-It works as follows:
-
-1. The **pressure sensor** measures the atmospheric pressure, and the microcontroller converts it into the altitude.
-2. The **inertial sensor** records the acceleration and the angular rate for the flight analysis.
-3. At the deployment altitude, set near the apogee, the microcontroller sends a signal to the **servo motor**.
-4. The servo releases the **rubber band** that holds the wings folded, and the **tension springs** unfold them against the air. A **pin puller** then locks each wing in the unfolded position.
-5. The board also logs the flight data on a memory card, and has indicators (LED and buzzer) for the development and the launch.
-
-The board has a microcontroller, an inertial sensor, a pressure sensor, a memory card, indicators and three servo outputs, one for the wing deployment and two as backup. The deployment logic was designed with the simulation, with a barometer model that includes sensor noise.
-
-### Results: expected performance
-
-The design report lists a structure mass of 3.24 kg before adding the water. With the revised model I explored a lighter redesign that keeps the slosh tank and the deployable wing: a **1.1 kg structure target**, including the wing, mechanism and electronics, with a 4 L propulsion tank, a 15 mm nozzle, a launch pressure of 10 bar absolute (9.87 atm, just under the limit) and 0.5 L each of propulsion and slosh water. The wing follows the CAD dimensions, enlarged to about 1.37 m span and 0.27 m mean chord so the panels still fold along the 0.8 m body tube. This is an unbuilt target: earlier component estimates totalled 1.2 kg, and the last 100 g have not been allocated to components.
+**Expected performance.** The design report lists a structure mass of 3.24 kg before adding the water. With the revised model I explored a lighter redesign that keeps the slosh tank and the deployable wing: a **1.1 kg structure target**, including the wing, mechanism and electronics, with a 4 L propulsion tank, a 15 mm nozzle, a launch pressure of 10 bar absolute (9.87 atm, just under the limit) and 0.5 L each of propulsion and slosh water. The wing follows the CAD dimensions, enlarged to about 1.37 m span and 0.27 m mean chord so the panels still fold along the 0.8 m body tube. This is an unbuilt target: earlier component estimates totalled 1.2 kg, and the last 100 g have not been allocated to components.
 
 **The model predicts a maximum height of 14.3 m.** With the wings folded, the rocket lands 5.6 m from the pad after 3.5 s. With instant deployment and an idealised trimmed wing, it travels 52.0 m and stays aloft for 7.9 s. Limiting the lift to 1.5 times the weight reduces this to 16.6 m and 4.0 s. The table changes only the structure mass.
 
@@ -93,4 +60,44 @@ Limits of these results:
 - **Verification:** the propulsion and glide models were cross-checked between Python and Simulink and against analytical checks. The 1.1 kg figures use native Simulink runs with a 1 ms step; the 1.5 g limit uses the Python replica.
 - **Validation:** none of these numbers has been compared with flight measurements. They are needed, especially for the wing aerodynamics and the transition from a near-vertical climb into a glide.
 
-Unfortunately, we could not launch the rocket at the event because of a technical problem. However, the team placed 3rd for the technical content, the engineering and the presentation.
+#### CAD model
+
+The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold at the apogee. In the simulation, deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide.
+
+![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
+
+_The rocket (CAD model by a teammate)._
+
+![The wing mechanism with its parts labelled: servo motor, rubber band, tension springs, pin puller, wing housings and mount.](/portfolio/uploads/skyhawk-wing-mechanism.webp)
+
+_The wing deployment mechanism._
+
+#### Wing analysis
+
+The wing analysis was done by my teammates. They chose a symmetric NACA 0012 airfoil, which keeps the effective area low and works for the swept wing despite its different chord at root and tip. Four fins and two wings are used, with the fins set to reduce the water shedding caused by the wings. The airfoil was analysed in XFLR5 for angles of attack from 75° to 120°, since the 85° launch rod and the sloshing change the angle of attack. The stability of the rocket was checked on a 1:10 scale model in OpenRocket: with the flight computer and a parachute added near the nose cone, the centre of gravity moves forward and the static margin reaches 1.73 calibres.
+
+![OpenRocket model of the scaled rocket with wings and four fins, with a static margin of 1.73 calibres.](/portfolio/uploads/skyhawk-wing-stability-openrocket.webp)
+
+_Scaled model with wings, four fins and the added nose mass (static margin 1.73 cal)._
+
+#### Flight computer
+
+The wing has to unfold at the apogee, so the rocket needs to detect it, and the flight needs to be recorded. I designed this flight computer in KiCad to operate the wing and to collect the flight data:
+
+![KiCad 3D model of the flight computer, front and back, with its main components labelled: Arduino Nano, BME280 pressure sensor, MPU6050 inertial sensor, memory card holder, buzzer, LED, power switch and digital pins.](/portfolio/uploads/skyhawk-flight-computer-pcb.webp)
+
+_The flight computer in KiCad (front and back)._
+
+It works as follows:
+
+1. The **pressure sensor** measures the atmospheric pressure, and the microcontroller converts it into the altitude.
+2. The **inertial sensor** records the acceleration and the angular rate for the flight analysis.
+3. At the deployment altitude, set near the apogee, the microcontroller sends a signal to the **servo motor**.
+4. The servo releases the **rubber band** that holds the wings folded, and the **tension springs** unfold them against the air. A **pin puller** then locks each wing in the unfolded position.
+5. The board also logs the flight data on a memory card, and has indicators (LED and buzzer) for the development and the launch.
+
+The board has a microcontroller, an inertial sensor, a pressure sensor, a memory card, indicators and three servo outputs, one for the wing deployment and two as backup. The deployment logic was designed with the simulation, with a barometer model that includes sensor noise.
+
+### Results
+
+The team was selected as a finalist and invited to the workshop in Lisbon. Unfortunately, we could not launch the rocket at the event because of a technical problem. However, the team placed 3rd for the technical content, the engineering and the presentation.

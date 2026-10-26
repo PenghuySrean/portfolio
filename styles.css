@@ -449,6 +449,7 @@ a.card:hover::before, a.card:hover::after { opacity: 1; }
 /* Content from the admin page */
 .md { color: var(--body); line-height: 1.8; }
 .md h1, .md h2, .md h3 { color: var(--text); margin-top: 1.6em; }
+.md h4 { color: var(--text); margin: 1.6em 0 .4em; font-size: 1.05rem; font-weight: 500; }
 .md h2::after { display: none; }
 .md a { color: var(--accent); }
 .md img, .md video { display: block; max-width: 100%; height: auto; margin: 1.2em 0; border: 1px solid var(--border); }
