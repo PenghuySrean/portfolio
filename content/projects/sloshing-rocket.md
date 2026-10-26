@@ -36,6 +36,18 @@ Both questions were answered with a flight simulation of the rocket in Simulink,
 
 _The Simulink flight simulation._
 
+**How much propulsion water.** I swept the propulsion-water fill from 10% to 50% with the wings folded (4 L tank, 10 bar absolute, 15 mm nozzle, 1.1 kg structure). When more propulsion water needs more slosh water, the estimated tank mass grows with it. The best feasible fill was 12.5% (0.5 L), reaching 14.3 m, against 11.6 m at 35%. The tank masses are estimates, so this identifies the best sampled fill, not a precise optimum.
+
+![Maximum height, distance and payload share for water fills from 10% to 50%.](/portfolio/uploads/skyhawk-water-fill-sweep.png)
+
+_Native Simulink sweep, wings folded. The fixed-payload curve relaxes the water-mass rule. Red crosses mark cases above the 5 kg take-off limit._
+
+**Where to deploy the wing.** I swept the deployment point for the 1.1 kg design with the Python model: on the way up, at the apogee, and on the way down. Deploying at the apogee (14.3 m) gives the longest flight, 52 m for the idealised glide and 16.5 m with a 1.5 g lift limit. Deploying even 2 m lower gives 15 m, and deploying during the climb gives 8 to 12 m, because the rocket is still fast and steep and the lift acts against it. Deploying on the way down gives 6 to 13 m, because height and speed are already lost. A negative distance means the lift pushed the rocket backwards, which the point-mass model produces because it has no attitude.
+
+![Downrange at landing and peak wing load for different wing deployment points.](/portfolio/uploads/skyhawk-deploy-sweep-1p1.png)
+
+_Deployment point sweep for the 1.1 kg design, Python model._
+
 **Expected performance.** The design report lists a structure mass of 3.24 kg before adding the water. With the revised model I explored a lighter redesign that keeps the slosh tank and the deployable wing: a **1.1 kg structure target**, including the wing, mechanism and electronics, with a 4 L propulsion tank, a 15 mm nozzle, a launch pressure of 10 bar absolute (9.87 atm, just under the limit) and 0.5 L each of propulsion and slosh water. The wing follows the CAD dimensions, enlarged to about 1.37 m span and 0.27 m mean chord so the panels still fold along the 0.8 m body tube. This is an unbuilt target: earlier component estimates totalled 1.2 kg, and the last 100 g have not been allocated to components.
 
 **The model predicts a maximum height of 14.3 m.** With the wings folded, the rocket lands 5.6 m from the pad after 3.5 s. With instant deployment and an idealised trimmed wing, it travels 52.0 m and stays aloft for 7.9 s. Limiting the lift to 1.5 times the weight reduces this to 16.6 m and 4.0 s. The table changes only the structure mass.
