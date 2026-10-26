@@ -24,7 +24,7 @@ The design followed two questions. The first was the propulsion water: the rules
 
 #### CAD model
 
-The rocket carries two foldable wings, released by a rubber band, tension springs and a pin puller. The CAD model and the mechanism were designed by teammates.
+The rocket carries two foldable wings, released by a rubber band, tension springs and a pin puller. The CAD model, the mechanism, the wing and fin profile (NACA 0012) and the stability analysis were done by teammates.
 
 ![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
 
@@ -65,18 +65,6 @@ The model predicts an apogee of 14.9 m. Deploying the wing at the apogee gives a
 _Simulink, 1.1 kg structure. Solid: wings unfolded; dashed: wings folded._
 
 **Limitations.** A constant lift coefficient of 0.8 and the absence of stall, pitch dynamics and deployment delay make the glide distances upper bounds. None of the results has been compared with flight data.
-
-#### Wing analysis
-
-The wing analysis was carried out by teammates. A symmetric NACA 0012 airfoil was chosen for the wing and fins because of its low effective area, with four fins and two wings to offset the water shedding from the wings. The airfoil was analysed in XFLR5 (polars and pressure distribution), and the stability of a 1:10 scale model was checked in OpenRocket: with the flight computer and a parachute placed near the nose cone, the static margin reaches 1.73 calibres.
-
-![XFLR5 polars of the NACA 0012 airfoil for Reynolds numbers from 30,000 to 3,000,000: lift, drag, moment and lift-to-drag against angle of attack.](/portfolio/uploads/skyhawk-xflr5-polars.webp)
-
-_XFLR5 polars of the NACA 0012._
-
-![XFLR5 pressure coefficient along the NACA 0012 chord at a Reynolds number of 30,000.](/portfolio/uploads/skyhawk-xflr5-cp.webp)
-
-_Pressure coefficient along the chord._
 
 #### Flight computer
 
