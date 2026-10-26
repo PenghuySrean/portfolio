@@ -29,10 +29,9 @@ Both questions were answered with a flight simulation of the rocket in Simulink,
 - **States:** the position and velocity in an Earth-fixed frame, and the masses of water and air in the bottle, integrated with a fixed-step Runge-Kutta solver (1 ms).
 - **Forces:** point-mass gravity, aerodynamic drag in an exponential atmosphere, and thrust along the flight direction, for a launch at 85°.
 - **Thrust model:** in the water phase, the air in the bottle expands adiabatically and pushes the water out as a jet (Bernoulli), including the area ratio between nozzle and bottle and the pressure of the water column under the thrust acceleration. Once the water is gone, the remaining air blows down isentropically through the nozzle, first choked and then subsonic, with the pressure thrust of the exhaust.
-- **Sensors:** a barometer model turns the simulated altitude into a noisy pressure signal, so the flight logic can be developed without flying.
 - **After the event:** I revised the propulsion model, fixed a numerical error in it (a block update setting that held the thrust constant between solver stages) and a double-counted launch impulse at the start, cross-checked it with an independent Python implementation (apogee within 0.03 m), and extended it with a wing model (lift and drag at a fixed trimmed lift coefficient) checked against closed-form results such as the energy balance and the steady glide speed. The results below come from this revised model.
 
-![Overview of the Simulink flight simulation: the translational dynamics, the barometer sensor model, the simulated rocket states and the thrust model inspection.](/portfolio/uploads/skyhawk-simulink-model.webp)
+![Overview of the Simulink flight simulation: the translational dynamics, the simulated rocket states and the thrust model inspection.](/portfolio/uploads/skyhawk-simulink-model.webp)
 
 _The Simulink flight simulation._
 
@@ -116,7 +115,7 @@ It works as follows:
 4. The servo releases the **rubber band** that holds the wings folded, and the **tension springs** unfold them against the air. A **pin puller** then locks each wing in the unfolded position.
 5. The board also logs the flight data on a memory card, and has indicators (LED and buzzer) for the development and the launch.
 
-The board has a microcontroller, an inertial sensor, a pressure sensor, a memory card, indicators and three servo outputs, one for the wing deployment and two as backup. The deployment logic was designed with the simulation, with a barometer model that includes sensor noise.
+The board has a microcontroller, an inertial sensor, a pressure sensor, a memory card, indicators and three servo outputs, one for the wing deployment and two as backup.
 
 ### Results
 
