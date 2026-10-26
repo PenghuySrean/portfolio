@@ -31,23 +31,19 @@ Both questions were answered with a flight simulation of the rocket in Simulink,
 
 _The Simulink flight simulation._
 
-### Design of the rocket
+### Wing design and analysis
 
-The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold at the apogee. In the simulation, deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide. The sloshing analysis, stability work and wing mechanism were handled by my teammates.
+The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold at the apogee. In the simulation, deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide.
 
 ![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
 
 _The rocket (CAD model by a teammate)._
 
-The rocket has a body made from PET bottles with a sharp nose cone, four swept fins, two foldable wings, and the slosh tank mounted on the body. My teammates designed the structure, the wing and the mechanism.
+The sloshing analysis, the wing profile and the mechanism were handled by my teammates. For the wing and fins they chose a symmetric NACA 0012 airfoil, which keeps the effective area low and works for the swept wing despite its different chord at root and tip. Four fins and two wings are used, with the fins set to reduce the water shedding caused by the wings. The airfoil was analysed in XFLR5 for angles of attack from 75° to 120°, since the 85° launch rod and the sloshing change the angle of attack. The stability of the rocket was checked on a 1:10 scale model in OpenRocket: with the flight computer and a parachute added near the nose cone, the centre of gravity moves forward and the static margin reaches 1.73 calibres.
 
-![The rocket with the wings folded for the climb.](/portfolio/uploads/skyhawk-rocket-folded.webp)
+![OpenRocket model of the scaled rocket with wings and four fins, with a static margin of 1.73 calibres.](/portfolio/uploads/skyhawk-wing-stability-openrocket.webp)
 
-_Wings folded during the climb._
-
-![The rocket with the wings unfolded at the apogee.](/portfolio/uploads/skyhawk-rocket-unfolded.webp)
-
-_Wings unfolded at the apogee._
+_Scaled model with wings, four fins and the added nose mass (static margin 1.73 cal)._
 
 ![The wing mechanism with its parts labelled: servo motor, rubber band, tension springs, pin puller, wing housings and mount.](/portfolio/uploads/skyhawk-wing-mechanism.webp)
 
