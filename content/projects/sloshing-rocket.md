@@ -5,10 +5,6 @@ tools: ""
 skills: ""
 ---
 
-![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
-
-_The rocket (CAD model by a teammate)._
-
 ### Competition overview
 
 - **Competition:** the Airbus Sloshing Rocket Workshop, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it at the workshop in Portugal. The 2024 edition was my team's entry.
@@ -39,6 +35,10 @@ _The Simulink flight simulation._
 
 The team chose a foldable wing to combine a low-drag climb with a longer descent. The wings stay folded during the powered climb and unfold at the apogee. In the simulation, deploying during the steep climb produces large sideways forces, while deploying late on the descent gives up the height needed to accelerate into a glide. The sloshing analysis, stability work and wing mechanism were handled by my teammates.
 
+![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
+
+_The rocket (CAD model by a teammate)._
+
 The rocket has a body made from PET bottles with a sharp nose cone, four swept fins, two foldable wings, and the slosh tank mounted on the body. My teammates designed the structure, the wing and the mechanism.
 
 ![The rocket with the wings folded for the climb.](/portfolio/uploads/skyhawk-rocket-folded.webp)
@@ -55,7 +55,13 @@ _The wing deployment mechanism._
 
 ### Flight computer and wing deployment
 
-The wing has to unfold at the apogee, so the rocket needs to detect it. The flight computer, which I designed, does this:
+The wing has to unfold at the apogee, so the rocket needs to detect it, and the flight needs to be recorded. I designed this flight computer in KiCad to operate the wing and to collect the flight data:
+
+![KiCad 3D model of the flight computer, front and back, with its main components labelled: Arduino Nano, BME280 pressure sensor, MPU6050 inertial sensor, memory card holder, buzzer, LED, power switch and digital pins.](/portfolio/uploads/skyhawk-flight-computer-pcb.webp)
+
+_The flight computer in KiCad (front and back)._
+
+It works as follows:
 
 1. The **pressure sensor** measures the atmospheric pressure, and the microcontroller converts it into the altitude.
 2. The **inertial sensor** records the acceleration and the angular rate for the flight analysis.
@@ -64,10 +70,6 @@ The wing has to unfold at the apogee, so the rocket needs to detect it. The flig
 5. The board also logs the flight data on a memory card, and has indicators (LED and buzzer) for the development and the launch.
 
 The board has a microcontroller, an inertial sensor, a pressure sensor, a memory card, indicators and three servo outputs, one for the wing deployment and two as backup. The deployment logic was designed with the simulation, with a barometer model that includes sensor noise.
-
-![The flight computer board with its main components labelled: Arduino Nano, BME280 pressure sensor, MPU6050 inertial sensor, memory card holder, buzzer, LED, power switch and digital pins.](/portfolio/uploads/skyhawk-flight-computer-pcb.webp)
-
-_The flight computer board._
 
 ### Results: expected performance
 
