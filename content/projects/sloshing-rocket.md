@@ -50,7 +50,7 @@ _Maximum height against water fill, wings folded._
 
 _Trajectories for different deployment points._
 
-**Expected performance.** The design study assumes a 1.1 kg structure including wing, mechanism and electronics, with 0.5 L each of propulsion and slosh water.
+**Expected performance.** The design study has a lift-off mass of about 2.1 kg and a glide mass of about 1.6 kg.
 
 The model predicts an apogee of roughly 15 m. Deploying the wing at the apogee gives a glide of roughly 50 m in the idealised case and 17 m with a 1.5 g lift limit.
 
