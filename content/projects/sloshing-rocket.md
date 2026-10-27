@@ -20,7 +20,7 @@ skills: ""
 
 ### Methodology
 
-The design followed two questions. The first was the propulsion water: the rules require the slosh water to weigh at least as much as the propulsion water, so the slosh tank grows with the propellant and its mass counts against the take-off limit. This trade-off was evaluated by simulation. The second was the wing: a fixed wing risks flipping the rocket during the climb and, through its area, makes the near-vertical flight sensitive to wind. A deployable wing, folded during the climb and unfolded in flight, avoids both, and the simulation was used to select the deployment point.
+To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. The rules require the water in the slosh tank to be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. The second question was the wing. A folding wing could give a longer descent, but I first needed to see how a wing behaves in flight, so I extended the simulation with a wing model.
 
 #### CAD model
 
