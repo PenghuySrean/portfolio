@@ -15,7 +15,7 @@ skills: ""
 
 ### Approach
 
-To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. The rules require the water in the slosh tank to be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. The second question was the wing. A wing gives a longer descent, but a fixed wing is a problem: during the vertical climb its lift could flip the rocket over, and the glide would be lost. A deployable wing avoids this, so I extended the simulation with a wing model to see how it behaves and when to unfold it.
+To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. The rules require the water in the slosh tank to be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. The second question was the wing. A wing gives a longer descent, but a fixed wing is a problem: during the vertical climb its lift could flip the rocket over, and the glide would be lost. A deployable wing avoids this.
 
 #### CAD model
 
