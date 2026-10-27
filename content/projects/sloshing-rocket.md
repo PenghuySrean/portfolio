@@ -54,9 +54,9 @@ _Trajectories for different deployment points._
 
 The model predicts an apogee of roughly 15 m. Deploying the wing at the apogee gives a glide of roughly 50 m in the idealised case and 17 m with a 1.5 g lift limit.
 
-![Simulink flight simulation of the 1.1 kg structure with the wings folded and unfolded.](/portfolio/uploads/skyhawk-sim-balanced-1p1-flight.mp4)
+![Simulink flight simulation with the wings folded and unfolded.](/portfolio/uploads/skyhawk-sim-balanced-1p1-flight.mp4)
 
-_Simulink, 1.1 kg structure. Solid: wings unfolded; dashed: wings folded._
+_Simulink flight simulation. Solid: wings unfolded; dashed: wings folded._
 
 **Limitations.** A constant lift coefficient and the absence of stall, pitch dynamics and deployment delay make the glide distances upper bounds. None of the results has been compared with flight data.
 
