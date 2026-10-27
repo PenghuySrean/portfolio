@@ -13,14 +13,9 @@ skills: ""
 - **Rules:** limits on length, wingspan and take-off mass (5 kg). The slosh tank must hold at least 500 ml of water, and the propulsion water must not weigh more than the slosh water.
 - **Team:** four TU Berlin master's students.
 
-### Objective
+### Approach
 
-- Maximise the altitude and the distance of the flight
-- Manage the sloshing of the liquid in the tank
-
-### Methodology
-
-To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. The rules require the water in the slosh tank to be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. The second question was the wing. A folding wing could give a longer descent, but I first needed to see how a wing behaves in flight, so I extended the simulation with a wing model.
+To fly as high and as far as possible, the first question was how much water to put in the propulsion tank. The rules require the water in the slosh tank to be at least as heavy as the propulsion water, so the slosh tank grows with the propulsion water and its mass counts against the take-off limit. This coupling cannot be settled by hand, so I simulated it. The second question was the wing. A wing gives a longer descent, but a fixed wing is a problem: during the vertical climb its lift could flip the rocket over, and the glide would be lost. A deployable wing avoids this, so I extended the simulation with a wing model to see how it behaves and when to unfold it.
 
 #### CAD model
 
@@ -44,7 +39,7 @@ _The Simulink flight simulation._
 
 _Maximum height against water fill, wings folded._
 
-**Deployment point.** Varying the deployment point shows that the apogee is the best choice: the glide is far longer than for deployment during the climb or the descent. Early deployment can push the rocket backwards, an effect of the model having no attitude.
+**Deployment point.** Varying the deployment point shows that the apogee is the best choice: the glide is far longer than for deployment during the climb or the descent. With the wing open during the vertical climb, the simulated lift pushes the rocket backwards. In flight this would flip the rocket over and lose the glide.
 
 ![Trajectories for wing deployment at different points of the flight, with the landing distance in the legend.](/portfolio/uploads/skyhawk-deploy-trajectories.png)
 
