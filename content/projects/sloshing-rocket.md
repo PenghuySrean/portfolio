@@ -34,11 +34,11 @@ _The rocket (CAD model by a teammate)._
 
 The flight simulation was built in Simulink as a point-mass model with gravity, drag and thrust. The thrust model covers the water phase, with adiabatic expansion of the air and a Bernoulli jet, and the following air blow-down. The wing is modelled with lift and drag at a fixed trimmed lift coefficient. The model was refined after the event and verified against an independent Python implementation and closed-form results.
 
-![Overview of the Simulink flight simulation: the translational dynamics, the simulated rocket states and the thrust model inspection.](/portfolio/uploads/skyhawk-simulink-model.webp)
+![The Simulink flight simulation: the mass, gravity, drag and thrust blocks and the equations of motion.](/portfolio/uploads/skyhawk-simulink-model.webp)
 
 _The Simulink flight simulation._
 
-**Propulsion water.** The fill was varied with the wings folded, with the slosh water and the tank mass increasing with the propellant. The height is highest for small fills, so 0.5 L was used. The tank masses are estimates.
+**Propulsion water.** The fill was varied with the wings folded, with the slosh water and the tank mass increasing with the propellant. The height is nearly flat between 0.5 and 0.8 L, so the lightest, 0.5 L, was used. The tank masses are estimates.
 
 ![Maximum height against propulsion water fill.](/portfolio/uploads/skyhawk-water-fill-height.png)
 
@@ -50,9 +50,7 @@ _Maximum height against water fill, wings folded._
 
 _Trajectories for different deployment points._
 
-**Simulated flight.** The design study has a lift-off mass of about 2.1 kg and a glide mass of about 1.6 kg.
-
-The model predicts an apogee of roughly 15 m. Deploying the wing at the apogee gives a glide of roughly 50 m in the idealised case and 17 m with a 1.5 g lift limit.
+**Simulated flight.** The design study has a lift-off mass of about 2.1 kg and a glide mass of about 1.6 kg. The model predicts an apogee of roughly 15 m, and deploying the wing at the apogee gives a glide of roughly 50 m in the idealised case.
 
 ![Simulink flight simulation with the wings folded and unfolded.](/portfolio/uploads/skyhawk-sim-balanced-1p1-flight.mp4)
 
