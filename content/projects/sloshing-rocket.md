@@ -52,7 +52,7 @@ _Trajectories for different deployment points._
 
 **Expected performance.** The design target is a 1.1 kg structure including wing, mechanism and electronics (design report: 3.24 kg), with 0.5 L each of propulsion and slosh water. The target is unbuilt.
 
-The model predicts an apogee of 14.9 m. Deploying the wing at the apogee gives a glide of 53 m in the idealised case and 17 m with a 1.5 g lift limit.
+The model predicts an apogee of roughly 15 m. Deploying the wing at the apogee gives a glide of 53 m in the idealised case and 17 m with a 1.5 g lift limit.
 
 ![Simulink flight simulation of the 1.1 kg structure with the wings folded and unfolded.](/portfolio/uploads/skyhawk-sim-balanced-1p1-flight.mp4)
 
