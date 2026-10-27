@@ -1,11 +1,11 @@
 ---
 title: "Airbus Sloshing Rocket"
 demo: ""
-tools: "MATLAB/Simulink, Python, KiCad"
-skills: "Flight simulation, Propulsion modelling, Trajectory analysis, PCB design, Embedded systems"
+tools: ""
+skills: ""
 ---
 
-A water rocket with a deployable wing, designed by Team Skyhawk Squadron for the Airbus Sloshing Water Rocket Workshop 2024.
+This project was developed by my team, Skyhawk Squadron, led by me, for the Airbus Sloshing Water Rocket Workshop 2024 in Lisbon, Portugal.
 
 ### Competition overview
 
