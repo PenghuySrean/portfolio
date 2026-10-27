@@ -1,9 +1,11 @@
 ---
 title: "Airbus Sloshing Rocket"
 demo: ""
-tools: ""
-skills: ""
+tools: "MATLAB/Simulink, Python, KiCad"
+skills: "Flight simulation, Propulsion modelling, Trajectory analysis, PCB design, Embedded systems"
 ---
+
+A water rocket with a deployable wing, designed by Team Skyhawk Squadron for the Airbus Sloshing Water Rocket Workshop 2024.
 
 ### Competition overview
 
@@ -19,7 +21,7 @@ To fly as high and as far as possible, the first question was how much water to 
 
 #### CAD model
 
-The rocket carries two foldable wings, released by a rubber band, tension springs and a pin puller. The CAD model, the mechanism, the wing and fin profile (NACA 0012) and the stability analysis were done by teammates.
+The rocket carries two foldable wings. The CAD model, the mechanism, the wing and fin profile (NACA 0012) and the stability analysis were done by teammates.
 
 ![CAD model of the Airbus Sloshing Rocket, designed by a teammate.](/portfolio/uploads/Screenshot%202026-10-17%20034430.webp)
 
@@ -41,7 +43,7 @@ _Maximum height against water fill, wings folded._
 
 **Deployment point.** Varying the deployment point shows that the apogee is the best choice: the glide is far longer than for deployment during the climb or the descent. With the wing open during the vertical climb, the simulated lift pushes the rocket backwards. In flight this would flip the rocket over and lose the glide.
 
-![Trajectories for wing deployment at different points of the flight, with the landing distance in the legend.](/portfolio/uploads/skyhawk-deploy-trajectories.png)
+![Trajectories for wing deployment at different points of the flight.](/portfolio/uploads/skyhawk-deploy-trajectories.png)
 
 _Trajectories for different deployment points._
 
