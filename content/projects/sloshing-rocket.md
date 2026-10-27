@@ -10,7 +10,7 @@ skills: ""
 - **Competition:** Airbus Sloshing Rocket Workshop 2024, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it in Lisbon.
 - **Challenge:** manage the sloshing of the water in an unpressurised tank, passively or actively.
 - **Scoring:** distance, altitude, flight time and payload, together with the technical report and the presentation.
-- **Rules:** length up to 1.5 m, wingspan up to 2.25 m, take-off mass up to 5 kg, launch angle 85°. The slosh tank must hold at least 500 ml of water, and the propulsion water must not weigh more than the slosh water.
+- **Rules:** limits on length, wingspan and take-off mass (5 kg). The slosh tank must hold at least 500 ml of water, and the propulsion water must not weigh more than the slosh water.
 - **Team:** four TU Berlin master's students.
 
 ### Objective
@@ -38,13 +38,13 @@ The flight simulation was built in Simulink as a point-mass model with gravity, 
 
 _The Simulink flight simulation._
 
-**Propulsion water.** The fill was varied from 10% to 40% with the wings folded, with the slosh water and the tank mass increasing with the propellant. The height is highest for fills of about 12.5% to 20%, so 0.5 L was used. The tank masses are estimates.
+**Propulsion water.** The fill was varied with the wings folded, with the slosh water and the tank mass increasing with the propellant. The height is highest for small fills, so 0.5 L was used. The tank masses are estimates.
 
 ![Maximum height against propulsion water fill.](/portfolio/uploads/skyhawk-water-fill-height.png)
 
 _Maximum height against water fill, wings folded._
 
-**Deployment point.** Varying the deployment point shows that the apogee is the best choice: an idealised glide gives 53 m, against 6 to 14 m for deployment during the climb or the descent. Early deployment can push the rocket backwards, an effect of the model having no attitude.
+**Deployment point.** Varying the deployment point shows that the apogee is the best choice: the glide is far longer than for deployment during the climb or the descent. Early deployment can push the rocket backwards, an effect of the model having no attitude.
 
 ![Trajectories for wing deployment at different points of the flight, with the landing distance in the legend.](/portfolio/uploads/skyhawk-deploy-trajectories.png)
 
@@ -52,13 +52,13 @@ _Trajectories for different deployment points._
 
 **Expected performance.** The design study assumes a 1.1 kg structure including wing, mechanism and electronics, with 0.5 L each of propulsion and slosh water.
 
-The model predicts an apogee of roughly 15 m. Deploying the wing at the apogee gives a glide of 53 m in the idealised case and 17 m with a 1.5 g lift limit.
+The model predicts an apogee of roughly 15 m. Deploying the wing at the apogee gives a glide of roughly 50 m in the idealised case and 17 m with a 1.5 g lift limit.
 
 ![Simulink flight simulation of the 1.1 kg structure with the wings folded and unfolded.](/portfolio/uploads/skyhawk-sim-balanced-1p1-flight.mp4)
 
 _Simulink, 1.1 kg structure. Solid: wings unfolded; dashed: wings folded._
 
-**Limitations.** A constant lift coefficient of 0.8 and the absence of stall, pitch dynamics and deployment delay make the glide distances upper bounds. None of the results has been compared with flight data.
+**Limitations.** A constant lift coefficient and the absence of stall, pitch dynamics and deployment delay make the glide distances upper bounds. None of the results has been compared with flight data.
 
 #### Flight computer
 
