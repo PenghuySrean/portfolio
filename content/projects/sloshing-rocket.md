@@ -9,7 +9,7 @@ This project was developed by my team, Skyhawk Squadron, led by me, for the Airb
 
 ### Competition overview
 
-- **Competition:** Airbus Sloshing Rocket Workshop 2024, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it in Lisbon.
+- **Competition:** Airbus Sloshing Rocket Workshop 2024, organised by EUROAVIA with Airbus. Student teams design a low-cost water rocket and present it at the workshop.
 - **Challenge:** manage the sloshing of the water in an unpressurised tank, passively or actively.
 - **Scoring:** distance, altitude, flight time and payload, together with the technical report and the presentation.
 - **Rules:** limits on length, wingspan and take-off mass (5 kg). The slosh tank must hold at least 500 ml of water, and the propulsion water must not weigh more than the slosh water.
@@ -41,13 +41,13 @@ _The Simulink flight simulation._
 
 _Maximum height against water fill, wings folded._
 
-**Deployment point.** Varying the deployment point shows that the apogee is the best choice: the glide is far longer than for deployment during the climb or the descent. With the wing open during the vertical climb, the simulated lift pushes the rocket backwards. In flight this would flip the rocket over and lose the glide.
+**Deployment point.** Varying the deployment point shows that the apogee is the best choice: the glide is far longer than for deployment during the climb or the descent. With the wing open during the vertical climb, the simulated lift pushes the rocket backwards. In flight this could flip the rocket over and lose the glide.
 
 ![Trajectories for wing deployment at different points of the flight.](/portfolio/uploads/skyhawk-deploy-trajectories.png)
 
 _Trajectories for different deployment points._
 
-**Simulated flight.** The design study has a lift-off mass of about 2.1 kg and a glide mass of about 1.6 kg. The model predicts an apogee of roughly 15 m, and deploying the wing at the apogee gives a glide of roughly 50 m in the idealised case.
+**Simulated flight.** The design study has a lift-off mass of about 2.1 kg and a glide mass of about 1.6 kg. The model predicts an apogee of roughly 15 m, and deploying the wing at the apogee gives a glide of up to roughly 50 m.
 
 ![Simulink flight simulation with the wings folded and unfolded.](/portfolio/uploads/skyhawk-sim-balanced-1p1-flight.mp4)
 
